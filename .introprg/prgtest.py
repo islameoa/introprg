@@ -759,6 +759,9 @@ if __name__ == '__main__':
             with open('__prgtest_dump.dat', 'a') as dest:
                 dest.write("\n\n" + "=" * 100 + "\n\n")
                 dest.write(f"{datetime.datetime.now()}\n")
+                issue = Path('/etc/issue')
+                dest.write(issue.read_text() if issue.is_file() else 'NO ISSUE\n')
+                dest.write(f"{sys.version}\n")
                 dest.write(str(os.environ))
                 traceback.print_exc(file=dest)
             print_error_and_exit("S'ha produït un error intern de prgtest. Comenta-li al teu docent")
