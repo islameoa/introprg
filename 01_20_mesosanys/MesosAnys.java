@@ -21,7 +21,7 @@ public class MesosAnys {
                 mesImpSeg = 1;
                 anyImpSeg = any + 1;
                 mesImpAnt = mes - 1;
-                anyImpSeg = any;
+                anyImpAnt = any;
                 } else {
                     mesImpAnt = mes - 1;
                     anyImpAnt = any;
