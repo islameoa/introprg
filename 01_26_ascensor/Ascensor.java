@@ -1,3 +1,7 @@
+/* Exercici en el que l'usuari escriu un pis actual 
+i el botó d'un ascensor y el programa mostra la planta a la que anirà*/
+
+
 public class Ascensor {
     public static void main(String args[]){
     
