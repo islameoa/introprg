@@ -5,12 +5,12 @@ public class Lloro {
     public static void main (String [] args){
     
         String frase;        
-        System.out.println("El lloro espera paraula: ");
+        System.out.println("El lloro espera paraula:");
         frase = Entrada.readLine();
         
         while ((frase.isBlank()==false) && (frase.isEmpty()==false)){
-            System.out.println("El lloro repeteix: " + frase);
-            System.out.println("El lloro espera paraula: ");
+            System.out.println("El lloro repeteix:" + frase);
+            System.out.println("El lloro espera paraula:");
             frase = Entrada.readLine(); 
         }
         
