@@ -8,7 +8,7 @@ public class SumaNotes {
         int nota = Integer.parseInt(Entrada.readLine());
         int suma = 0;
         
-        while ((nota > 0) && (nota < 100)){
+        while ((nota >= 0) && (nota < 100)){
             suma = nota + suma;
             System.out.println("Introdueix una nota entre 0 i 100: ");
             nota = Integer.parseInt(Entrada.readLine());
