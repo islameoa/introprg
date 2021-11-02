@@ -4,7 +4,7 @@ introduïts estiguin entre 0 i 100. */
 public class SumaNotes {
     public static void main(String [] args){
         
-        System.out.println("Introdueix una nota entre 0 i 100: ");
+        System.out.println("Introdueix una nota");
         int nota = Integer.parseInt(Entrada.readLine());
         int suma = 0;
         
