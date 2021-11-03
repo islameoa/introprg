@@ -17,13 +17,17 @@ public class Endevina {
                 System.out.println("Cancel·lat!");
             } else {
                 numeroUsuari = Integer.parseInt(stringUsuari);
-                if (numeroUsuari < numeroAEndevinar){
-                System.out.println("Massa petit");
-                } else if (numeroUsuari > numeroAEndevinar){
-                System.out.println("Massa gran");
+                if ((numeroUsuari > 100) || (numeroUsuari <= 0)){
+                    System.out.println("Fora de rang");
                 } else {
-                    numeroUsuari = numeroAEndevinar;
-                    System.out.println("Encertat!");
+                    if (numeroUsuari < numeroAEndevinar){
+                    System.out.println("Massa petit");
+                    } else if (numeroUsuari > numeroAEndevinar){
+                    System.out.println("Massa gran");
+                    } else {
+                        numeroUsuari = numeroAEndevinar;
+                        System.out.println("Encertat!");
+                    }
                 }
             } 
         }   
