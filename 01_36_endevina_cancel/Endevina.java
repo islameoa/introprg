@@ -23,7 +23,7 @@ public class Endevina {
                 System.out.println("És més petit que " + numeroUsuari);
                 } else {
                     numeroUsuari = numeroAEndevinar;
-                    System.out.println("Has encertat!");
+                    System.out.println("Encertat!");
                 }
             } 
         }   
