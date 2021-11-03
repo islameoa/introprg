@@ -18,9 +18,9 @@ public class Endevina {
             } else {
                 numeroUsuari = Integer.parseInt(stringUsuari);
                 if (numeroUsuari < numeroAEndevinar){
-                System.out.println("És més gran que " + numeroUsuari);
+                System.out.println("Massa petit");
                 } else if (numeroUsuari > numeroAEndevinar){
-                System.out.println("És més petit que " + numeroUsuari);
+                System.out.println("Massa gran");
                 } else {
                     numeroUsuari = numeroAEndevinar;
                     System.out.println("Encertat!");
