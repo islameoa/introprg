@@ -9,7 +9,7 @@ public class Endevina {
         String stringUsuari;
         
         while (numeroUsuari != numeroAEndevinar){
-            System.out.println("Introdueix un nombre entre el 1 i el 100");
+            System.out.println("Nombre?");
             stringUsuari = Entrada.readLine();
             
             if (stringUsuari.isBlank()){
