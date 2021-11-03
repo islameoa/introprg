@@ -5,7 +5,7 @@ amb una frase bonica*/
 public class NomICognom {
     public static void main(String[] args) {
         
-        System.out.println("Quin és el teu nom?");
+        System.out.println("Com et dius?");
         String nom = Entrada.readLine();
         
         System.out.println("Quin és el teu cognom?");
