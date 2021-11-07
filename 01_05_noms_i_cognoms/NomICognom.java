@@ -1,5 +1,5 @@
 /* Programa que ens demana el nom i el cognom i ens els imprimeix per pantalla
-amb una frase bonica*/
+amb una frase bonicaaaa*/
 
 
 public class NomICognom {
