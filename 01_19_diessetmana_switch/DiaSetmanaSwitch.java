@@ -4,7 +4,7 @@
 
 public class DiaSetmanaSwitch {
     public static void main(String[] args) {
-        System.out.println("Introdueix un nombre de l'1 al 7: ");
+        
         int dia;
         dia = Integer.parseInt(args[0]);
         String diaEscrit;
