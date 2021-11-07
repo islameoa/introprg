@@ -13,6 +13,8 @@ public class Endevina {
             
             if (numeroUsuari <= 0){
                 System.out.println("Com a mínim 1");
+            } else if (numeroUsuari > 100){
+                System.out.println("És més petit que 101");
             } else {
                 if (numeroUsuari < numeroAEndevinar){
                 System.out.println("És més gran que " + numeroUsuari);
