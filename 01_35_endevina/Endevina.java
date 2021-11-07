@@ -11,11 +11,15 @@ public class Endevina {
             System.out.println("Introdueix un nombre entre el 1 i el 100");
             numeroUsuari = Integer.parseInt(Entrada.readLine());
             
-            if (numeroUsuari < numeroAEndevinar){
+            if (numeroUsuari <= 0){
+                System.out.println("Com a mínim 1");
+            } else {
+                if (numeroUsuari < numeroAEndevinar){
                 System.out.println("És més gran que " + numeroUsuari);
-            }
-            if (numeroUsuari > numeroAEndevinar){
+                }
+                if (numeroUsuari > numeroAEndevinar){
                 System.out.println("És més petit que " + numeroUsuari);
+                }
             }
         }
         
