@@ -1,3 +1,8 @@
+/* Exercici que ens demana l'edat i depenent de l'edat ens dóna un missatge o 
+un altre :) */
+
+
+
 public class Preso {
     public static void main(String[] args){
         System.out.println("Com us dieu?");
