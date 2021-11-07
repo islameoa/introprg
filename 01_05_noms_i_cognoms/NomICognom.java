@@ -8,7 +8,7 @@ public class NomICognom {
         System.out.println("Com et dius?");
         String nom = Entrada.readLine();
         
-        System.out.println("Quin és el teu cognom?");
+        System.out.println("I quin és el teu cognom?");
         String cognom = Entrada.readLine();
         
         System.out.println("Ei " + nom + ", tinc una amiga que també és " + cognom);
