@@ -17,7 +17,7 @@ public class DiaSetmana {
         } else if (dia == 4){
             System.out.println("Dijous");
         } else if (dia == 5){
-            System.out.println("DIvendres");
+            System.out.println("Divendres");
         } else if (dia == 6){
             System.out.println("Dissabte");
         } else if (dia == 7){
