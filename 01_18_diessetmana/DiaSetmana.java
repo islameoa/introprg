@@ -1,29 +1,29 @@
+/*Programa que demana per entrada estàndard un nombre de l'1 al 7 i
+ mostra el dia de la setmana corresponent*/
+
+
 public class DiaSetmana {
     public static void main(String[] args) {
         System.out.println("Introdueix un nombre de l'1 al 7: ");
         int dia;
-        dia = Integer.parseInt(Entrada.readLine());
-        String diaEscrit;
+        dia = Integer.parseInt(args[0]);
         
-        switch(dia){
-        
-        case 1: diaEscrit = "Dilluns";
-                break;
-        case 2: diaEscrit = "Dimarts";
-                break;
-        case 3: diaEscrit = "Dimecres";
-                break;
-        case 4: diaEscrit = "Dijous";
-                break;
-        case 5: diaEscrit = "Divendres";
-                break;
-        case 6: diaEscrit = "Dissabte";
-                break;
-        case 7: diaEscrit = "Diumenge";
-                break;
-        default: diaEscrit = "Error";
-        
+        if (dia == 1){
+            System.out.println("Dilluns");
+        } else if (dia == 2){
+            System.out.println("Dimarts");
+        } else if (dia == 3){
+            System.out.println("Dimecres");
+        } else if (dia == 4){
+            System.out.println("Dijous");
+        } else if (dia == 5){
+            System.out.println("DIvendres");
+        } else if (dia == 6){
+            System.out.println("Dissabte");
+        } else if (dia == 7){
+            System.out.println("Diumenge");
+        } else {
+            System.out.println("Error");
         }
-        System.out.println(diaEscrit);
     }       
 }
