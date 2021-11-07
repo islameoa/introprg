@@ -1,3 +1,5 @@
+/* Programa que demana el color d'un semafor i indica l'acció a fer*/
+
 public class Semafor {
     public static void main (String args[]){
 
@@ -11,7 +13,7 @@ public class Semafor {
         } else if (color.equals("verd")){
             System.out.println("passa");
         } else {
-            System.out.println("ves al oculista");
+            System.out.println("ves a l'oculista");
         }
     }
 }
