@@ -1,3 +1,7 @@
+/*Exercici que demana un mes i un any a l'usuari i imprimeix 
+el mes anterior, amb l'any corresponent.*/
+
+
 public class MesosAnys {
     public static void main(String args []) {
         int mes;
