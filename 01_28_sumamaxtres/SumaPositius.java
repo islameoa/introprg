@@ -6,18 +6,24 @@ public class SumaPositius {
         // creem la variable on guardarem el resultat de sumar
         int suma = 0;   // inicialment no hem sumat res i per tant és 0
 
-        int valor = 0;
-
-        while (valor >= 0) {
-            
-            System.out.println("Introdueix un altre valor o negatiu per acabar");
+        int valor;
+        System.out.println("Introdueix el primer valor");
+        valor = Integer.parseInt(Entrada.readLine());
+        if (valor >= 0){
+            suma += valor;
+            System.out.println("Introdueix el segon valor");
             valor = Integer.parseInt(Entrada.readLine());
             if (valor >= 0){
-                suma = suma + valor;
+                suma += valor;
+                System.out.println("Introdueix el tercer valor");
+                valor = Integer.parseInt(Entrada.readLine());
+                suma += valor;
+                System.out.println("La suma és " + suma);
+            } else {
+               System.out.println("La suma és " + suma); 
             }
+        } else {
+            System.out.println("La suma és " + suma);
         }
-
-        // mostrem el resultat
-        System.out.println("La suma és " + suma);
     }
 }
