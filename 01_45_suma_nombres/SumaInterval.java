@@ -11,7 +11,7 @@ public class SumaInterval {
         int suma = 0;
         int tmp;
         
-        if (inici < finale){
+        if (inici > finale){
             tmp = inici;
             inici = finale;
             finale = tmp;
