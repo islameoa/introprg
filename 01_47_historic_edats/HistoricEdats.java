@@ -18,7 +18,8 @@ public class HistoricEdats{
         } else if (edat == 0){
             System.out.println("Adéu " + nom);        
         }  else if (edat == 1){
-            System.out.println("El " + anyNaix + " va néixer");      
+            System.out.println("El " + anyNaix + " va néixer");     
+            System.out.println("Adéu " + nom); 
         } else {           
             System.out.println("El " + anyNaix + " va néixer");
             System.out.println("El " + anyMes1  + " tenia 1 any");
