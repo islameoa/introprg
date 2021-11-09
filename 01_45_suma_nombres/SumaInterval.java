@@ -9,6 +9,13 @@ public class SumaInterval {
         System.out.println("final?");
         int finale = Integer.parseInt(Entrada.readLine());
         int suma = 0;
+        int tmp;
+        
+        if (inici < finale){
+            tmp = inici;
+            inici = finale;
+            finale = tmp;
+        }
         
         for (int i = inici; i <= finale; i++){
             suma += i;
