@@ -4,9 +4,9 @@ els nombres entre ells */
 public class SumaInterval {
     public static void main (String[] args) {
         
-        System.out.println("Valor inicial?");  
+        System.out.println("inici?");  
         int inici = Integer.parseInt(Entrada.readLine());
-        System.out.println("Valor final?");
+        System.out.println("final?");
         int finale = Integer.parseInt(Entrada.readLine());
         int suma = 0;
         
