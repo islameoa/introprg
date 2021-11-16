@@ -11,7 +11,7 @@ public class TriangleNombres {
         
         for (int col=1; col<=valor; col++){
             for (int fil=1; fil<=max; fil++){
-                System.out.print(numImp + " ");
+                System.out.print(" " + numImp);
                 numImp--;
             }
             System.out.println("");
