@@ -16,7 +16,7 @@ public class QuadratNombres {
                     System.out.print(" " + numImp);
                     numImp ++;
                 }
-                System.out.println(" ");
+                System.out.println("");
                 numImp = 1;
                 }
             }    
