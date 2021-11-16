@@ -4,7 +4,7 @@ igual al nombre introduit*/
 
 public class TriangleNombres {
     public static void main (String[] args){
-        System.out.println("Valor?");
+        System.out.println("Nombre?");
         int valor = Integer.parseInt(Entrada.readLine());
         int numImp = 1;
         int max = 1;
@@ -17,7 +17,7 @@ public class TriangleNombres {
                     System.out.print(numImp + " ");
                     numImp--;
                 }
-                System.out.println(" ");
+                System.out.println("");
                 max ++;
                 numImp = max;
             }   
