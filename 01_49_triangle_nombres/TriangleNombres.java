@@ -9,18 +9,14 @@ public class TriangleNombres {
         int numImp = 1;
         int max = 1;
         
-        if ((valor>9) || (valor<1)){
-            System.out.println ("Valor inadequat");
-        } else {
-            for (int col=1; col<=valor; col++){
-                for (int fil=1; fil<=max; fil++){
-                    System.out.print(numImp + " ");
-                    numImp--;
-                }
-                System.out.println("");
-                max ++;
-                numImp = max;
-            }   
-        }
+        for (int col=1; col<=valor; col++){
+            for (int fil=1; fil<=max; fil++){
+                System.out.print(numImp + " ");
+                numImp--;
+            }
+            System.out.println("");
+            max ++;
+            numImp = max;
+        }   
     }
 }
