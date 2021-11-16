@@ -8,13 +8,17 @@ public class QuadratNombres {
         int valor = Integer.parseInt(Entrada.readLine());
         int numImp = 1;
         
-        for (int y=1; y<=valor; y++){
-            for (int x=1; x<=valor; x++){
-            System.out.print(numImp + " ");
-            numImp ++;
-        }
-        System.out.println(" ");
-        numImp = 1;
-        }
+        if ((valor>9) || (valor<1)){
+            System.out.println ("Valor inadequat");
+        } else {
+            for (int y=1; y<=valor; y++){
+                for (int x=1; x<=valor; x++){
+                    System.out.print(numImp + " ");
+                    numImp ++;
+                }
+                System.out.println(" ");
+                numImp = 1;
+                }
+            }    
     }
 }
