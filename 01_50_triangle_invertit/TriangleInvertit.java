@@ -18,7 +18,7 @@ public class TriangleInvertit {
                         System.out.print(", ");
                     }
                 }
-                System.out.println(" ");
+                System.out.println("");
                 max --;
                 numImp = 1;
             }   
