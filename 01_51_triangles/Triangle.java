@@ -1,5 +1,5 @@
-/*Programa al que se li introdueix un nombre i imprimeix un triangle invertit
-és a dir, la fila més llarga serà la primera i anirà baixant*/
+/*Programa que imprimeix un triangle de nombres les vegades que l'usuari 
+introdueixi*/
 
 
 public class Triangle {
