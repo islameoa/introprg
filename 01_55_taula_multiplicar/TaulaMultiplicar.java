@@ -18,7 +18,7 @@ public class TaulaMultiplicar {
         for(int i=inici; i <= finale; i++){
             for(int a=primer; a <= limit; a++){
                 res = i * a;
-                System.out.println(i + " X " + a + " = " + res);
+                System.out.println(i + " x " + a + " = " + res);
             }
         }
     }
