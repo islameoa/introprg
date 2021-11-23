@@ -47,8 +47,8 @@ public class ManipulaString {
             Character.toLowerCase(c) + '"');
         }
         if (len == 1){
-            int ultim = paraula.length() - 1;
-            int penultim = ultim - 1;
+            int ultim = paraula.length();
+            
             
             // Mostra la longitud de la paraula (quantes lletres conté)
             System.out.println("La longitud és " + paraula.length());
@@ -56,8 +56,8 @@ public class ManipulaString {
             // Mostra la segona lletra de la paraula
             System.out.println("La segona lletra és '" + paraula.charAt(1) + "'");
 
-            // Mostra la darrera lletra de la paraula
-            System.out.println("La darrera lletra és '" + paraula.charAt(ultim) + "'");
+            // Mostra la paraula amb totes les lletres en majúscules
+            System.out.println("La paraula en majúscules és " + '"' + paraula.toUpperCase() + '"');
         }
     }
 }
