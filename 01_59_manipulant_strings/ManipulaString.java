@@ -14,7 +14,7 @@ public class ManipulaString {
         char d = paraula.charAt(3);
 
         // Mostra la longitud de la paraula (quantes lletres conté)
-        System.out.println("La longitud és: " + paraula.length());
+        System.out.println("La longitud és " + paraula.length());
 
         // Mostra la segona lletra de la paraula
         System.out.println("La segona lletra és '" + paraula.charAt(1) + "'");
