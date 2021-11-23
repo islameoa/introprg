@@ -46,5 +46,18 @@ public class ManipulaString {
             System.out.println("La composició de quatre corregint majúscules és " + '"' + Character.toUpperCase(paraula.charAt(ultim)) + Character.toLowerCase(a) + Character.toLowerCase(b) +      
             Character.toLowerCase(c) + '"');
         }
+        if (len == 1){
+            int ultim = paraula.length() - 1;
+            int penultim = ultim - 1;
+            
+            // Mostra la longitud de la paraula (quantes lletres conté)
+            System.out.println("La longitud és " + paraula.length());
+
+            // Mostra la segona lletra de la paraula
+            System.out.println("La segona lletra és '" + paraula.charAt(1) + "'");
+
+            // Mostra la darrera lletra de la paraula
+            System.out.println("La darrera lletra és '" + paraula.charAt(ultim) + "'");
+        }
     }
 }
