@@ -21,6 +21,6 @@ public class InformeString {
         System.out.println('"' + text1 + '"' + ".concat(" + '"' + text2 + '"' + "): " + text1.concat(text2));
         System.out.println('"' + text1 + '"' + ".repeat(" + num + "): " + text1.repeat(num));
         System.out.println('"' + text1 + '"' + ".toUpperCase(): " + text1.toUpperCase());
-        System.out.println('"' + text1 + '"' + ".tolowerCase(): " + text1.toLowerCase());
+        System.out.println('"' + text1 + '"' + ".toLowerCase(): " + text1.toLowerCase());
     }
 }
