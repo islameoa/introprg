@@ -36,11 +36,11 @@ public class ManipulaString {
         // Mostra una composició formada per la darrera lletra de la paraula,
         // seguida de les tres primeres. (ex. si la paraula és «Nekane»
         // mostrarà «eNek»)
-        System.out.println("La composició de quatre és " + '"' + d + a + b + c + '"');
+        System.out.println("La composició de quatre és " + '"' + paraula.charAt(ultim) + a + b + c + '"');
 
         // Com en el cas anterior però ara corregint les majúscules i
         // minúscules de manera que la primera sigui majúscules i la resta en
         // minúscules.  (ex. si la paraula és «Nekane» mostrarà «Enek»)
-        System.out.println("La composició de quatre corregint majúscules és " + '"' + Character.toUpperCase(d) + Character.toLowerCase(a) + Character.toLowerCase(b) + Character.toLowerCase(c) + '"');
+        System.out.println("La composició de quatre corregint majúscules és " + '"' + Character.toUpperCase(paraula.charAt(ultim)) + Character.toLowerCase(a) + Character.toLowerCase(b) + Character.toLowerCase(c) + '"');
     }
 }
