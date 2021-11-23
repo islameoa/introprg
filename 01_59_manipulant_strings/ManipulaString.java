@@ -6,7 +6,7 @@ public class ManipulaString {
         System.out.println("Paraula?");
         String paraula = Entrada.readLine();
         
-        if (!(paraula.isBlank()) || (paraula.length()<4)){
+        if (!(paraula.isBlank()) || (paraula.length()>=4)){
             int ultim = paraula.length() - 1;
             int penultim = ultim - 1;
             char a = paraula.charAt(0);
