@@ -13,5 +13,6 @@ public class LloroVocalMinuscules {
             }
             paraula = Entrada.readLine();
         }
+        System.out.println("Adéu!");
     }
 }
