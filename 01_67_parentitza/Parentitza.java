@@ -9,6 +9,8 @@ public class Parentitza {
         for (int x=0; x<text.length(); x++){
             if (text.charAt(x) == ' '){
             System.out.print(" ");
+            } else if (text.charAt(x) == '.') {
+                System.out.print(" ");
             } else {
                 System.out.print("(" + text.charAt(x) + ")");
             }
