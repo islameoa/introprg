@@ -8,7 +8,7 @@ public class NomesLletres {
         
         for (int x = 0; x < text.length(); x++){
             char c = text.charAt(x);
-            int ultimo = text.length();
+            int ultimo = text.length() - 2;
             
             if (Character.isLetter(c)){
                 if (x == ultimo){
