@@ -6,12 +6,11 @@ public class CadenaContinua{
         
         System.out.println("Text?");
         String text = Entrada.readLine();
-        System.out.println("Nombre?");
-        
         
         if (text.isBlank()){
             System.out.println("error");
         } else {
+            System.out.println("Nombre?");
             int num = Integer.parseInt(Entrada.readLine());
             for (int x=0; x<num; x++){
                 if (x>=text.length()){
