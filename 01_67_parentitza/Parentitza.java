@@ -7,12 +7,10 @@ public class Parentitza {
         String text = Entrada.readLine();
         
         for (int x=0; x<text.length(); x++){
-            if (text.charAt(x) == ' '){
-            System.out.print(" ");
-            } else if (text.charAt(x) == '.') {
-                System.out.print(".");
-            } else {
+            if (((text.charAt(x)>64) && (text.charAt(x)<91)) || (text.charAt(x)>96)&&(text.charAt(x)<123)){
                 System.out.print("(" + text.charAt(x) + ")");
+            } else {
+                System.out.print(text.charAt(x));
             }
         }
     }
