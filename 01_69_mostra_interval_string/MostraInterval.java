@@ -13,8 +13,7 @@ public class MostraInterval {
         
         if ((inici < 0) && (fi < 0)){
             System.out.println("");
-        }
-        if (inici < 0){
+        } else if (inici < 0){
             inici = 0;
         }
         if (inici > text.length()){
