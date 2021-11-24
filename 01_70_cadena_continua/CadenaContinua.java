@@ -15,6 +15,9 @@ public class CadenaContinua{
             for (int x=0; x<num; x++){
                 if (x>=text.length()){
                     int pos = x-text.length();
+                    while (pos>=text.length()){
+                        pos = pos-text.length();
+                    }
                     System.out.print(text.charAt(pos));
                 } else {
                     System.out.print(text.charAt(x));
