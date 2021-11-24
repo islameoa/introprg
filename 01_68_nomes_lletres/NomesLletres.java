@@ -11,9 +11,10 @@ public class NomesLletres {
             
             if ((x == text.length()-1) && (Character.isLetter(c))){
                 System.out.print(c);
-            }
-            if (Character.isLetter(c)){
+            } else if (Character.isLetter(c)){
                 System.out.print(c + ", ");
+            } else {
+                System.out.print("");
             }
         }
     }
