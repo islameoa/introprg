@@ -9,12 +9,16 @@ public class CadenaContinua{
         System.out.println("Nombre?");
         int num = Integer.parseInt(Entrada.readLine());
         
-        for (int x=0; x<num; x++){
-            if (x>=text.length()){
-                int pos = x-text.length();
-                System.out.print(text.charAt(pos));
-            } else {
-                System.out.print(text.charAt(x));
+        if (text.isBlank()){
+            System.out.println("error");
+        } else {
+            for (int x=0; x<num; x++){
+                if (x>=text.length()){
+                    int pos = x-text.length();
+                    System.out.print(text.charAt(pos));
+                } else {
+                    System.out.print(text.charAt(x));
+                }
             }
         }
     }
