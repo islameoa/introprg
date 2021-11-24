@@ -7,7 +7,7 @@ public class Parentitza {
         String text = Entrada.readLine();
         
         for (int x=0; x<text.length(); x++){
-            if (((text.charAt(x)>64) && (text.charAt(x)<91)) || (text.charAt(x)>96)&&(text.charAt(x)<123)){
+            if (((text.charAt(x)>64) && (text.charAt(x)<91)) || (text.charAt(x)>96)&&(text.charAt(x)<123) || (text.charAt(x)>127)&&(text.charAt(x)<238)){
                 System.out.print("(" + text.charAt(x) + ")");
             } else {
                 System.out.print(text.charAt(x));
