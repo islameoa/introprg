@@ -10,7 +10,7 @@ public class Parentitza {
             if (text.charAt(x) == ' '){
             System.out.print(" ");
             } else if (text.charAt(x) == '.') {
-                System.out.print(" ");
+                System.out.print(".");
             } else {
                 System.out.print("(" + text.charAt(x) + ")");
             }
