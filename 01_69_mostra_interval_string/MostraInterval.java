@@ -10,13 +10,22 @@ public class MostraInterval {
         System.out.println("final?");
         int fi = Integer.parseInt(Entrada.readLine());
         
-        for (int x=inici; x<=fi; x++){
-            if (x > text.length()){
-                System.out.println("");
-            } else {
-                System.out.println(text.charAt(x));
-            }            
-            
+        if (inici>fi){
+            for (int x=inici; x>=fi; x--){
+                if (x > text.length()){
+                    System.out.println("");
+                } else {
+                    System.out.println(text.charAt(x));
+                }  
+            }    
+        } else {
+            for (int x=inici; x<=fi; x++){
+                if (x > text.length()){
+                    System.out.println("");
+                } else {
+                    System.out.println(text.charAt(x));
+                }
+            } 
         }
     }
 }
