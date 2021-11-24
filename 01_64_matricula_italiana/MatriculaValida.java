@@ -6,24 +6,30 @@ public class MatriculaValida {
         System.out.println("Introduïu una matrícula");
         String matricula = Entrada.readLine();
         boolean valida = true;
+        String invalid = "IOQU";
         
         if (matricula.isBlank()){
             valida = false;
         } else {
             if ((matricula.length()>7)||(matricula.length()<7)){
                 valida = false;
-            } else if ((matricula.charAt(0)<64) || (matricula.charAt(0)>90)){
-                valida = false;
-            } else if ((matricula.charAt(1)<64) || (matricula.charAt(1)>90)){
-                valida = false;
-            } else if ((matricula.charAt(5)<64) || (matricula.charAt(5)>90)){
-                valida = false;
-            } else if ((matricula.charAt(6)<64) || (matricula.charAt(6)>90)){
-                valida = false;
             } else {
                 for (int x=2; x<=4; x++){
                     if ((matricula.charAt(x)<48) || (matricula.charAt(x)>57)){
                         valida = false;
+                    }
+                }
+                for (int x=0; x<7; x++){
+                    if (x == 2){
+                        x += 3;
+                    }
+                    if ((matricula.charAt(x)<64) || (matricula.charAt(x)>90)){
+                        valida = false;
+                    }
+                    for (int y=0; y<4; y++){
+                        if (matricula.charAt(x) == invalid.charAt(y)){
+                            valida = false;
+                        }
                     }
                 }
             }
