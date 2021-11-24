@@ -19,7 +19,7 @@ public class MostraInterval {
             inici = text.length()-1;
         }
         
-        if (inici>fi){
+        if ((inici>fi) && ((inici >= 0) && (fi >= 0))){
                 for (int x=inici; x>=fi; x--){
                     if (x > text.length()){
                         System.out.println("");
