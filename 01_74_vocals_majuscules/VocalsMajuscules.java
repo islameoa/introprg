@@ -14,8 +14,7 @@ public class VocalsMajuscules {
             for (int x = 0; x<text.length(); x++){
                 char a = text.charAt(x);
                 int i = 0;
-                noVocal = true;
-                
+              
                 while ((noVocal) && (i<10)){
                     if (a == vocals.charAt(i)){
                         System.out.print(Character.toUpperCase(a));
@@ -24,9 +23,10 @@ public class VocalsMajuscules {
                     i++;
                 }
                 
-                if (i == 10){
+                if (noVocal == true){
                     System.out.print(Character.toLowerCase(a)); 
-                }                
+                }
+                noVocal = true;         
             }
             System.out.println("");
         }
