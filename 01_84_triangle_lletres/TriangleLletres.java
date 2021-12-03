@@ -17,7 +17,7 @@ public class TriangleLletres {
                     if (y==x){
                         System.out.print(a);
                     } else {
-                        System.out.print(a + ",");
+                        System.out.print(a + ", ");
                     }
                 }
                 System.out.println("");
