@@ -5,7 +5,7 @@ public class VocalsMajuscules {
     public static void main(String args[]){
         System.out.println("Text?");
         String text = Entrada.readLine();
-        String vocals ="aeiou";
+        String vocals ="aeiouAEIOU";
         boolean noVocal = true;
         
         if (text.isBlank()){
@@ -16,7 +16,7 @@ public class VocalsMajuscules {
                 int i = 0;
                 noVocal = true;
                 
-                while ((noVocal) && (i<5)){
+                while ((noVocal) && (i<10)){
                     if (a == vocals.charAt(i)){
                         System.out.print(Character.toUpperCase(a));
                         noVocal = false;
@@ -24,7 +24,7 @@ public class VocalsMajuscules {
                     i++;
                 }
                 
-                if (i == 5){
+                if (i == 10){
                     System.out.print(Character.toLowerCase(a)); 
                 }                
             }
