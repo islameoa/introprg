@@ -33,7 +33,7 @@ public class LloroQuadrat{
     /* Programa que dibuixa un rectangle numèric de 5x9 */
     public static void dibuixaRectangle() {
             for (int linia=1; linia <= 5; linia++) {
-                for (int columna=1; columna <= 9; columna++) {
+                for (int columna=0; columna <= 9; columna++) {
                     System.out.print(" X");
                 }
                 System.out.println();
