@@ -19,6 +19,7 @@ public class LloroQuadrat{
             System.out.println("El lloro espera paraula:");
             frase = Entrada.readLine();
         }
+        System.out.println("Adéu");
     }
     /* Programa que dibuixa un quadrat numèric de 5x5 */
     public static void dibuixaQuadrat() {
