@@ -19,7 +19,7 @@ public class Quadrat{
     
     public static void dibuixaLinia(int costat, char caracter){
         for(int x=1; x<=costat; x++){
-            System.out.print(caracter + " ");   
+            System.out.print(" " + caracter);   
         }
     }
 }
