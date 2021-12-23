@@ -8,7 +8,7 @@ public class AnalitzaCaracter {
         String text = Entrada.readLine();
         System.out.println("Posició?");
         int pos = Integer.parseInt(Entrada.readLine());
-        char lletra = text.charAt(pos); 
+        
         
         if (pos < 0){
             pos = pos + text.length();
@@ -16,6 +16,7 @@ public class AnalitzaCaracter {
         if ((pos >= text.length()) || (pos < 0)){
             System.out.println("Fora de rang");
         } else {
+            char lletra = text.charAt(pos); 
             analitzaCaracter(lletra);
         }
         
