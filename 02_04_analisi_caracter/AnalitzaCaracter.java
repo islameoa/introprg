@@ -1,7 +1,7 @@
 /*Programa que rep un string i una posicio i et diu el que hi ha en aquella
 posició*/
 
-public class analitzaCaracter {
+public class AnalitzaCaracter {
 
     public static void main(String args[]){
         System.out.println("Text?");
