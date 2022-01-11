@@ -1,7 +1,7 @@
 /*Programa que rep un string i uns valors inicials i finals i en retorna els
 caràcters que estan entre aquests valors*/
 
-public class mostraInterval {
+public class MostraInterval {
     public static void main(String args[]){
         System.out.println("text?");
         String text = Entrada.readLine();
