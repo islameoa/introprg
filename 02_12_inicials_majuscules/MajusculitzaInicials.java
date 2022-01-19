@@ -7,7 +7,7 @@ public class MajusculitzaInicials {
 	public static void majusculitzaInicials(String text){
 		char primeraLletra = text.charAt(0);
 		System.out.print(Character.toUpperCase(primeraLletra));
-		for (int i=1; i<text.length()-1; i++){
+		for (int i=1; i<text.length(); i++){
 			char lletra = text.charAt(i);
 			if (((lletra>96) && (lletra<123)) || ((lletra>64) && (lletra<91))){
 				System.out.print(Character.toLowerCase(lletra));
@@ -18,7 +18,6 @@ public class MajusculitzaInicials {
 				i++;
 			}
 		}
-		System.out.print(Character.toLowerCase(text.charAt(text.length()-1)));
 		System.out.println();
 		
 	}
