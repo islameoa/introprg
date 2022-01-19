@@ -10,7 +10,7 @@ public class MajusculitzaInicials {
 		for (int i=1; i<text.length()-1; i++){
 			char lletra = text.charAt(i);
 			if (((lletra>96) && (lletra<123)) || ((lletra>64) && (lletra<91))){
-				System.out.print(lletra);
+				System.out.print(Character.toLowerCase(lletra));
 			} else {
 				char lletraCam = text.charAt(i+1);
 				System.out.print(lletra);
