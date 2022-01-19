@@ -2,7 +2,11 @@ public class MajusculitzaInicials {
 	public static void main(String args[]){
 		System.out.println("Text?");
 		String text = Entrada.readLine();
-		majusculitzaInicials(text);
+		if (text.isEmpty()){
+			System.out.println();
+		} else {
+			majusculitzaInicials(text);
+		}
 	}
 	public static void majusculitzaInicials(String text){
 		char primeraLletra = text.charAt(0);
