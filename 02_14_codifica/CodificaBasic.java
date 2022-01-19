@@ -19,22 +19,19 @@ public class CodificaBasic {
     public static void codifica(String text, int quants){
     	for (int x=0; x<text.length(); x++){
             int lletra = text.charAt(x);
-            
+           
             if ((lletra>=97)&&(lletra<=121)){
-                lletra = lletra+quants;
-                char lletraConvertida = (char)lletra;
-                System.out.print(lletraConvertida);
-            } else if((lletra==122) && (quants == 0)){
+                lletra = lletra + quants;
+            	if (lletra>122){
+            		lletra = lletra - 26;
+            	}
             	System.out.print((char)lletra);
-            } else if (lletra==122){
-            	lletra = 'a'+ quants -1;
-            	char lletraConvertida = (char)lletra;
-                System.out.print(lletraConvertida);
+            	
             } else {
-                char lletraConvertida = (char)lletra;
-                System.out.print(lletraConvertida);
+                System.out.print((char)lletra);
             }
         }
         System.out.println("");
+      
     }
 }
