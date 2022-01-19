@@ -20,7 +20,7 @@ public class CodificaBasic {
     	for (int x=0; x<text.length(); x++){
             int lletra = text.charAt(x);
            
-            if ((lletra>=97)&&(lletra<=121)){
+            if ((lletra>=97)&&(lletra<=122)){
                 lletra = lletra + quants;
             	if (lletra>122){
             		lletra = lletra - 26;
