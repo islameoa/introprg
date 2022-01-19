@@ -9,15 +9,13 @@ public class MajusculitzaInicials {
 		System.out.print(Character.toUpperCase(primeraLletra));
 		for (int i=1; i<text.length(); i++){
 			char lletra = text.charAt(i);
-			if (((lletra>96) && (lletra<123)) || ((lletra>64) && (lletra<91))){
-				System.out.print(Character.toLowerCase(lletra));
+			char lletraAnterior=text.charAt(i-1);
+			if (((lletraAnterior<96) || (lletraAnterior>123)) && ((lletraAnterior<64) || (lletraAnterior>91))){
+				System.out.print(Character.toUpperCase(lletra));
 			} else if (i == text.length()-1){
 				System.out.print(Character.toLowerCase(lletra));
 			} else {
-				char lletraCam = text.charAt(i+1);
-				System.out.print(lletra);
-				System.out.print(Character.toUpperCase(lletraCam));
-				i++;
+				System.out.print(Character.toLowerCase(lletra));
 			}
 		}
 		System.out.println();
