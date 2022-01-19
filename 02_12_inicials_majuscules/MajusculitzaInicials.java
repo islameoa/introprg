@@ -1,3 +1,6 @@
+/*Programa que canvia la primera lletra de cada paraula per una majúscula*/
+
+
 public class MajusculitzaInicials {
 	public static void main(String args[]){
 		System.out.println("Text?");
