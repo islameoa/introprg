@@ -25,7 +25,7 @@ public class CodificaBasic {
                 char lletraConvertida = (char)lletra;
                 System.out.print(lletraConvertida);
             } else if((lletra==122) && (quants == 0)){
-            	System.out.print(lletra);
+            	System.out.print((char)lletra);
             } else if (lletra==122){
             	lletra = 'a'+ quants -1;
             	char lletraConvertida = (char)lletra;
