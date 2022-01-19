@@ -32,8 +32,8 @@ public class ComptaVocals {
         mostraOcurrencies('u', nombre);
         nombre = quantesOcurrencies(text, 'ú');
         mostraOcurrencies('ú', nombre);
-        nombre = quantesOcurrencies(text, 'ù');
-        mostraOcurrencies('ù', nombre);
+        nombre = quantesOcurrencies(text, 'ü');
+        mostraOcurrencies('ü', nombre);
         
     }
     public static void mostraOcurrencies(char lletra, int quantes) {
