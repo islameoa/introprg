@@ -22,6 +22,9 @@ public class MatriculaValida {
             		} else {	
                 		valida = esLletraValidaPerMatriculaItaliana(lletra);
             		}
+            		if (!valida){
+            			break;
+            		}
             	}
             }
         }
