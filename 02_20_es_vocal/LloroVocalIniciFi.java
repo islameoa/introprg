@@ -18,7 +18,7 @@ public class LloroVocalIniciFi{
 				boolean vocalfi = UtilString.esVocal(text.charAt(text.length()-1));
 			
 				if (vocal || vocalfi == true){
-					System.out.println(text);
+					System.out.println("El lloro diu: " + text);
 				}
 			}
 		}
