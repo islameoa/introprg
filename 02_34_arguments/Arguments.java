@@ -2,7 +2,7 @@
 
 public class Arguments{
 	public static void main(String[] args){
-		if (args.length<0){
+		if (args.length<1){
 			System.out.println("Cap argument");
 		} else {
 			for (int i=0; i<args.length; i++){
