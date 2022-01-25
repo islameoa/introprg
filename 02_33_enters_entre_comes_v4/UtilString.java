@@ -90,6 +90,7 @@ public class UtilString {
     		String entreComes = "";
     		
     		if (numeros.length==1){
+    			entreComes=Integer.toString(numeros[0]);
     			return entreComes;	
     		}
     		entreComes += Integer.toString(numeros[0]);
