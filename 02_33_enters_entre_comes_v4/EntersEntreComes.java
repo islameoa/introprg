@@ -15,7 +15,12 @@ public class EntersEntreComes{
 		
 		System.out.println("Separador?");
 		String sep = Entrada.readLine();
-		char separador = sep.charAt(0);
+		char separador = Character.MIN_VALUE;
+		if (sep.isBlank()){
+			separador = Character.MIN_VALUE;
+		} else {
+			separador = sep.charAt(0);
+		}
 		
 		int nombre = Integer.parseInt(numero);	
 		int[] numeros = new int[nombre];
