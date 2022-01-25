@@ -65,6 +65,10 @@ public class UtilString {
     			}
     			return interval;
     		}
+    		if (inici==fi){
+    			interval += text.charAt(inici);
+    			return interval;
+    		}
     		return interval;
     		
     }
