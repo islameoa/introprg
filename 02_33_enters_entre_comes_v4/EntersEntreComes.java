@@ -13,20 +13,19 @@ public class EntersEntreComes{
 			numero = Entrada.readLine();
 			esEnter = UtilString.esEnter(numero);
 		}
-		
-		System.out.println("Separador?");
-		String sep = Entrada.readLine();
-		char separador = Character.MIN_VALUE;
-		if (sep.isBlank()){
-			separador = ',';
-		} else {
-			separador = sep.charAt(0);
-		}
-		
+				
 		int nombre = Integer.parseInt(numero);
 		if (nombre<0){
 			System.out.println("Res a fer");
 		} else {
+			System.out.println("Separador?");
+			String sep = Entrada.readLine();
+			char separador = Character.MIN_VALUE;
+			if (sep.isBlank()){
+				separador = ',';
+			} else {
+				separador = sep.charAt(0);
+			}
 			int[] numeros = new int[nombre];
 		
 			for (int i = 0; i < numeros.length; i++) {
