@@ -11,7 +11,8 @@ public class EntersEntreComes{
 			
 			for (int i = 0; i < numeros.length; i++) {
 				System.out.println("");
-				System.out.println("Valor " + i+1 + "?");
+				int num = i+1;
+				System.out.println("Valor " + num + "?");
 				numeros[i]=Integer.parseInt(Entrada.readLine());
 			}
 			System.out.println();
