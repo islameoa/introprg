@@ -17,7 +17,7 @@ public class EntersEntreComes{
 		String sep = Entrada.readLine();
 		char separador = Character.MIN_VALUE;
 		if (sep.isBlank()){
-			separador = Character.MIN_VALUE;
+			separador = ',';
 		} else {
 			separador = sep.charAt(0);
 		}
