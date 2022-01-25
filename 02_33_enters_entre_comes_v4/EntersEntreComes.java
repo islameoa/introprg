@@ -24,27 +24,31 @@ public class EntersEntreComes{
 		}
 	
 		int nombre = Integer.parseInt(numero);
-		int[] numeros = new int[nombre];
+		if (nombre<0){
+			System.out.println("Res a fer");
+		} else {
+			int[] numeros = new int[nombre];
 		
-		for (int i = 0; i < numeros.length; i++) {
-			System.out.println("");
-			int num = i+1;
-			
-			System.out.println("Valor " + num + "?");
-			String valor = Entrada.readLine();
-			esEnter = UtilString.esEnter(valor);
-			while (esEnter==false){
-				System.out.println("Per favor, un valor enter");
-				valor = Entrada.readLine();
+			for (int i = 0; i < numeros.length; i++) {
+				System.out.println("");
+				int num = i+1;
+				
+				System.out.println("Valor " + num + "?");
+				String valor = Entrada.readLine();
 				esEnter = UtilString.esEnter(valor);
+				while (esEnter==false){
+					System.out.println("Per favor, un valor enter");
+					valor = Entrada.readLine();
+					esEnter = UtilString.esEnter(valor);
+				}
+				numeros[i]=Integer.parseInt(valor);
 			}
-			numeros[i]=Integer.parseInt(valor);
-		}
-		System.out.println();
-		
-		String imp = UtilString.entreComes(numeros, separador);
-		System.out.print(imp);
-		System.out.println();
+			System.out.println();
+			
+			String imp = UtilString.entreComes(numeros, separador);
+			System.out.print(imp);
+			System.out.println();
+			}
 	}
 }
 
