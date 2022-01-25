@@ -7,6 +7,7 @@ public class EntersEntreComes{
 		String numero = quants.replace(" ","");
 		
 		boolean esEnter = UtilString.esEnter(numero);
+		System.out.print(esEnter);
 		
 		while (esEnter==false){
 			System.out.println("Per favor, un valor enter");
@@ -22,7 +23,7 @@ public class EntersEntreComes{
 		} else {
 			separador = sep.charAt(0);
 		}
-	
+		
 		int nombre = Integer.parseInt(numero);
 		if (nombre<0){
 			System.out.println("Res a fer");
