@@ -26,8 +26,12 @@ public class UtilString {
     		String lletresSeparades = "";
     		for (int i = 0; i< text.length(); i++){
     			char a = text.charAt(i);
-    			lletresSeparades += a;
-    			lletresSeparades += " ";
+    			if (i == text.length()-1){
+    				lletresSeparades += a;
+    			} else {
+    				lletresSeparades += a;
+    				lletresSeparades += ", ";
+    			}
     		}
     		return lletresSeparades;
     } 
