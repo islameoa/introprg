@@ -2,15 +2,21 @@
 
 public class EntersEntreComes{
 	public static void main(String args[]){
+		int nombre = 0;
 		System.out.println("Quants?");
 		String quants = Entrada.readLine();
 		String numero = quants.replace(" ","");
 		
 		boolean esEnter = UtilString.esEnter(numero);
-		while (esEnter==false){
+		if (esEnter){
+			nombre = Integer.parseInt(numero);
+		} else {
+			while (esEnter==false){
 			System.out.println("Per favor, un valor enter");
 			numero = Entrada.readLine();
 			esEnter = UtilString.esEnter(numero);
+			}
+			nombre = Integer.parseInt(numero);
 		}
 		
 		System.out.println("Separador?");
@@ -21,8 +27,7 @@ public class EntersEntreComes{
 		} else {
 			separador = sep.charAt(0);
 		}
-		
-		int nombre = Integer.parseInt(numero);	
+	
 		int[] numeros = new int[nombre];
 		
 		for (int i = 0; i < numeros.length; i++) {
