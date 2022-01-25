@@ -45,8 +45,7 @@ public class EntersEntreComes{
 			System.out.println();
 			
 			String imp = UtilString.entreComes(numeros, separador);
-			System.out.print(imp);
-			System.out.println();
+			System.out.println(imp);
 			}
 	}
 }
