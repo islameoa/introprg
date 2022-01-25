@@ -7,7 +7,6 @@ public class EntersEntreComes{
 		String numero = quants.replace(" ","");
 		
 		boolean esEnter = UtilString.esEnter(numero);
-		System.out.print(esEnter);
 		
 		while (esEnter==false){
 			System.out.println("Per favor, un valor enter");
