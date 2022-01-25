@@ -88,12 +88,14 @@ public class UtilString {
     
     public static String entreComes(int[] numeros, char separador){
     		String entreComes = "";
+    		
+    		if (numeros.length==1){
+    			return entreComes;	
+    		}
     		entreComes += Integer.toString(numeros[0]);
-    		if (numeros.length>0){
-    			for (int i=1; i<numeros.length; i++){
-    			entreComes += separador + " ";
-    			entreComes += Integer.toString(numeros[i]);
-    			}
+		for (int i=1; i<numeros.length; i++){
+			entreComes += separador + " ";
+			entreComes += Integer.toString(numeros[i]);
     		}
     		return entreComes;
     }
