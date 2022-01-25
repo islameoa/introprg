@@ -89,8 +89,7 @@ public class UtilString {
     public static String entreComes(int[] numeros, char separador){
     		String entreComes = "";
     		
-    		if (numeros.length==1){
-    			entreComes=Integer.toString(numeros[0]);
+    		if (numeros.length<1){
     			return entreComes;	
     		}
     		entreComes += Integer.toString(numeros[0]);
