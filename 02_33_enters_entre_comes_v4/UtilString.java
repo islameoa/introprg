@@ -79,6 +79,9 @@ public class UtilString {
 		       if (!Character.isDigit(nombre.charAt(i))) {
 		           isNumeric = false;
 		       }
+		       if (nombre.charAt(i)=='-'){
+		       	isNumeric = true;
+		       }
 		   }
 		   return isNumeric;
     }
