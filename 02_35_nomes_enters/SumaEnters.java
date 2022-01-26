@@ -30,10 +30,12 @@ public class SumaEnters{
 			return enters;
 		} else {
 			for (int i=0; i<valors.length; i++){
+				int j=0;
 				boolean esEnter = UtilString.esEnter(valors[i]);
 				if (esEnter){
 					valor = Integer.parseInt(valors[i]);
-					enters[i]=valor;
+					enters[j]=valor;
+					j++;
 				}
 			}
 		}
