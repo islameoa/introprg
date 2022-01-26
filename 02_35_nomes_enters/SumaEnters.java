@@ -1,6 +1,6 @@
 /*Programa que suma tots els enters que es passin per argument i els que no siguin enters no els suma*/
 
-public class Sumaenters{
+public class SumaEnters{
 	public static void main(String[] args){
 		
 		int quants = quantsEnters(args);
