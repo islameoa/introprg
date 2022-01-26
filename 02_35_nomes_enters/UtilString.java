@@ -79,9 +79,10 @@ public class UtilString {
 		       if (!Character.isDigit(nombre.charAt(i))) {
 		           isNumeric = false;
 		       }
-		       if (nombre.charAt(i)=='-'){
+		       if (nombre.charAt(i)=='-' || nombre.charAt(i)=='+'){
 		       	isNumeric = true;
 		       }
+		       
 		   }
 		   return isNumeric;
     }
