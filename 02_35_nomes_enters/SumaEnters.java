@@ -26,16 +26,13 @@ public class SumaEnters{
 		int quants = quantsEnters(valors);
 		int[] enters = new int[quants];
 		int valor = 0;
-		for (int i=0; i<valors.length; i++){
-			//boolean esEnter = UtilString.esEnter(valors[i]);
-			//if (esEnter){
+		if(quants<1){
+			return enters;
+		} else {
+			for (int i=0; i<valors.length; i++){
 				valor = Integer.parseInt(valors[i]);
 				enters[i]=valor;
-			//} else {
-				
-				//enters[i]=0;
-			
-			//}
+			}
 		}
 		return enters;
 	}
