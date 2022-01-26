@@ -33,7 +33,7 @@ public class TresEnRatlla {
         int columna = Integer.parseInt(Entrada.readLine());
 
         // marquem el nou moviment
-        taulell[0][0] = 'X';
+        taulell[fila][columna] = 'X';
 
         // tornem a mostrar el taulell
         System.out.println("La posició final del taulell:");
