@@ -4,8 +4,7 @@ public class SumaEnters{
 	public static void main(String[] args){
 		
 		int quants = quantsEnters(args);
-		int[] enters = new int[quants];
-		enters = filtraEnters(args);
+		int[] enters = filtraEnters(args);
 		int suma = sumaEnters(enters);
 		System.out.println(suma);
 	}
