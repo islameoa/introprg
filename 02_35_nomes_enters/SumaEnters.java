@@ -29,8 +29,8 @@ public class SumaEnters{
 		if(quants<1){
 			return enters;
 		} else {
+			int j=0;
 			for (int i=0; i<valors.length; i++){
-				int j=0;
 				boolean esEnter = UtilString.esEnter(valors[i]);
 				if (esEnter){
 					valor = Integer.parseInt(valors[i]);
@@ -45,6 +45,7 @@ public class SumaEnters{
 		int suma=0;
 		for(int i=0; i<valors.length; i++){
 			suma += valors[i];
+			System.out.println(suma);
 		}
 		return suma;
 	}
