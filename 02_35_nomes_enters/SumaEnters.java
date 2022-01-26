@@ -45,7 +45,6 @@ public class SumaEnters{
 		int suma=0;
 		for(int i=0; i<valors.length; i++){
 			suma += valors[i];
-			System.out.println(suma);
 		}
 		return suma;
 	}
