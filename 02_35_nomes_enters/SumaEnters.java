@@ -15,7 +15,10 @@ public class SumaEnters{
 			return nombre;
 		}
 		for (int i=0; i<valors.length; i++){
-			nombre += 1;
+			boolean esEnter = UtilString.esEnter(valors[i]);
+			if (esEnter){
+				nombre += 1;
+			}
 		}
 		return nombre;
 	}
@@ -24,13 +27,15 @@ public class SumaEnters{
 		int[] enters = new int[quants];
 		int valor = 0;
 		for (int i=0; i<valors.length; i++){
-			boolean esEnter = UtilString.esEnter(valors[i]);
-			if (esEnter){
+			//boolean esEnter = UtilString.esEnter(valors[i]);
+			//if (esEnter){
 				valor = Integer.parseInt(valors[i]);
 				enters[i]=valor;
-			} else {
-				enters[i]=0;
-			}
+			//} else {
+				
+				//enters[i]=0;
+			
+			//}
 		}
 		return enters;
 	}
