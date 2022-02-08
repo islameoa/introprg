@@ -13,7 +13,7 @@ import java.io.IOException;
 public class NotaMitja{
 	public static void main(String[] args) throws IOException{
 	
-		
+		boolean buit = true;
 		
 		String fitxer = "notes.csv";
 		FileReader fileReader = new FileReader(fitxer);
@@ -24,9 +24,11 @@ public class NotaMitja{
         	
         	float notaTotal = 0;
 			float notaMitja = 0;
-		
+			
         	String linia = input.readLine();
+        	
         	if (null == linia) break;
+        	buit = false;
         	
         	String[] elements = linia.split(",");
             
@@ -40,6 +42,7 @@ public class NotaMitja{
            	System.out.print(elements[0]);
            	System.out.println(String.format(" (%.2f)", notaMitja));
         }
+        if (buit == true) System.out.println("Cap entrada");
         input.close();
 	}
 }
