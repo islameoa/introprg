@@ -5,15 +5,16 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
+
 public class Recordat {
     public static void main(String[] args) throws IOException {
     	String cami = "records.txt";
     	String linia = "lloro";
     	BufferedWriter sortida = new BufferedWriter(new FileWriter(cami));
-        while (true){
+        while (linia.isBlank()==false){
         	System.out.println("El lloro pregunta paraula:");
 		    linia = Entrada.readLine();
-		    if(null == linia){
+		    if(linia.isBlank()){
         		System.out.println("D'acord");
         		break;
         	}
