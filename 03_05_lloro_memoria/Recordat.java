@@ -41,6 +41,7 @@ public class Recordat {
         	if (linia2.isBlank()==false){
         		System.out.print("El lloro recorda: ");
         		System.out.println(linia2);
+        		contador ++;
         	}
         }
         input.close();
