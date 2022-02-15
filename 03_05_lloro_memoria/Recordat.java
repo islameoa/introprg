@@ -13,7 +13,7 @@ public class Recordat {
         while (linia.isBlank()==false){
         	System.out.println("El lloro pregunta paraula:");
 		    linia = Entrada.readLine();
-		    System.out.print("El lloro registra: ");
+		    System.out.println("El lloro registra: " + linia);
 		    sortida.write(linia);
 		    sortida.newLine();
         }
@@ -25,9 +25,14 @@ public class Recordat {
         BufferedReader input = new BufferedReader(fileReader);
         while(true){
         	String linia2 = input.readLine();
-        	if(null == linia2) break;
-        	System.out.print("El lloro recorda: ");
-        	System.out.println(linia2);
+        	if(null == linia2){
+        		System.out.println("Adéu");
+        		break;
+        	}
+        	if (linia2.isBlank()==false){
+        		System.out.print("El lloro recorda: ");
+        		System.out.println(linia2);
+        	}
         }
         input.close();
     }
