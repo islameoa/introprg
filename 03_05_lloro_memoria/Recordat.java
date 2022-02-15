@@ -10,16 +10,18 @@ public class Recordat {
     	String cami = "records.txt";
     	String linia = "lloro";
     	BufferedWriter sortida = new BufferedWriter(new FileWriter(cami));
-        while (linia.isBlank()==false){
+        while (true){
         	System.out.println("El lloro pregunta paraula:");
 		    linia = Entrada.readLine();
+		    if(null == linia){
+        		System.out.println("D'acord");
+        		break;
+        	}
 		    System.out.println("El lloro registra: " + linia);
 		    sortida.write(linia);
 		    sortida.newLine();
         }
         sortida.close();
-        System.out.println("El lloro registra: ");
-        System.out.println("D'acord");
         
         String camiTornada = "records.txt";
         FileReader fileReader = new FileReader(camiTornada);
