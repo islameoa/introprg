@@ -18,6 +18,7 @@ public class Recordat {
         		System.out.println("D'acord");
         		break;
         	}
+        	linia = linia.trim();
 		    System.out.println("El lloro registra: " + linia);
 		    sortida.write(linia);
 		    sortida.newLine();
