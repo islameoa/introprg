@@ -18,6 +18,7 @@ public class Recordat {
 		    sortida.newLine();
         }
         sortida.close();
+        System.out.println("El lloro registra: ");
         System.out.println("D'acord");
         
         String camiTornada = "records.txt";
