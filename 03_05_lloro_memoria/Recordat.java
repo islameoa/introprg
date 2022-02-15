@@ -27,9 +27,14 @@ public class Recordat {
         String camiTornada = "records.txt";
         FileReader fileReader = new FileReader(camiTornada);
         BufferedReader input = new BufferedReader(fileReader);
+        int contador = 0;
+        
         while(true){
         	String linia2 = input.readLine();
         	if(null == linia2){
+        		if (contador == 0){
+        			System.out.println("El lloro no recorda res");
+        		}
         		System.out.println("Adéu");
         		break;
         	}
