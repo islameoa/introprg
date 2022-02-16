@@ -38,44 +38,46 @@ public class Traduccio{
         	}
         }
         sortida.close();
+        input.close();
 	}
 	
 	public static String tradueixLinia(String linia, String fitxerTraduccio) throws IOException{
 		FileReader fileReader = new FileReader(fitxerTraduccio);
         BufferedReader input = new BufferedReader(fileReader);
+        String liniaT = "hh";
         
-        String traduccio = input.readLine();
-        String[] parts = traduccio.split(", ");
-		String part1 = parts[0];
-		String part2 = parts[1];
-		if (linia.contains(part1)){
-			linia.replaceAll(part1, part2);
-		}
-		return linia;
-	}
-}
-
-
-/*while(true){
+        while(true){
         	String traduccio = input.readLine();
         	if(null == traduccio){
         		break;
         	} else {
-        		String[] parts = traduccio.split(",");
+        		String[] parts = traduccio.split(", ");
 				String part1 = parts[0];
 				String part2 = parts[1];
 				if (linia.contains(part1)){
-        			linia.replaceAll(part1, part2);
+        			liniaT = linia.replaceAll(part1, part2);
+        			linia = liniaT;
         		}
         	}
-        	return linia;
         }
-        return linia;*/
+        return liniaT;
+	}
+	
+	/*public static esborraRepetits(String fitxerTraduccio){
+		String linia = "rep";
+    	BufferedWriter sortida = new BufferedWriter(new FileWriter(fitxerTraduccio));
+        
+        while (linia.isBlank()==false){
+        	
+		    linia = input.readLine();
+		    String[] parts = traduccio.split(", ");
+			String part1 = parts[0];
+			String part2 = parts[1];
+		    sortida.write(linia);
+		    sortida.newLine();
+        }
+        sortida.close();
+    }*/
+}
 
 
-
-
-/*if (linia.isBlank()==false){
-	if (linia.contains(part1)){
-		linia.replaceAll(part1, part2);
-	}}*/
