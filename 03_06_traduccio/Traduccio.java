@@ -44,7 +44,19 @@ public class Traduccio{
 		FileReader fileReader = new FileReader(fitxerTraduccio);
         BufferedReader input = new BufferedReader(fileReader);
         
-        while(true){
+        String traduccio = input.readLine();
+        String[] parts = traduccio.split(", ");
+		String part1 = parts[0];
+		String part2 = parts[1];
+		if (linia.contains(part1)){
+			linia.replaceAll(part1, part2);
+		}
+		return linia;
+	}
+}
+
+
+/*while(true){
         	String traduccio = input.readLine();
         	if(null == traduccio){
         		break;
@@ -58,12 +70,7 @@ public class Traduccio{
         	}
         	return linia;
         }
-        return linia;
-	}
-}
-
-
-
+        return linia;*/
 
 
 
