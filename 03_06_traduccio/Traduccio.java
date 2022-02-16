@@ -44,7 +44,7 @@ public class Traduccio{
 	public static String tradueixLinia(String linia, String fitxerTraduccio) throws IOException{
 		FileReader fileReader = new FileReader(fitxerTraduccio);
         BufferedReader input = new BufferedReader(fileReader);
-        String liniaT = "hh";
+        String liniaT = linia;
         String traduccio = input.readLine();
         
         while(true){
@@ -61,24 +61,9 @@ public class Traduccio{
 		    	traduccio = input.readLine();
         	}
         }
+        input.close();
         return liniaT;
 	}
-	
-	/*public static esborraRepetits(String fitxerTraduccio){
-		String linia = "rep";
-    	BufferedWriter sortida = new BufferedWriter(new FileWriter(fitxerTraduccio));
-        
-        while (linia.isBlank()==false){
-        	
-		    linia = input.readLine();
-		    String[] parts = traduccio.split(", ");
-			String part1 = parts[0];
-			String part2 = parts[1];
-		    sortida.write(linia);
-		    sortida.newLine();
-        }
-        sortida.close();
-    }*/
 }
 
 
