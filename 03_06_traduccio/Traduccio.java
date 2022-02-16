@@ -45,20 +45,21 @@ public class Traduccio{
 		FileReader fileReader = new FileReader(fitxerTraduccio);
         BufferedReader input = new BufferedReader(fileReader);
         String liniaT = "hh";
+        String traduccio = "tt";
         
-        while(true){
-        	String traduccio = input.readLine();
-        	if(null == traduccio){
+        while(traduccio.isBlank()==false){
+        	traduccio = input.readLine();
+        	/*if(null == traduccio){
         		break;
-        	} else {
-        		String[] parts = traduccio.split(", ");
-				String part1 = parts[0];
-				String part2 = parts[1];
-				if (linia.contains(part1)){
-        			liniaT = linia.replaceAll(part1, part2);
-        			linia = liniaT;
-        		}
+        	} else {*/
+        	String[] parts = traduccio.split(", ");
+			String part1 = parts[0];
+			String part2 = parts[1];
+			if (linia.contains(part1)){
+        		liniaT = linia.replaceAll(part1, part2);
+        		linia = liniaT;
         	}
+        	
         }
         return liniaT;
 	}
