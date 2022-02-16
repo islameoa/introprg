@@ -8,7 +8,7 @@ import java.io.BufferedWriter;
 
 public class Log{
 	private static int contador;
-	public static void reset(int contador){
+	public static void reset(){
 		contador = 0;
 	}
 	public static void printError(String mssg) throws IOException{
