@@ -47,20 +47,19 @@ public class Traduccio{
         String liniaT = "hh";
         String traduccio = input.readLine();
         
-        while(traduccio.isBlank()==false){
-        	String[] parts = traduccio.split(", ");
-			String part1 = parts[0];
-			String part2 = parts[1];
-			if (linia.contains(part1)){
-        		liniaT = linia.replaceAll(part1, part2);
-        		linia = liniaT;
-        	}
-        	
-        	traduccio = input.readLine();
-        	/*if(null == traduccio){
+        while(true){
+        	if(null == traduccio){
         		break;
-        	} else {*/
-        	
+        	} else {
+		    	String[] parts = traduccio.split(", ");
+				String part1 = parts[0];
+				String part2 = parts[1];
+				if (linia.contains(part1)){
+		    		liniaT = linia.replaceAll(part1, part2);
+		    		linia = liniaT;
+		    	}
+		    	traduccio = input.readLine();
+        	}
         }
         return liniaT;
 	}
