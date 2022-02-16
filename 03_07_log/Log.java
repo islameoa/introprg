@@ -11,7 +11,7 @@ public class Log{
 	public static void reset(){
 		contador = 0;
 	}
-	public static void printError(String mssg) throws IOException{
+	public static String printError(String mssg) throws IOException{
 		String cami = "log.txt";
 		BufferedWriter sortida = new BufferedWriter(new FileWriter(cami, true));
 		contador++;
@@ -19,8 +19,9 @@ public class Log{
 		sortida.write(logError);
 		sortida.newLine();
 		sortida.close();
+		return logError;
 	}
-	public static void printWarning(String mssg) throws IOException{
+	public static String printWarning(String mssg) throws IOException{
 		String cami = "log.txt";
 		BufferedWriter sortida = new BufferedWriter(new FileWriter(cami, true));
 		contador++;
@@ -28,9 +29,10 @@ public class Log{
 		sortida.write(logWarning);
 		sortida.newLine();
 		sortida.close();
+		return logWarning;
 	}
 	
-	public static void printInfo(String mssg) throws IOException{
+	public static String printInfo(String mssg) throws IOException{
 		String cami = "log.txt";
 		BufferedWriter sortida = new BufferedWriter(new FileWriter(cami, true));
 		contador++;
@@ -38,9 +40,10 @@ public class Log{
 		sortida.write(logInfo);
 		sortida.newLine();
 		sortida.close();
+		return logInfo;
 	}
 	
-	public static void printDebug(String mssg) throws IOException{
+	public static String printDebug(String mssg) throws IOException{
 		String cami = "log.txt";
 		BufferedWriter sortida = new BufferedWriter(new FileWriter(cami, true));
 		contador++;
@@ -48,5 +51,6 @@ public class Log{
 		sortida.write(logDebug);
 		sortida.newLine();
 		sortida.close();
+		return logDebug;
 	}
 }
