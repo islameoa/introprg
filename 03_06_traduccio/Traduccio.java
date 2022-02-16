@@ -37,6 +37,7 @@ public class Traduccio{
 		    	sortida.newLine();
         	}
         }
+        sortida.close();
 	}
 	
 	public static String tradueixLinia(String linia, String fitxerTraduccio) throws IOException{
