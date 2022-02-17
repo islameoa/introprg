@@ -1,3 +1,5 @@
+/*Programa proporcionat pel docent que ens permet comprovar breument la funcionalitat del programa log.java que hem creat anteriorment*/
+
 import java.io.IOException;
 public class UsaLog {
    public static void main(String[] args) throws IOException {
