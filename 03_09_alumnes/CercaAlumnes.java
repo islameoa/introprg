@@ -60,16 +60,36 @@ public class CercaAlumnes {
         return notesS;
     }
 
-    //public static String alumneACsv(Alumne alumne) {
-        // XXX a completar encara que no es fa servir en aquest programa
-    //}
+    public static String alumneACsv(Alumne alumne) {
+    	String nom = alumne.nom;
+    	String email = alumne.email;
+    	int edat = alumne.edat;
+    	boolean esOient = alumne.esOient;
+    	String nota1 = String.valueOf(alumne.notes[0]);
+    	String nota2 = String.valueOf(alumne.notes[1]);
+    	String nota3 = String.valueOf(alumne.notes[2]);
+    	String nota4 = String.valueOf(alumne.notes[3]);
+    	String nota5 = String.valueOf(alumne.notes[4]);
+    	String nota6 = String.valueOf(alumne.notes[5]);
+    	String oient = "";
+    	if (esOient){
+    		oient += "Sí";
+    	} else {
+    		oient += "No";
+    	}
+    	String edaTS = String.valueOf(edat);
+    	
+    	String csv = (nom + "," + email + "," + edaTS + "," + oient + "," + nota1 + "," + nota2 + ","+ nota3 + ","+ nota4 + "," + nota5 + "," + nota6);
+    	
+    	return csv;
+    }
 
     public static Alumne csvAAlumne(String csv) {  	
         String[] part = csv.split(",");
         int edat = Integer.parseInt(part[2]);
 		boolean esOient = Boolean.parseBoolean(part[3]);
 		int[] notes = new int[6];
-		for(int i=4; i <part.length; i++){
+		for(int i=4; i < part.length; i++){
 			try {
 				notes[i-4] = Integer.parseInt(part[i]);
 			} catch (Exception e){
