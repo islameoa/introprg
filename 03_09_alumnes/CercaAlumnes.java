@@ -47,8 +47,8 @@ public class CercaAlumnes {
         String notesS = "";
         for (int i=0; i<notes.length; i++){
         	String nota = String.valueOf(notes[i]);
-        	if (nota=="-1"){
-        		notesS+="NP";
+        	if (notes[i]<0){
+        		notesS += "NP";
         	} else {
         		notesS += nota;
         	}
