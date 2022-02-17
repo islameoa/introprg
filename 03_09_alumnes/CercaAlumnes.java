@@ -73,12 +73,7 @@ public class CercaAlumnes {
                 notesS[i]=String.valueOf(alumne.notes[i]);
             }
         }
-    	String oient = "";
-    	if (esOient){
-    		oient += "Sí";
-    	} else {
-    		oient += "No";
-    	}
+    	
     	String edaTS = String.valueOf(edat);
         String nota1 = notesS[0];
     	String nota2 = notesS[1];
@@ -87,7 +82,7 @@ public class CercaAlumnes {
     	String nota5 = notesS[4];
     	String nota6 = notesS[5];
     	
-    	String csv = (nom + "," + email + "," + edaTS + "," + oient + "," + nota1 + "," + nota2 + ","+ nota3 + ","+ nota4 + "," + nota5 + "," + nota6);
+    	String csv = (nom + "," + email + "," + edaTS + "," + esOient + "," + nota1 + "," + nota2 + ","+ nota3 + ","+ nota4 + "," + nota5 + "," + nota6);
     	
     	return csv;
     }
