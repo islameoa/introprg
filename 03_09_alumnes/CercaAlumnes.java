@@ -65,12 +65,14 @@ public class CercaAlumnes {
     	String email = alumne.email;
     	int edat = alumne.edat;
     	boolean esOient = alumne.esOient;
-    	String nota1 = String.valueOf(alumne.notes[0]);
-    	String nota2 = String.valueOf(alumne.notes[1]);
-    	String nota3 = String.valueOf(alumne.notes[2]);
-    	String nota4 = String.valueOf(alumne.notes[3]);
-    	String nota5 = String.valueOf(alumne.notes[4]);
-    	String nota6 = String.valueOf(alumne.notes[5]);
+        String[] notesS = new String[6];
+        for(int i=0; i<alumne.notes.length; i++){
+            if(alumne.notes[i] == -1){
+                notesS[i]="NP";
+            } else{
+                notesS[i]=String.valueOf(alumne.notes[i]);
+            }
+        }
     	String oient = "";
     	if (esOient){
     		oient += "Sí";
@@ -78,6 +80,12 @@ public class CercaAlumnes {
     		oient += "No";
     	}
     	String edaTS = String.valueOf(edat);
+        String nota1 = notesS[0];
+    	String nota2 = notesS[1];
+    	String nota3 = notesS[2];
+    	String nota4 = notesS[3];
+    	String nota5 = notesS[4];
+    	String nota6 = notesS[5];
     	
     	String csv = (nom + "," + email + "," + edaTS + "," + oient + "," + nota1 + "," + nota2 + ","+ nota3 + ","+ nota4 + "," + nota5 + "," + nota6);
     	
