@@ -80,6 +80,7 @@ public class CercaAlumnes {
     }
 
     public static void main(String[] args) throws IOException {
+    	int contador = 0;
         // assegura que hi ha el criteri de cerca
         if (args.length<1){
         	System.out.println("Error: indica el criteri de cerca");
@@ -100,8 +101,12 @@ public class CercaAlumnes {
 		        // comprova si el criteri de cerca es troba dins del nom o
 		        // el email. Si és així, mostra'l
 		        if (linia.contains(args[0])){
+		        	contador ++;
 		        	mostraAlumne(alumne);
 		        }
+		    }
+		    if (contador == 0){
+		    	System.out.println("Cap alumne");
 		    }
 		    // consideracions finals com ara el tancament del fitxer
 		    input.close();
