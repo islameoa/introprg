@@ -52,7 +52,10 @@ public class CercaAlumnes {
         	} else {
         		notesS += nota;
         	}
-        	notesS += ", ";
+        	if (i==notes.length-1){
+        		return notesS;
+        	}
+        	notesS += ",";
         }
         return notesS;
     }
@@ -61,22 +64,19 @@ public class CercaAlumnes {
         // XXX a completar encara que no es fa servir en aquest programa
     //}
 
-    public static Alumne csvAAlumne(String csv) {
-    	Alumne alumne = new Alumne();
-    	
+    public static Alumne csvAAlumne(String csv) {  	
         String[] part = csv.split(",");
-        alumne.nom = part[0];
-        alumne.email = part[1];
-        alumne.edat = Integer.parseInt(part[2]);
-		alumne.esOient = Boolean.parseBoolean(part[3]);
-		alumne.notes[0] = Integer.parseInt(part[4]);
-		alumne.notes[1] = Integer.parseInt(part[5]);
-		alumne.notes[2] = Integer.parseInt(part[6]);  
-		alumne.notes[3] = Integer.parseInt(part[7]);
-		alumne.notes[4] = Integer.parseInt(part[8]);
-		alumne.notes[5] = Integer.parseInt(part[9]);
-		
-		return alumne;
+        int edat = Integer.parseInt(part[2]);
+		boolean esOient = Boolean.parseBoolean(part[3]);
+		int[] notes = new int[6];
+		for(int i=4; i <part.length; i++){
+			try {
+				notes[i-4] = Integer.parseInt(part[i]);
+			} catch (Exception e){
+				notes[i-4] = -1;	
+			}
+		}
+		return construeixAlumne(part[0], part[1], edat, esOient, notes);
     }
 
     public static void main(String[] args) throws IOException {
