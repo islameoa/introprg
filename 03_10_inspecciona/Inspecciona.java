@@ -43,8 +43,16 @@ public class Inspecciona{
 						System.out.print("- ");
 					}
 					if (fitxer.isDirectory()){
-						System.out.print("directori que conté: ");
-						Llista(fitxer);
+						String[] continguts = fitxer.list();
+						Arrays.sort(continguts);
+						if (continguts.length<1){
+							System.out.println("directori buit");
+						} else {
+							System.out.print("directori que conté: ");
+							for (String item: continguts) {
+								System.out.print(item + ", " );
+							}
+						}
 						System.out.println("");
 					}
 					if (fitxer.isFile()){
@@ -69,15 +77,5 @@ public class Inspecciona{
 				}
 			}
 		}
-		
 	}
-	
-	
-    public static void Llista(File fitxer) {
-        String[] continguts = fitxer.list();
-        Arrays.sort(continguts);
-        for (String item: continguts) {
-            System.out.print(item + ", " );
-        }
-    }
 }
