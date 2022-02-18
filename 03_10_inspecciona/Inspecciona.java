@@ -63,15 +63,17 @@ public class Inspecciona{
 							System.out.print("fitxer de mida en bytes: ");
 							System.out.print(fitxer.length());
 							System.out.println("");
-							System.out.println("Amb els continguts:");
-							FileReader fileReader = new FileReader(fitxer);
-		    				BufferedReader input = new BufferedReader(fileReader);
-							while (true) {
-								String linia = input.readLine();
-								if (null == linia) break;
-								System.out.println("|" + linia + "|");
+							if (cami.contains(".txt") || cami.contains(".java")){
+								System.out.println("Amb els continguts:");
+								FileReader fileReader = new FileReader(fitxer);
+								BufferedReader input = new BufferedReader(fileReader);
+								while (true) {
+									String linia = input.readLine();
+									if (null == linia) break;
+									System.out.println("|" + linia + "|");
+								}
+								input.close();
 							}
-							input.close();
 						}
 						System.out.println("");
 					}
