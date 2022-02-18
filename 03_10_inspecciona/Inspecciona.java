@@ -49,8 +49,9 @@ public class Inspecciona{
 							System.out.println("directori buit");
 						} else {
 							System.out.print("directori que conté: ");
-							for (String item: continguts) {
-								System.out.print(item + ", " );
+							for (int j=0; j<continguts.length; j++){
+								System.out.print(continguts[j]);
+								if (j!=continguts.length-1) System.out.print(", ");
 							}
 						}
 						System.out.println("");
