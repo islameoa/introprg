@@ -6,7 +6,7 @@ public class TresEnRatlla {
     // mòduls de suport
     
     public static boolean casellaOcupada(char[][] taulell, int fila, int columna){
-    	if (taulell[fila][columna] == '.'){
+    	if (taulell[fila][columna] == '·'){
     		return false;	
 		}
 		return true;
@@ -76,7 +76,7 @@ public class TresEnRatlla {
     public static boolean hiHaEmpat(char[][] taulell){
     	for(int fila=0; fila<3; fila++){
 			for(int col=0; col<3; col++){
-				if (taulell[col][fila]=='.'){
+				if (taulell[col][fila]=='·'){
 					return false;
 				}
 			}
@@ -89,7 +89,7 @@ public class TresEnRatlla {
         char[][] taulell = new char[3][3];
         for(int fila=0; fila<taulell.length; fila++){
 			for(int col=0; col<taulell[0].length; col++){
-				taulell[fila][col] ='.';
+				taulell[fila][col] ='·';
 			}
 		}
 
