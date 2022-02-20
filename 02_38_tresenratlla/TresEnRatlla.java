@@ -104,8 +104,6 @@ public class TresEnRatlla {
 
         while (!guanyador && !empat) {
         
-            mostraTaulell(taulell);
-			System.out.println(jugador + "?");
             // obté el moviment del jugador actual
             
             boolean entradaCorrecta = false;
@@ -113,6 +111,8 @@ public class TresEnRatlla {
             
             
             while(!entradaCorrecta || ocupada){
+            	mostraTaulell(taulell);
+				System.out.println(jugador + "?");
             	String entrada = Entrada.readLine();
             	if (entrada.equals("a")){
             		System.out.println(jugador + " abandona");
@@ -156,7 +156,7 @@ public class TresEnRatlla {
             guanyador = jugadorGuanya(taulell, jugador);
             if (guanyador){
             	mostraTaulell(taulell);
-            	System.out.println("Ha guanyat " + jugador);
+            	System.out.println(jugador + " guanya");
             }
 
             // comprova empat
