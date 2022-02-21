@@ -18,7 +18,10 @@ public class Penjat{
 		
 		System.out.println("Comencem a jugar");
 		
-		while(hiHaParaules || confirmacio){
+		while(hiHaParaules || !confirmacio){
+			if (confirmacio){
+				break;
+			}			
 			String paraulaSys = input.readLine();
         	if (null == paraulaSys){
         		if (contador==0){
@@ -47,8 +50,14 @@ public class Penjat{
 		    		System.out.println("Vols sortir?");
 		    		String resposta = Entrada.readLine();
 		    		confirmacio = UtilitatsConfirmacio.respostaABoolean(resposta);
+		    		if (confirmacio){
+		    			noEncertada = false;
+		    			intentsDisponibles = -1;
+		    		}
 		    	} else if (lletraActual.equals("glups")){
 		    		noEncertada = false;
+		    		confirmacio = false;
+		    		intentsDisponibles = -1;
 		    	} else if (lletraActual.charAt(0)<65 || lletraActual.charAt(0)>123 || lletraActual.length()>1){
 		    		System.out.println("Error: cal una lletra entre 'a' i 'z', 'prou' o 'glups'");
 		    	} else {
@@ -108,6 +117,10 @@ public class Penjat{
 							mostraFigura(intentsDisponibles);
 						}
 						intentsDisponibles--;
+						if (intentsDisponibles == 0){
+							noEncertada = false;
+		    				confirmacio = false;
+						}
 					}
 					//lletraRepetida = true;
 		    	}
