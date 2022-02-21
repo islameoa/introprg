@@ -7,6 +7,7 @@ import java.io.IOException;
 public class Penjat{
 	public static void main(String[] args) throws IOException{
 		boolean hiHaParaules = true;
+		boolean confirmacio = false;
 		int contador = 0;
 		
 		String fitxer = "paraules.txt";
@@ -15,7 +16,7 @@ public class Penjat{
 		
 		System.out.println("Comencem a jugar");
 		
-		while(hiHaParaules){
+		while(hiHaParaules || confirmacio){
 			String paraulaSys = input.readLine();
         	if (null == paraulaSys){
         		if (contador==0){
@@ -32,50 +33,60 @@ public class Penjat{
         	}
         	
 			String lletresUsades = "";
-        	while(noEncertada){
+        	while(noEncertada || confirmacio){
         		
 		    	System.out.println("Introdueix una lletra");
 		    	String lletraActual = Entrada.readLine();
-		    	if (contador==0){
-		    		lletresUsades = lletraActual;
-		    		lletresUsades = lletresUsades.toUpperCase();
+		    	if (lletraActual.equals("prou")){
+		    		System.out.println("Vols sortir?");
+		    		String resposta = Entrada.readLine();
+		    		confirmacio = UtilitatsConfirmacio.respostaABoolean(resposta);
+		    	} else if (lletraActual.equals("glups")){
+		    		noEncertada = false;
+		    	} else if (lletraActual.charAt(0)<65 || lletraActual.charAt(0)>123){
+		    		System.out.println("Error: cal una lletra entre 'a' i 'z', 'prou' o 'glups'");
 		    	} else {
-		    		lletresUsades += lletraActual;
-		    		lletresUsades = lletresUsades.toUpperCase();
-		    	}
-		    	contador++;
-		    	char lletraActualC = lletraActual.charAt(0);
-		    	
-		    	for (int i=0; i<paraulaSys.length(); i++){
-					if (lletraActualC == paraulaSys.charAt(i)){
-						paraulaU[i] = Character.toLowerCase(lletraActualC);
+		    		if (contador==0){
+						lletresUsades = lletraActual;
 					} else {
-						for(int j=0; j<lletresUsades.length(); j++){
-							if (lletresUsades.charAt(j) == paraulaSys.charAt(i)){
-								paraulaU[i] = lletresUsades.charAt(j);
+						lletresUsades += lletraActual;
+					}
+					lletresUsades = lletresUsades.toUpperCase();
+					contador++;
+					char lletraActualC = lletraActual.charAt(0);
+					
+					for (int i=0; i<paraulaSys.length(); i++){
+						if (lletraActualC == paraulaSys.charAt(i)){
+							paraulaU[i] = Character.toLowerCase(lletraActualC);
+						} else {
+							for(int j=0; j<lletresUsades.length(); j++){
+								if (lletresUsades.charAt(j) == paraulaSys.charAt(i)){
+									paraulaU[i] = lletresUsades.charAt(j);
+								}
 							}
 						}
 					}
+					System.out.print("Paraula: ");
+					mostraParaula(paraulaU);
+					System.out.print("Utilitzades: ");
+					
+					if (lletresUsades.length()==0){
+						System.out.print("cap");
+					} else {
+						for (int u=0; u<lletresUsades.length(); u++){
+							
+							System.out.print(lletresUsades.charAt(u));
+							if (u==lletresUsades.length()-2){
+								System.out.print(" i ");
+							} else if (u<lletresUsades.length()-2){
+								System.out.print(", ");
+							}
+						}
+					}
+					System.out.println("");
+					System.out.print("Intents disponibles: ");
+					noEncertada = paraulaEncertada(paraulaU, paraulaSys);
 		    	}
-		    	System.out.print("Paraula: ");
-		    	mostraParaula(paraulaU);
-		    	System.out.print("Utilitzades: ");
-		    	
-		    	if (lletresUsades.length()==0){
-		    		System.out.print("cap");
-		    	} else {
-		    		for (int u=0; u<lletresUsades.length(); u++){
-		    			
-		    			System.out.print(lletresUsades.charAt(u));
-		    			if (u==lletresUsades.length()-2){
-		    				System.out.print(" i ");
-		    			} else if (u<lletresUsades.length()-2){
-		    				System.out.print(", ");
-		    			}
-		    		}
-		    	}
-		    	System.out.println("");
-		    	noEncertada = paraulaEncertada(paraulaU, paraulaSys);
         	}
         }
 	}
@@ -96,6 +107,9 @@ public class Penjat{
 			return false;
 		}
 		return true;
+	}
+	public static void mostraFigura(int intentsDisponibles){
+		
 	}
 }
 
