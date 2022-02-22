@@ -6,6 +6,83 @@ import java.io.IOException;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 
+
+public class Penjat{
+	public static void main(String[] args) throws IOException{
+		String fitxer = "paraules.txt";
+		FileReader fileReader = new FileReader(fitxer);
+		BufferedReader input = new BufferedReader(fileReader);
+		
+		System.out.println("Comencem a jugar");
+		
+		boolean paraules = true;
+		
+		while(paraules){
+			boolean confirmacio = false;
+			boolean noEncertada = true;
+			int intents = 10;
+			String paraulaSys = input.readLine();
+			String lletresUsades = "";
+        	if (null == paraulaSys){
+        		if (contador==0){
+        			System.out.println("No tinc paraules per jugar");
+        		} else {
+        		System.out.println("No queden més paraules");
+        		}
+        		paraules = false;
+        	}
+        	if(paraules){
+        		char [] paraulaU = new char[paraulaSys.length()];
+				for (int x =0; x<paraulaSys.length(); x++){
+					paraulaU[x]='*';
+				}
+        		String lletraActual = Entrada.readLine();
+        		while(!confirmacio && intents>0 && noEncertada){
+        			if (lletraActual.equals("prou")){
+						System.out.println("Vols sortir?");
+						String resposta = Entrada.readLine();
+						confirmacio = UtilitatsConfirmacio.respostaABoolean(resposta);
+						paraules = false;
+					} else if (lletraActual.equals("glups")){
+						confirmacio = true;
+					} else if (lletraActual.charAt(0)<65 || lletraActual.charAt(0)>123 || lletraActual.length()>1){
+						System.out.println("Error: cal una lletra entre 'a' i 'z', 'prou' o 'glups'");
+					} else {
+						
+						if (contador==0){
+							lletresUsades = lletraActual;
+						} else {
+							lletresUsades += lletraActual;
+						}
+						lletresUsades = lletresUsades.toUpperCase();
+						char lletraActualC = lletraActual.charAt(0);
+						
+						for(int y=0; y<paraulaSys.length(); y++){
+							if (lletresUsades.contains(lletraActual)){
+								
+							}
+						}
+					}
+        		}
+        	}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public class Penjat{
 	public static void main(String[] args) throws IOException{
 		boolean hiHaParaules = true;
