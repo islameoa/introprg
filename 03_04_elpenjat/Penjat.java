@@ -1,4 +1,4 @@
-/*Programa que ens permet jugar al joc del penjat*/
+/*Programa que ens permet jugar al joc del penjat */
 
 import java.io.BufferedReader;
 import java.io.FileReader;
