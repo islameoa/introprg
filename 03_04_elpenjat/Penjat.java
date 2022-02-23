@@ -92,7 +92,7 @@ public class Penjat{
 					} else if (lletraActual.equals("GLUPS")){
 						pCancelades++;
 						confirmacio = true;
-					} else if (lletraActual.charAt(0)<65 || lletraActual.charAt(0)>123 || lletraActual.length()>1){
+					} else if (lletraActual.charAt(0)<65 || lletraActual.charAt(0)>123 || lletraActual.length()>1 || lletraActual.isBlank()){
 						System.out.println("Error: cal una lletra entre 'a' i 'z', 'prou' o 'glups'");
 					} else {
 						boolean repetida = false; 
