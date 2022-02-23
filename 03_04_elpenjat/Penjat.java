@@ -63,6 +63,11 @@ public class Penjat{
 						confirmacio = true;
 					} else if (lletraActual.charAt(0)<65 || lletraActual.charAt(0)>123 || lletraActual.length()>1){
 						System.out.println("Error: cal una lletra entre 'a' i 'z', 'prou' o 'glups'");
+						System.out.print("Paraula: ");
+						mostraParaula(paraulaU);
+						System.out.println("Utilitzades: cap");
+						System.out.println("Intents disponibles: " + intents);
+						System.out.println("Introdueix una lletra");
 					} else {
 						boolean repetida = false;
 						
