@@ -68,7 +68,7 @@ public class Penjat{
 						mostraParaula(paraulaU);
 						System.out.println("Utilitzades: cap");
 						System.out.println("Intents disponibles: " + intents);
-						System.out.println("Introdueix una lletra");
+						
 					} else {
 						boolean repetida = false;
 						
