@@ -45,30 +45,15 @@ public class Penjat{
 				}
 				System.out.print("Paraula: ");
 				mostraParaula(paraulaU);
-				System.out.print("Utilitzades: ");
-				
-				if (lletresUsades.length()==0){
-					System.out.print("cap");
-				} else {
-					for (int u=0; u<lletresUsades.length(); u++){
-						
-						System.out.print(lletresUsades.charAt(u));
-						if (u==lletresUsades.length()-2){
-							System.out.print(" i ");
-						} else if (u<lletresUsades.length()-2){
-							System.out.print(", ");
-						}
-					}
-				}
-				System.out.println("");
-				System.out.print("Intents disponibles: " + intents);
-				System.out.println("");
-									
+				System.out.println("Utilitzades: cap");
+				System.out.println("Intents disponibles: " + intents);
 				System.out.println("Introdueix una lletra");
-        		String lletraActual = Entrada.readLine();
+        		
+        		
         		while(!confirmacio && intents>0 && noEncertada){
+        			String lletraActual = Entrada.readLine();
         			if (lletraActual.equals("prou")){
-						System.out.println("Vols sortir?");
+						System.out.println("Vols finalitzar?");
 						String resposta = Entrada.readLine();
 						confirmacio = UtilitatsConfirmacio.respostaABoolean(resposta);
 						paraules = false;
@@ -82,36 +67,18 @@ public class Penjat{
 						if (contador==0){
 							lletresUsades = lletraActual;
 						}
-						contador++;
+						
 						lletresUsades = lletresUsades.toUpperCase();
 						lletraActual = lletraActual.toUpperCase();
 						
-						if (lletresUsades.contains(lletraActual)){
+						if (contador>0 && lletresUsades.contains(lletraActual)){
 							repetida = true;
 						}
 						
+						contador++;
+						
 						if (repetida){
-							intents--;
-							mostraFigura(intents);
-							System.out.print("Paraula: ");
-							mostraParaula(paraulaU);
-							System.out.print("Utilitzades: ");							
-							if (lletresUsades.length()==0){
-								System.out.print("cap");
-							} else {
-								for (int u=0; u<lletresUsades.length(); u++){
-									
-									System.out.print(lletresUsades.charAt(u));
-									if (u==lletresUsades.length()-2){
-										System.out.print(" i ");
-									} else if (u<lletresUsades.length()-2){
-										System.out.print(", ");
-									}
-								}
-							}
-							System.out.println("");
-							System.out.print("Intents disponibles: " + intents);
-							System.out.println("");
+							System.out.println("Està repetida");
 						} else {
 							boolean lletraCorrecta = false;
 							char lletraActualC = Character.toLowerCase(lletraActual.charAt(0));							
@@ -181,15 +148,13 @@ public class Penjat{
 							}
 						}
 					}
-					if (noEncertada){
-						lletraActual = Entrada.readLine();
-					}
         		}
         		if (intents==0){
         			pFallades++;
         		}
         	}
 		}
+		
 		System.out.println("Paraules jugades: " + pJugades);
 		System.out.println("Paraules encertades: " + pEncertades);
 		System.out.println("Paraules fallades: " + pFallades);
