@@ -47,10 +47,11 @@ public class Penjat{
 				mostraParaula(paraulaU);
 				System.out.println("Utilitzades: cap");
 				System.out.println("Intents disponibles: " + intents);
-				System.out.println("Introdueix una lletra");
+				
         		
         		
         		while(!confirmacio && intents>0 && noEncertada){
+        			System.out.println("Introdueix una lletra");
         			String lletraActual = Entrada.readLine();
         			if (lletraActual.equals("prou")){
 						System.out.println("Vols finalitzar?");
