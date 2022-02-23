@@ -64,14 +64,12 @@ public class Penjat{
 						System.out.println("Error: cal una lletra entre 'a' i 'z', 'prou' o 'glups'");
 					} else {
 						boolean repetida = false;
-						if (contador==0){
-							lletresUsades = lletraActual;
-						}
+						
 						
 						lletresUsades = lletresUsades.toUpperCase();
 						lletraActual = lletraActual.toUpperCase();
 						
-						if (contador>0 && lletresUsades.contains(lletraActual)){
+						if (lletresUsades.contains(lletraActual)){
 							repetida = true;
 						}
 						
@@ -80,6 +78,9 @@ public class Penjat{
 						if (repetida){
 							System.out.println("Està repetida");
 						} else {
+							if (contador==0){
+								lletresUsades = lletraActual;
+							}
 							boolean lletraCorrecta = false;
 							char lletraActualC = Character.toLowerCase(lletraActual.charAt(0));							
 							lletresUsades += lletraActual;
