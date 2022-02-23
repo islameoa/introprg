@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
+import java.io.File;
 
 
 public class Penjat{
@@ -13,9 +14,11 @@ public class Penjat{
 		FileReader fileReader = new FileReader(fitxer);
 		BufferedReader input = new BufferedReader(fileReader);
 		
-		System.out.println("Comencem a jugar");
-		
-		boolean paraules = true;
+		File fitxerr = new File("paraules.txt");
+		boolean paraules = isFileEmpty(fitxerr);
+		if (!paraules){
+			System.out.println("No tinc paraules per jugar");
+		}
 		int contador = 0;
 		int pJugades = 0;
 		int pEncertades = 0;
@@ -23,6 +26,7 @@ public class Penjat{
 		int pCancelades = 0;
 		
 		while(paraules){
+			System.out.println("Comencem a jugar");
 			boolean confirmacio = false;
 			boolean noEncertada = true;
 			
@@ -139,7 +143,9 @@ public class Penjat{
 		System.out.println("Espero que t'hagis divertit");
 		input.close();
 	}
-
+	public static boolean isFileEmpty(File file) {
+		return file.length() == 0;
+	}
 
 	public static void mostraParaula(char[] paraula){
 		for (int i=0; i<paraula.length; i++){
