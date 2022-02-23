@@ -56,6 +56,7 @@ public class Penjat{
 						System.out.println("Vols finalitzar?");
 						String resposta = Entrada.readLine();
 						confirmacio = UtilitatsConfirmacio.respostaABoolean(resposta);
+						if (confirmacio) pCancelades++;
 						paraules = false;
 					} else if (lletraActual.equals("glups")){
 						pCancelades++;
