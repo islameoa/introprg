@@ -18,6 +18,8 @@ public class Penjat{
 		boolean paraules = isFileEmpty(fitxerr);
 		if (!paraules){
 			System.out.println("No tinc paraules per jugar");
+		} else {
+			System.out.println("Comencem a jugar");
 		}
 		int contador = 0;
 		int pJugades = 0;
@@ -26,7 +28,7 @@ public class Penjat{
 		int pCancelades = 0;
 		
 		while(paraules){
-			System.out.println("Comencem a jugar");
+			
 			boolean confirmacio = false;
 			boolean noEncertada = true;
 			
