@@ -17,6 +17,10 @@ public class Penjat{
 		
 		boolean paraules = true;
 		int contador = 0;
+		int pJugades = 0;
+		int pEncertades = 0;
+		int pFallades = 0;
+		int pCancelades = 0;
 		
 		while(paraules){
 			boolean confirmacio = false;
@@ -34,10 +38,32 @@ public class Penjat{
         		paraules = false;
         	}
         	if(paraules){
+        		pJugades++;
         		char [] paraulaU = new char[paraulaSys.length()];
 				for (int x =0; x<paraulaSys.length(); x++){
 					paraulaU[x]='*';
 				}
+				System.out.print("Paraula: ");
+				mostraParaula(paraulaU);
+				System.out.print("Utilitzades: ");
+				
+				if (lletresUsades.length()==0){
+					System.out.print("cap");
+				} else {
+					for (int u=0; u<lletresUsades.length(); u++){
+						
+						System.out.print(lletresUsades.charAt(u));
+						if (u==lletresUsades.length()-2){
+							System.out.print(" i ");
+						} else if (u<lletresUsades.length()-2){
+							System.out.print(", ");
+						}
+					}
+				}
+				System.out.println("");
+				System.out.print("Intents disponibles: " + intents);
+				System.out.println("");
+									
 				System.out.println("Introdueix una lletra");
         		String lletraActual = Entrada.readLine();
         		while(!confirmacio && intents>0 && noEncertada){
@@ -47,6 +73,7 @@ public class Penjat{
 						confirmacio = UtilitatsConfirmacio.respostaABoolean(resposta);
 						paraules = false;
 					} else if (lletraActual.equals("glups")){
+						pCancelades++;
 						confirmacio = true;
 					} else if (lletraActual.charAt(0)<65 || lletraActual.charAt(0)>123 || lletraActual.length()>1){
 						System.out.println("Error: cal una lletra entre 'a' i 'z', 'prou' o 'glups'");
@@ -104,6 +131,7 @@ public class Penjat{
 							noEncertada = paraulaEncertada(paraulaU, paraulaSys);
 							if(!noEncertada){
 								System.out.println("Has encertat! La paraula era " + paraulaSys);
+								pEncertades++;
 							} else {
 								if (lletraCorrecta){
 									System.out.print("Paraula: ");
@@ -153,12 +181,20 @@ public class Penjat{
 							}
 						}
 					}
-					if (!noEncertada){
+					if (noEncertada){
 						lletraActual = Entrada.readLine();
 					}
         		}
+        		if (intents==0){
+        			pFallades++;
+        		}
         	}
 		}
+		System.out.println("Paraules jugades: " + pJugades);
+		System.out.println("Paraules encertades: " + pEncertades);
+		System.out.println("Paraules fallades: " + pFallades);
+		System.out.println("Paraules cancel·lades: " + pCancelades);
+		System.out.println("Espero que t'hagis divertit");
 		input.close();
 	}
 
