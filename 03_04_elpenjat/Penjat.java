@@ -144,7 +144,7 @@ public class Penjat{
 		input.close();
 	}
 	public static boolean isFileEmpty(File file) {
-		return file.length() == 0;
+		return file.length() != 0;
 	}
 
 	public static void mostraParaula(char[] paraula){
