@@ -72,21 +72,22 @@ public class Penjat{
 					System.out.println("");
 					System.out.println("Introdueix una lletra");
         			lletraActual = Entrada.readLine();
+        			lletraActual = lletraActual.toUpperCase();
         			
-        			if (lletraActual.equals("prou")){
+        			if (lletraActual.equals("PROU")){
 						System.out.println("Vols finalitzar?");
 						String resposta = Entrada.readLine();
 						confirmacio = UtilitatsConfirmacio.respostaABoolean(resposta);
 						if (confirmacio) pCancelades++;
 						paraules = false;
-					} else if (lletraActual.equals("glups")){
+					} else if (lletraActual.equals("GLUPS")){
 						pCancelades++;
 						confirmacio = true;
 					} else if (lletraActual.charAt(0)<65 || lletraActual.charAt(0)>123 || lletraActual.length()>1){
 						System.out.println("Error: cal una lletra entre 'a' i 'z', 'prou' o 'glups'");
 					} else {
 						boolean repetida = false; 
-						lletraActual = lletraActual.toUpperCase();
+						
 						if (lletresUsades.contains(lletraActual)){
 							repetida = true;
 						}
