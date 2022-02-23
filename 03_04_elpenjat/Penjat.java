@@ -82,63 +82,67 @@ public class Penjat{
 					System.out.println("Introdueix una lletra");
         			lletraActual = Entrada.readLine();
         			lletraActual = lletraActual.toUpperCase();
-        			
-        			if (lletraActual.equals("PROU")){
-						System.out.println("Vols finalitzar?");
-						String resposta = Entrada.readLine();
-						confirmacio = UtilitatsConfirmacio.respostaABoolean(resposta);
-						if (confirmacio) pCancelades++;
-						paraules = false;
-					} else if (lletraActual.equals("GLUPS")){
-						pCancelades++;
-						confirmacio = true;
-					} else if (lletraActual.charAt(0)<65 || lletraActual.charAt(0)>123 || lletraActual.length()>1 || lletraActual.isBlank()){
-						System.out.println("Error: cal una lletra entre 'a' i 'z', 'prou' o 'glups'");
-					} else {
-						boolean repetida = false; 
-						
-						if (lletresUsades.contains(lletraActual)){
-							repetida = true;
-						}
-						if (repetida){
-							System.out.println("La lletra ja ha estat utilitzada");
+        			if (lletraActual.isBlank()){
+        				System.out.println("Error: cal una lletra entre 'a' i 'z', 'prou' o 'glups'");
+        			} else {
+        				if (lletraActual.equals("PROU")){
+							System.out.println("Vols finalitzar?");
+							String resposta = Entrada.readLine();
+							confirmacio = UtilitatsConfirmacio.respostaABoolean(resposta);
+							if (confirmacio) pCancelades++;
+							paraules = false;
+						} else if (lletraActual.equals("GLUPS")){
+							pCancelades++;
+							confirmacio = true;
+						} else if (lletraActual.charAt(0)<65 || lletraActual.charAt(0)>123 || lletraActual.length()>1 || lletraActual.isBlank()){
+							System.out.println("Error: cal una lletra entre 'a' i 'z', 'prou' o 'glups'");
 						} else {
+							boolean repetida = false; 
 							
-							lletresUsades += lletraActual;
-							
-							boolean lletraCorrecta = false;
-							char lletraActualC = Character.toLowerCase(lletraActual.charAt(0));							
-							
-							for (int i=0; i<paraulaSys.length(); i++){
-								if (lletraActualC == paraulaSys.charAt(i)){
-									paraulaU[i] = Character.toLowerCase(lletraActualC);
-									lletraCorrecta = true;
-								} else {
-									for(int j=0; j<lletresUsades.length(); j++){
-										if (lletresUsades.charAt(j) == paraulaSys.charAt(i)){
-											paraulaU[i] = lletresUsades.charAt(j);
+							if (lletresUsades.contains(lletraActual)){
+								repetida = true;
+							}
+							if (repetida){
+								System.out.println("La lletra ja ha estat utilitzada");
+							} else {
+								
+								lletresUsades += lletraActual;
+								
+								boolean lletraCorrecta = false;
+								char lletraActualC = Character.toLowerCase(lletraActual.charAt(0));							
+								
+								for (int i=0; i<paraulaSys.length(); i++){
+									if (lletraActualC == paraulaSys.charAt(i)){
+										paraulaU[i] = Character.toLowerCase(lletraActualC);
+										lletraCorrecta = true;
+									} else {
+										for(int j=0; j<lletresUsades.length(); j++){
+											if (lletresUsades.charAt(j) == paraulaSys.charAt(i)){
+												paraulaU[i] = lletresUsades.charAt(j);
+											}
 										}
 									}
 								}
-							}
-							noEncertada = paraulaEncertada(paraulaU, paraulaSys);
-							if(!noEncertada){
-								System.out.println("Has encertat! La paraula era " + paraulaSys);
-								pEncertades++;
-							} else {
-								if (!lletraCorrecta){
-									intents--;
-									mostraFigura(intents);
+								noEncertada = paraulaEncertada(paraulaU, paraulaSys);
+								if(!noEncertada){
+									System.out.println("Has encertat! La paraula era " + paraulaSys);
+									pEncertades++;
+								} else {
+									if (!lletraCorrecta){
+										intents--;
+										mostraFigura(intents);
+									}
 								}
 							}
 						}
-					}
-        		}
-        		if (intents==0){
-        			System.out.println("Has mort");
-        			pFallades++;
-        		}
-        	}
+		    		}
+		    		if (intents==0){
+		    			System.out.println("Has mort");
+		    			pFallades++;
+		    		}
+		    	}
+        				
+        			}
 		}
 		if (imp){
 			System.out.println("Paraules jugades: " + pJugades);
