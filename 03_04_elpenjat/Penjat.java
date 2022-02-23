@@ -124,6 +124,7 @@ public class Penjat{
 					}
         		}
         		if (intents==0){
+        			System.out.println("Has mort");
         			pFallades++;
         		}
         	}
