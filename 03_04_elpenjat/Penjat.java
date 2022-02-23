@@ -51,6 +51,26 @@ public class Penjat{
         		
         		
         		while(!confirmacio && intents>0 && noEncertada){
+        			System.out.print("Paraula: ");
+					mostraParaula(paraulaU);
+					System.out.print("Utilitzades: ");
+					
+					if (lletresUsades.length()==0){
+						System.out.print("cap");
+					} else {
+						for (int u=0; u<lletresUsades.length(); u++){
+							
+							System.out.print(lletresUsades.charAt(u));
+							if (u==lletresUsades.length()-2){
+								System.out.print(" i ");
+							} else if (u<lletresUsades.length()-2){
+								System.out.print(", ");
+							}
+						}
+					}
+					System.out.println("");
+					System.out.print("Intents disponibles: " + intents);
+					System.out.println("");
         			System.out.println("Introdueix una lletra");
         			String lletraActual = Entrada.readLine();
         			if (lletraActual.equals("prou")){
@@ -108,50 +128,9 @@ public class Penjat{
 								System.out.println("Has encertat! La paraula era " + paraulaSys);
 								pEncertades++;
 							} else {
-								if (lletraCorrecta){
-									System.out.print("Paraula: ");
-									mostraParaula(paraulaU);
-									System.out.print("Utilitzades: ");
-									
-									if (lletresUsades.length()==0){
-										System.out.print("cap");
-									} else {
-										for (int u=0; u<lletresUsades.length(); u++){
-											
-											System.out.print(lletresUsades.charAt(u));
-											if (u==lletresUsades.length()-2){
-												System.out.print(" i ");
-											} else if (u<lletresUsades.length()-2){
-												System.out.print(", ");
-											}
-										}
-									}
-									System.out.println("");
-									System.out.print("Intents disponibles: " + intents);
-									System.out.println("");
-								} else {
+								if (!lletraCorrecta){
 									intents--;
 									mostraFigura(intents);
-									System.out.print("Paraula: ");
-									mostraParaula(paraulaU);
-									System.out.print("Utilitzades: ");
-									
-									if (lletresUsades.length()==0){
-										System.out.print("cap");
-									} else {
-										for (int u=0; u<lletresUsades.length(); u++){
-											
-											System.out.print(lletresUsades.charAt(u));
-											if (u==lletresUsades.length()-2){
-												System.out.print(" i ");
-											} else if (u<lletresUsades.length()-2){
-												System.out.print(", ");
-											}
-										}
-									}
-									System.out.println("");
-									System.out.print("Intents disponibles: " + intents);
-									System.out.println("");
 								}
 							}
 						}
