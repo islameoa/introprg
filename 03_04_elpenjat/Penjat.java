@@ -83,7 +83,7 @@ public class Penjat{
 						contador++;
 						
 						if (repetida){
-							System.out.println("Està repetida");
+							System.out.println("La lletra ja ha estat utilitzada");
 						} else {
 							if (contador==0){
 								lletresUsades = lletraActual;
