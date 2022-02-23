@@ -138,11 +138,13 @@ public class Penjat{
         	}
 		}
 		
-		System.out.println("Paraules jugades: " + pJugades);
-		System.out.println("Paraules encertades: " + pEncertades);
-		System.out.println("Paraules fallades: " + pFallades);
-		System.out.println("Paraules cancel·lades: " + pCancelades);
-		System.out.println("Espero que t'hagis divertit");
+		if (paraules){
+			System.out.println("Paraules jugades: " + pJugades);
+			System.out.println("Paraules encertades: " + pEncertades);
+			System.out.println("Paraules fallades: " + pFallades);
+			System.out.println("Paraules cancel·lades: " + pCancelades);
+			System.out.println("Espero que t'hagis divertit");
+		}
 		input.close();
 	}
 	public static boolean isFileEmpty(File file) {
