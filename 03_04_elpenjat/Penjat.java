@@ -37,6 +37,7 @@ public class Penjat{
         		}
         		paraules = false;
         	}
+        	contador++;
         	if(paraules){
         		pJugades++;
         		char [] paraulaU = new char[paraulaSys.length()];
@@ -94,7 +95,7 @@ public class Penjat{
 						} else {
 							
 							lletresUsades += lletraActual;
-							contador++;
+							
 							boolean lletraCorrecta = false;
 							char lletraActualC = Character.toLowerCase(lletraActual.charAt(0));							
 							
