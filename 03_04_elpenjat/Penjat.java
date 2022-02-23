@@ -16,8 +16,11 @@ public class Penjat{
 		
 		File fitxerr = new File("paraules.txt");
 		boolean paraules = isFileEmpty(fitxerr);
+		boolean imp = true;
+		
 		if (!paraules){
 			System.out.println("No tinc paraules per jugar");
+			imp = false;
 		} else {
 			System.out.println("Comencem a jugar");
 		}
@@ -137,8 +140,7 @@ public class Penjat{
         		}
         	}
 		}
-		
-		if (paraules){
+		if (imp){
 			System.out.println("Paraules jugades: " + pJugades);
 			System.out.println("Paraules encertades: " + pEncertades);
 			System.out.println("Paraules fallades: " + pFallades);
