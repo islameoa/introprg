@@ -81,10 +81,11 @@ public class Penjat{
 					System.out.println("");
 					System.out.println("Introdueix una lletra");
         			lletraActual = Entrada.readLine();
-        			lletraActual = lletraActual.toUpperCase();
+        			
         			if (lletraActual.isBlank()){
         				System.out.println("Error: cal una lletra entre 'a' i 'z', 'prou' o 'glups'");
         			} else {
+        				lletraActual = lletraActual.toUpperCase();
         				if (lletraActual.equals("PROU")){
 							System.out.println("Vols finalitzar?");
 							String resposta = Entrada.readLine();
