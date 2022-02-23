@@ -58,20 +58,17 @@ public class Penjat{
 						contador++;
 						lletresUsades = lletresUsades.toUpperCase();
 						lletraActual = lletraActual.toUpperCase();
-						char lletraActualC = lletraActual.charAt(0);
 						
-						for(int y=0; y<paraulaSys.length(); y++){
-							if (lletresUsades.contains(lletraActual)){
-								repetida = true;
-							}
+						if (lletresUsades.contains(lletraActual)){
+							repetida = true;
 						}
+						
 						if (repetida){
 							intents--;
 							mostraFigura(intents);
 							System.out.print("Paraula: ");
 							mostraParaula(paraulaU);
-							System.out.print("Utilitzades: ");
-							
+							System.out.print("Utilitzades: ");							
 							if (lletresUsades.length()==0){
 								System.out.print("cap");
 							} else {
@@ -86,13 +83,16 @@ public class Penjat{
 								}
 							}
 							System.out.println("");
-							System.out.print("Intents disponibles: ");
+							System.out.print("Intents disponibles: " + intents);
+							System.out.println("");
 						} else {
-							
+							boolean lletraCorrecta = false;
+							char lletraActualC = Character.toLowerCase(lletraActual.charAt(0));							
 							lletresUsades += lletraActual;
 							for (int i=0; i<paraulaSys.length(); i++){
 								if (lletraActualC == paraulaSys.charAt(i)){
 									paraulaU[i] = Character.toLowerCase(lletraActualC);
+									lletraCorrecta = true;
 								} else {
 									for(int j=0; j<lletresUsades.length(); j++){
 										if (lletresUsades.charAt(j) == paraulaSys.charAt(i)){
@@ -105,29 +105,57 @@ public class Penjat{
 							if(!noEncertada){
 								System.out.println("Has encertat! La paraula era " + paraulaSys);
 							} else {
-								System.out.print("Paraula: ");
-								mostraParaula(paraulaU);
-								System.out.print("Utilitzades: ");
-								
-								if (lletresUsades.length()==0){
-									System.out.print("cap");
-								} else {
-									for (int u=0; u<lletresUsades.length(); u++){
-										
-										System.out.print(lletresUsades.charAt(u));
-										if (u==lletresUsades.length()-2){
-											System.out.print(" i ");
-										} else if (u<lletresUsades.length()-2){
-											System.out.print(", ");
+								if (lletraCorrecta){
+									System.out.print("Paraula: ");
+									mostraParaula(paraulaU);
+									System.out.print("Utilitzades: ");
+									
+									if (lletresUsades.length()==0){
+										System.out.print("cap");
+									} else {
+										for (int u=0; u<lletresUsades.length(); u++){
+											
+											System.out.print(lletresUsades.charAt(u));
+											if (u==lletresUsades.length()-2){
+												System.out.print(" i ");
+											} else if (u<lletresUsades.length()-2){
+												System.out.print(", ");
+											}
 										}
 									}
+									System.out.println("");
+									System.out.print("Intents disponibles: " + intents);
+									System.out.println("");
+								} else {
+									intents--;
+									mostraFigura(intents);
+									System.out.print("Paraula: ");
+									mostraParaula(paraulaU);
+									System.out.print("Utilitzades: ");
+									
+									if (lletresUsades.length()==0){
+										System.out.print("cap");
+									} else {
+										for (int u=0; u<lletresUsades.length(); u++){
+											
+											System.out.print(lletresUsades.charAt(u));
+											if (u==lletresUsades.length()-2){
+												System.out.print(" i ");
+											} else if (u<lletresUsades.length()-2){
+												System.out.print(", ");
+											}
+										}
+									}
+									System.out.println("");
+									System.out.print("Intents disponibles: " + intents);
+									System.out.println("");
 								}
-								System.out.println("");
-								System.out.print("Intents disponibles: ");
 							}
 						}
 					}
-					lletraActual = Entrada.readLine();
+					if (!noEncertada){
+						lletraActual = Entrada.readLine();
+					}
         		}
         	}
 		}
