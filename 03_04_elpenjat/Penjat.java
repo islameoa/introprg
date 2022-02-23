@@ -43,17 +43,15 @@ public class Penjat{
 				for (int x =0; x<paraulaSys.length(); x++){
 					paraulaU[x]='*';
 				}
-				System.out.print("Paraula: ");
-				mostraParaula(paraulaU);
-				System.out.println("Utilitzades: cap");
-				System.out.println("Intents disponibles: " + intents);
-				
-        		
-        		
         		while(!confirmacio && intents>0 && noEncertada){
+        			
         			System.out.print("Paraula: ");
 					mostraParaula(paraulaU);
 					System.out.print("Utilitzades: ");
+					String lletraActual = ("");
+					
+					lletresUsades = lletresUsades.toUpperCase();
+					
 					
 					if (lletresUsades.length()==0){
 						System.out.print("cap");
@@ -71,8 +69,9 @@ public class Penjat{
 					System.out.println("");
 					System.out.print("Intents disponibles: " + intents);
 					System.out.println("");
-        			System.out.println("Introdueix una lletra");
-        			String lletraActual = Entrada.readLine();
+					System.out.println("Introdueix una lletra");
+        			lletraActual = Entrada.readLine();
+        			
         			if (lletraActual.equals("prou")){
 						System.out.println("Vols finalitzar?");
 						String resposta = Entrada.readLine();
@@ -84,33 +83,21 @@ public class Penjat{
 						confirmacio = true;
 					} else if (lletraActual.charAt(0)<65 || lletraActual.charAt(0)>123 || lletraActual.length()>1){
 						System.out.println("Error: cal una lletra entre 'a' i 'z', 'prou' o 'glups'");
-						System.out.print("Paraula: ");
-						mostraParaula(paraulaU);
-						System.out.println("Utilitzades: cap");
-						System.out.println("Intents disponibles: " + intents);
-						
 					} else {
-						boolean repetida = false;
-						
-						
-						lletresUsades = lletresUsades.toUpperCase();
+						boolean repetida = false; 
 						lletraActual = lletraActual.toUpperCase();
-						
 						if (lletresUsades.contains(lletraActual)){
 							repetida = true;
 						}
-						
-						contador++;
-						
 						if (repetida){
 							System.out.println("La lletra ja ha estat utilitzada");
 						} else {
-							if (contador==0){
-								lletresUsades = lletraActual;
-							}
+							
+							lletresUsades += lletraActual;
+							contador++;
 							boolean lletraCorrecta = false;
 							char lletraActualC = Character.toLowerCase(lletraActual.charAt(0));							
-							lletresUsades += lletraActual;
+							
 							for (int i=0; i<paraulaSys.length(); i++){
 								if (lletraActualC == paraulaSys.charAt(i)){
 									paraulaU[i] = Character.toLowerCase(lletraActualC);
