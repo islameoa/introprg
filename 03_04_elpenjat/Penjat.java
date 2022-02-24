@@ -10,20 +10,20 @@ import java.io.File;
 
 public class Penjat{
 	public static void main(String[] args) throws IOException{
-		String fitxer = "paraules.txt";
-		FileReader fileReader = new FileReader(fitxer);
-		BufferedReader input = new BufferedReader(fileReader);
 		
+		BufferedReader input = new BufferedReader(new FileReader("paraules.txt"));
 		File fitxerr = new File("paraules.txt");
-		boolean paraules = isFileEmpty(fitxerr);
-		boolean imp = true;
+		
+		boolean paraules = fitxerBuit(fitxerr);
+		boolean imprimirResultats = true;
 		
 		if (!paraules){
 			System.out.println("No tinc paraules per jugar");
-			imp = false;
+			imprimirResultats = false;
 		} else {
 			System.out.println("Comencem a jugar");
 		}
+		
 		int contador = 0;
 		int pJugades = 0;
 		int pEncertades = 0;
@@ -34,10 +34,10 @@ public class Penjat{
 			
 			boolean confirmacio = false;
 			boolean noEncertada = true;
-			
 			int intents = 10;
 			String paraulaSys = input.readLine();
 			String lletresUsades = "";
+			
         	if (null == paraulaSys){
         		if (contador==0){
         			System.out.println("No tinc paraules per jugar");
@@ -62,7 +62,6 @@ public class Penjat{
 					
 					lletresUsades = lletresUsades.toUpperCase();
 					
-					
 					if (lletresUsades.length()==0){
 						System.out.print("cap");
 					} else {
@@ -80,6 +79,7 @@ public class Penjat{
 					System.out.print("Intents disponibles: " + intents);
 					System.out.println("");
 					System.out.println("Introdueix una lletra");
+					
         			lletraActual = Entrada.readLine();
         			
         			if (lletraActual.isBlank()){
@@ -110,7 +110,9 @@ public class Penjat{
 								lletresUsades += lletraActual;
 								
 								boolean lletraCorrecta = false;
-								char lletraActualC = Character.toLowerCase(lletraActual.charAt(0));							
+								char lletraActualC = Character.toLowerCase(lletraActual.charAt(0));			
+								
+								//doble for que posa la lletra actual al array paraula si hi és i les utilitzades que eren correctes també les posa				
 								
 								for (int i=0; i<paraulaSys.length(); i++){
 									if (lletraActualC == paraulaSys.charAt(i)){
@@ -125,6 +127,7 @@ public class Penjat{
 									}
 								}
 								noEncertada = paraulaEncertada(paraulaU, paraulaSys);
+								
 								if(!noEncertada){
 									System.out.println("Has encertat! La paraula era " + paraulaSys);
 									pEncertades++;
@@ -142,10 +145,9 @@ public class Penjat{
 		    			pFallades++;
 		    		}
 		    	}
-        				
-        			}
+        	}
 		}
-		if (imp){
+		if (imprimirResultats){
 			System.out.println("Paraules jugades: " + pJugades);
 			System.out.println("Paraules encertades: " + pEncertades);
 			System.out.println("Paraules fallades: " + pFallades);
@@ -154,7 +156,7 @@ public class Penjat{
 		}
 		input.close();
 	}
-	public static boolean isFileEmpty(File file) {
+	public static boolean fitxerBuit(File file) {
 		return file.length() != 0;
 	}
 
@@ -204,9 +206,8 @@ public class Penjat{
 		if (intentsDisponibles == 0){
 			intentos = 9;
 		}
-		FileReader fileReader = new FileReader("./recursos/figura"+intentos+".txt");
-        BufferedReader input = new BufferedReader(fileReader);
-                
+		
+		BufferedReader input = new BufferedReader(new FileReader("./recursos/figura"+intentos+".txt"));
         while(true){
         	String linia = input.readLine();
         	if(null == linia){
