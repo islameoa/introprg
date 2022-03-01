@@ -3,7 +3,7 @@
 public class Ascensor {
     public int pis = -1;
     
-    public static void Ascensor(Ascensor ascensor) {
+    public static void pujaPis(Ascensor ascensor) {
         ascensor.pis++;
     }
     public static void main(String[] args){
@@ -12,7 +12,7 @@ public class Ascensor {
         
         System.out.println("L'ascensor inicialment està a la planta " + ascensor.pis);
         
-        Ascensor(ascensor);
+        pujaPis(ascensor);
         
         System.out.println("L'ascensor finalment està a la planta " + ascensor.pis);
     }
