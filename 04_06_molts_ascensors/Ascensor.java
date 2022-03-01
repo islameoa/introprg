@@ -16,7 +16,7 @@ public class Ascensor {
     public static void main(String[] args){
         Ascensor ascensor;
         
-        if (args.length!=1 || !esEnter(args[0])){
+        if (args.length!=1 || args[0].equals("0") || !esEnter(args[0])){
         	System.out.println("Cap ascensor");
         } else {
         	int quants = Integer.parseInt(args[0]);
