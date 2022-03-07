@@ -32,8 +32,8 @@
          
          
          System.out.println("Introdueix nou moviment:");
-         String moviment = Entrada.readLine();
-         //setMoviment(Entrada.readLine());
+         //String moviment = Entrada.readLine();
+         ascensor.setMoviment(Entrada.readLine());
          
          System.out.println("Pis final: " + ascensor.getPis());
          System.out.println("Moviment final: " + ascensor.getMoviment());
