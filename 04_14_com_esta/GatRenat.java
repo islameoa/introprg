@@ -31,21 +31,21 @@ public class GatRenat {
 		return false;
 	}
 	
-	public boolean estaDret(String posicio){
+	public boolean estaDret(){
 		if (posicio.equals("dret")){
 			return true;
 		}
 		return false;
 	}
 	
-	public boolean estaAssegut(String posicio){
+	public boolean estaAssegut(){
 		if (posicio.equals("assegut")){
 			return true;
 		}
 		return false;
 	}
 	
-	public boolean estaEstirat(String posicio){
+	public boolean estaEstirat(){
 		if (posicio.equals("estirat")){
 			return true;
 		}
