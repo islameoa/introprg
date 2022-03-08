@@ -12,7 +12,7 @@ public class Ascensor {
     	if (pis2>0 && pis2<11){
     		pis = pis2;
     	} else {
-    		pis = 0;
+    		pis = -1;
     	}
     }
     
