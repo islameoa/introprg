@@ -24,7 +24,7 @@ public class GatRenat {
 		return posicio;
 	}
 	
-	public boolean estaViu(int vides){
+	public boolean estaViu(){
 		if (vides > 0){
 			return true;
 		}
