@@ -32,8 +32,7 @@ public class Ascensor {
 	}
 	
 	public boolean estaAmunt(){
-		int pis2 = getPis();
-		if (pis==pis2){
+		if (pis==10){
 			return true;
 		}
 		return false;
