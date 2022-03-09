@@ -71,11 +71,12 @@ public class GatRenat {
 	}
 	
 	public String mor(){
-		if (estaViu()){
+		if (vides>1){
 			vides--;
 			return "auch";
 		}
-		if(estaViu() && vides==0){
+		if(vides==1){
+			vides--;
 			return "ximpún";
 		}
 		
