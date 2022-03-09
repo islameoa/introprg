@@ -55,18 +55,21 @@ public class GatRenat {
 		if (posicio.equals("dret")){
 			return "no faig res";
 		}
+		posicio="dret";
 		return "m'aixeco";
 	}
 	public String estirat(){
 		if (posicio.equals("estirat")){
 			return "no faig res";
 		}
+		posicio="estirat";
 		return "m'estiro";
 	}
 	public String seu(){
 		if (posicio.equals("assegut")){
 			return "no faig res";
 		}
+		posicio="assegut";
 		return "m'assec";
 	}
 }
