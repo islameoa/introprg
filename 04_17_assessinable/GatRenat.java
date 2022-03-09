@@ -92,6 +92,9 @@ public class GatRenat {
 	}
 	
 	public String resuscita(int num){
+		if(num<0){
+			return "...";
+		}
 		if(estaViu()){
 			return "...";
 		}
