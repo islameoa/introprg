@@ -70,22 +70,25 @@ public class Ascensor {
 	}
 	
 	public boolean aturat(){
+		if (moviment.equals("aturat")){
+			return false;
+		}
 		moviment = "aturat";
 		return true;
 	}
 	public boolean arrencaAmunt(){
-		if(pis==-1 || estaAturat()){
-			moviment = "pujant";
-			return true;
+		if (moviment.equals("pujant") || moviment.equals("baixant")){
+			return false;
 		}
-		return false;
+		moviment = "pujant";
+		return true;
 	}
 	public boolean arrencaAbaix(){
-		if(pis==10 || estaAturat()){
-			moviment = "baixant";
-			return true;
+		if (moviment.equals("baixant") || moviment.equals("pujant")){
+			return false;
 		}
-		return false;
+		moviment = "baixant";
+		return true;
 	}
 	
 	public int seguentPis(){
