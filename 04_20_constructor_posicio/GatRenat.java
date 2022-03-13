@@ -9,7 +9,7 @@ public class GatRenat {
     }
     @Override
     public String toString() {
-        return String.format("Vides: %d, Posició: %s", vides, posicio);
+        return String.format("Vides: %d. Posició: %s", vides, posicio);
     }
     public int getVides() { return vides; }
     
