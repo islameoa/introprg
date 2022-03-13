@@ -4,7 +4,7 @@ Anotacions sobre les propietats protegides
 
 * Autor/a: Islam El Omrani 
 
-* Data: 5/3/22
+* Data: 7/3/22
 
 Introducció
 ===========
