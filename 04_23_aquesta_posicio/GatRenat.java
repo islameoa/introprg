@@ -16,7 +16,7 @@ public class GatRenat {
     public String getPosicio() { return this.posicio; }
     
     public void setPosicio(String posicio){
-    	if(posicio != "estirat" && posicio != "dret" && posicio != "assegut"){
+    	if(posicio == "estirat" || posicio == "dret" || posicio == "assegut"){
     		this.posicio = posicio;
     	}
     }
