@@ -15,7 +15,7 @@ public class GatRenat {
     public String getPosicio() { return posicio; }
     
     public void setPosicio(String posicio){
-    	posicio = posicio;
+    	posicio = "dret";
     }
     
     public static void main(String[] args) {
