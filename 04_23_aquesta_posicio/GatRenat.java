@@ -21,7 +21,7 @@ public class GatRenat {
     	}
     }
     public void setVides(int vides){
-    	if (novesVides >= 0)  {
+    	if (vides >= 0)  {
         	this.vides = vides;
         }
     }
