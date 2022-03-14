@@ -16,10 +16,14 @@ public class GatRenat {
     public String getPosicio() { return this.posicio; }
     
     public void setPosicio(String posicio){
-    	this.posicio = posicio;
+    	if(posicio != "estirat" && posicio != "dret" && posicio != "assegut"){
+    		this.posicio = posicio;
+    	}
     }
     public void setVides(int vides){
-    	this.vides = vides;
+    	if (novesVides >= 0)  {
+        	this.vides = vides;
+        }
     }
     
     public static void main(String[] args) {
