@@ -6,7 +6,7 @@ public class GatRenat {
     
     public GatRenat(int vides, String posicio) {
         this.vides = 7;
-        this.posicio = "dret";
+        this.posicio = "estirat";
     }
     @Override
     public String toString() {
@@ -18,9 +18,12 @@ public class GatRenat {
     public void setPosicio(String posicio){
     	this.posicio = posicio;
     }
+    public void setVides(int vides){
+    	this.vides = vides;
+    }
     
     public static void main(String[] args) {
-        GatRenat renat = new GatRenat(7, "estirat");
+        GatRenat renat = new GatRenat(7, "dret");
         System.out.println(renat);
     }
 }
