@@ -4,19 +4,19 @@ public class GatRenat {
     private int vides;
     private String posicio;
     
-    public GatRenat(int novesVides, String posicio) {
-        vides = novesVides;
-        posicio = "dret";
+    public GatRenat(int vides, String posicio) {
+        this.vides = 7;
+        this.posicio = "estirat";
     }
     @Override
     public String toString() {
         return String.format("Vides: %d. Posició: %s", vides, posicio);
     }
-    public int getVides() { return vides; }
-    public String getPosicio() { return posicio; }
+    public int getVides() { return this.vides; }
+    public String getPosicio() { return this.posicio; }
     
     public void setPosicio(String posicio){
-    	posicio = "dret";
+    	this.posicio = posicio;
     }
     
     public static void main(String[] args) {
