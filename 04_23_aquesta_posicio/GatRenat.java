@@ -16,10 +16,10 @@ public class GatRenat {
     public String getPosicio() { return this.posicio; }
     
     public void setPosicio(String posicio){
-    	if (posicio != "estirat" && posicio != "dret" && posicio != "assegut"){
-    		this.posicio = "estirat";
-    	} else {
+    	if (posicio.equals("estirat") || posicio.equals("dret") || posicio.equals("assegut")){
     		this.posicio = posicio;
+    	} else {
+    		this.posicio = "estirat";
     	}
     }
     public void setVides(int vides){
