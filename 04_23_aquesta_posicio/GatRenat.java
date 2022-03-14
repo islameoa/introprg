@@ -6,7 +6,7 @@ public class GatRenat {
     
     public GatRenat(int vides, String posicio) {
         this.vides = vides;
-        this.posicio = posicio;
+        setPosicio(posicio);
     }
     @Override
     public String toString() {
