@@ -6,6 +6,7 @@ public class GatRenat {
     
     public GatRenat(int novesVides, String posicio) {
         vides = novesVides;
+        posicio = "dret";
     }
     @Override
     public String toString() {
@@ -15,7 +16,7 @@ public class GatRenat {
     public String getPosicio() { return posicio; }
     
     public void setPosicio(String posicio){
-    	posicio = "dret";
+    	posicio = posicio;
     }
     
     public static void main(String[] args) {
