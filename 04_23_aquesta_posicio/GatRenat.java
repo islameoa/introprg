@@ -5,8 +5,8 @@ public class GatRenat {
     private String posicio;
     
     public GatRenat(int vides, String posicio) {
-        this.vides = 7;
-        this.posicio = "estirat";
+        this.vides = vides;
+        this.posicio = posicio;
     }
     @Override
     public String toString() {
