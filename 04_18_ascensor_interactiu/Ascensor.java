@@ -77,18 +77,20 @@ public class Ascensor {
 		return true;
 	}
 	public boolean arrencaAmunt(){
-		if (moviment.equals("pujant") || moviment.equals("baixant")){
-			return false;
+		if (estaAturat()){
+			moviment = "pujant";
+			return true;
 		}
-		moviment = "pujant";
-		return true;
+		
+		return false;
 	}
 	public boolean arrencaAbaix(){
-		if (moviment.equals("baixant") || moviment.equals("pujant")){
-			return false;
+		if (estaAturat()){
+			moviment = "baixant";
+			return true;
 		}
-		moviment = "baixant";
-		return true;
+		
+		return false;
 	}
 	
 	public int seguentPis(){

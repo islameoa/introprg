@@ -2,9 +2,9 @@
 Anotacions sobre múltiples instàncies
 #####################################
 
-* Autor/a: XXX
+* Autor/a: Islam El Omrani
 
-* Data: XXX
+* Data: 4/3/22
 
 Introducció
 ===========
