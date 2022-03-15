@@ -30,6 +30,7 @@ public class GatRenat {
     
     public static void main(String[] args) {
         GatRenat renat = new GatRenat(7, "dret");
+        
         System.out.println(renat);
     }
 }
