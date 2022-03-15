@@ -1,7 +1,7 @@
 /*Programa que tindrà diversos constructors amb diferents arguments per posar-ho a prova*/
 
 public class GatRenat {
-    private int vides;
+    public int vides;
     private String posicio;
 
     public GatRenat() {
