@@ -1,21 +1,21 @@
 /*Programa que tindrà diversos constructors amb diferents arguments per posar-ho a prova*/
 
 public class GatRenat {
-    public int vides;
-    private String posicio;
+    private int vides = 7;
+    private String posicio = "estirat";
 
     public GatRenat() {
-        this(7, "estirat");
+        //this(7, "estirat");
     }
 
     public GatRenat(int vides) {
         setVides(vides);
-        this.posicio = "estirat";
+        //this.posicio = "estirat";
     }
 
     public GatRenat(String posicio) {
         setPosicio(posicio);
-        vides = 7;
+        //vides = 7;
     }
 
     public GatRenat(int vides, String posicio) {
