@@ -15,7 +15,7 @@ public class GatRenat {
 
     public GatRenat(String posicio) {
         setPosicio(posicio);
-        this.vides = 7;
+        vides = 7;
     }
 
     public GatRenat(int vides, String posicio) {
@@ -29,7 +29,7 @@ public class GatRenat {
     }
 
     public int getVides() {
-        return this.vides;
+        return vides;
     }
 
     public String getPosicio() {
@@ -56,7 +56,6 @@ public class GatRenat {
                 new GatRenat(8), // 8 vides i posició per defecte
                 new GatRenat("dret"), // posició dret i vides per defecte
                 new GatRenat(8, "dret") // 8 vides i posició dret
-
         };
         for (GatRenat renat : renats) {
             System.out.println(renat);
