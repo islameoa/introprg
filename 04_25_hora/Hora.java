@@ -135,6 +135,15 @@ public class Hora {
 
     // Fa que l’hora tingui un segon menys
     void decrementa() {
+        if (hores == 0) {
+            hores = 24;
+        }
+        if (minuts == 0) {
+            minuts = 60;
+        }
+        if (segons == 0) {
+            segons = 60;
+        }
         segons += hores * 3600 + minuts * 60;
         segons--;
         hores = segons / 3600;
