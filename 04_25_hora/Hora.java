@@ -159,14 +159,14 @@ public class Hora {
             }
         } else {
             hores = segons / 3600;
-            while (hores > 23) {
+            while (hores > 23 && hores > 1) {
                 int res = hores - 24;
                 hores = hores - 24;
                 segons += res * 3600;
             }
             segons %= 3600;
             minuts = segons / 60;
-            while (minuts > 59) {
+            while (minuts > 59 && minuts > 1) {
                 int res = minuts - 60;
                 minuts = minuts - 60;
                 hores++;
@@ -216,14 +216,14 @@ public class Hora {
             }
         } else {
             hores = this.segons / 3600;
-            while (hores > 23) {
+            while (hores > 23 && hores > 1) {
                 int res = hores - 24;
                 hores = hores - 24;
                 this.segons += res * 3600;
             }
             this.segons %= this.segons;
             minuts = this.segons / 60;
-            while (minuts > 59) {
+            while (minuts > 59 && minuts > 1) {
                 int res = minuts - 60;
                 minuts = minuts - 60;
                 hores++;
