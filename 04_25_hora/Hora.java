@@ -64,8 +64,8 @@ public class Hora {
 
     // Fa que l’hora tingui un segon més
     void incrementa() {
-        segons++;
         segons += hores * 3600 + minuts * 60;
+        segons++;
         hores = segons / 3600;
         while (hores > 23) {
             int res = hores - 24;
@@ -135,8 +135,8 @@ public class Hora {
 
     // Fa que l’hora tingui un segon menys
     void decrementa() {
-        segons--;
         segons += hores * 3600 + minuts * 60;
+        segons--;
         hores = segons / 3600;
         while (hores > 23) {
             int res = hores - 24;
