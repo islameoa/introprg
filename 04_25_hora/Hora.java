@@ -132,6 +132,7 @@ public class Hora {
 
     // Fa que l’hora tingui un segon menys
     void decrementa() {
+        segons--;
         if (segons < 0) {
             segons = 59;
             minuts--;
