@@ -173,7 +173,7 @@ public class Hora {
                 if (hores > 23) {
                     hores = 0;
                 }
-                segons += res * 3600;
+                segons += res * 60;
             }
             segons %= 60;
             while (segons > 59) {
@@ -186,7 +186,7 @@ public class Hora {
                 if (hores > 23) {
                     hores = 0;
                 }
-                segons += res * 3600;
+                segons += res;
             }
         }
     }
@@ -215,14 +215,14 @@ public class Hora {
                 hores = h;
             }
         } else {
-            hores = segons / 3600;
+            hores = this.segons / 3600;
             while (hores > 23) {
                 int res = hores - 24;
                 hores = hores - 24;
                 this.segons += res * 3600;
             }
-            segons %= 3600;
-            minuts = segons / 60;
+            this.segons %= this.segons;
+            minuts = this.segons / 60;
             while (minuts > 59) {
                 int res = minuts - 60;
                 minuts = minuts - 60;
@@ -230,12 +230,12 @@ public class Hora {
                 if (hores > 23) {
                     hores = 0;
                 }
-                this.segons += res * 3600;
+                this.segons += res * 60;
             }
-            segons %= 60;
-            while (segons > 59) {
-                int res = segons - 60;
-                segons = segons - 60;
+            this.segons %= 60;
+            while (this.segons > 59) {
+                int res = this.segons - 60;
+                this.segons = this.segons - 60;
                 minuts++;
                 if (minuts > 59) {
                     hores++;
@@ -243,7 +243,7 @@ public class Hora {
                 if (hores > 23) {
                     hores = 0;
                 }
-                this.segons += res * 3600;
+                this.segons += res;
             }
         }
     }
