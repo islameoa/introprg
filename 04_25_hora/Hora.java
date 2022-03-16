@@ -66,6 +66,7 @@ public class Hora {
         segons++;
         while (this.segons >= 60) {
             this.segons -= 60;
+            
             while (minuts >= 60) {
                 minuts -= 60;
             }
@@ -73,6 +74,15 @@ public class Hora {
                 hores -= 24;
             }
         }
+        if(this.segons < 0){
+    		this.segons = 0;
+    	}
+    	if(minuts < 0){
+    		hores = 0;
+    	}
+    	if(hores < 0){
+    		hores = 0;
+    	}
     }
 
     // Fa que l’hora s’incrementi en el nombre de segons indicats
@@ -87,6 +97,15 @@ public class Hora {
                 hores -= 24;
             }
         }
+        if(this.segons < 0){
+    		this.segons = 0;
+    	}
+    	if(minuts < 0){
+    		hores = 0;
+    	}
+    	if(hores < 0){
+    		hores = 0;
+    	}
     }
 
     // Fa que l’hora tingui un segon menys
@@ -101,6 +120,15 @@ public class Hora {
                 hores -= 24;
             }
         }
+        if(this.segons < 0){
+    		this.segons = 0;
+    	}
+    	if(minuts < 0){
+    		hores = 0;
+    	}
+    	if(hores < 0){
+    		hores = 0;
+    	}
     }
 
     // Fa que l’hora es decrementi en el nombre de segons indicats
@@ -115,6 +143,15 @@ public class Hora {
                 hores -= 24;
             }
         }
+        if(this.segons < 0){
+    		this.segons = 0;
+    	}
+    	if(minuts < 0){
+    		hores = 0;
+    	}
+    	if(hores < 0){
+    		hores = 0;
+    	}
     }
 
     // Compara amb l’hora indicada i retorna <0 si és menor que la indicada, 0 si
