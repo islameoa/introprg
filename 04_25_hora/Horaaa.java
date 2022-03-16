@@ -132,41 +132,116 @@ public class Hora {
 
     // Fa que l’hora tingui un segon menys
     void decrementa() {
-        int contador = 1;
-        while (contador > 0) {
-            segons--;
-            if (segons < 0) {
-                segons = 59;
-                minuts--;
-                if (minuts < 0) {
-                    minuts = 59;
-                    hores--;
-                    if (hores < 0) {
-                        hores = 23;
+        segons += hores * 3600 + minuts * 60;
+        segons--;
+        if (segons < 0) {
+            int h = 23;
+            int min = 59;
+            int seg = 59;
+            while (segons < 0) {
+                seg += segons + 1;
+                while (seg < 0) {
+                    seg += 60;
+                    min++;
+                    if (min > 59) {
+                        h++;
+                    }
+                    if (h > 23) {
+                        h = 0;
                     }
                 }
+                segons = seg;
+                minuts = min;
+                hores = h;
             }
-            contador--;
+        } else {
+            hores = segons / 3600;
+            while (hores > 23 && hores > 1) {
+                int res = hores - 24;
+                hores = hores - 24;
+                segons += res * 3600;
+            }
+            segons %= 3600;
+            minuts = segons / 60;
+            while (minuts > 59 && minuts > 1) {
+                int res = minuts - 60;
+                minuts = minuts - 60;
+                hores++;
+                if (hores > 23) {
+                    hores = 0;
+                }
+                segons += res * 60;
+            }
+            segons %= 60;
+            while (segons > 59) {
+                int res = segons - 60;
+                segons = segons - 60;
+                minuts++;
+                if (minuts > 59) {
+                    hores++;
+                }
+                if (hores > 23) {
+                    hores = 0;
+                }
+                segons += res;
+            }
         }
     }
 
     // Fa que l’hora es decrementi en el nombre de segons indicats
     void decrementa(int segons) {
-        int contador = segons;
-        while (contador > 0) {
-            this.segons--;
-            if (this.segons < 0) {
-                this.segons = 59;
-                minuts--;
-                if (minuts < 0) {
-                    minuts = 59;
-                    hores--;
-                    if (hores < 0) {
-                        hores = 23;
+        this.segons += hores * 3600 + minuts * 60 - segons;
+        if (this.segons < 0) {
+            int h = 23;
+            int min = 59;
+            int seg = 59;
+            while (segons < 0) {
+                seg += segons + 1;
+                while (seg < 0) {
+                    seg += 60;
+                    min++;
+                    if (min > 59) {
+                        h++;
+                    }
+                    if (h > 23) {
+                        h = 0;
                     }
                 }
+                segons = seg;
+                minuts = min;
+                hores = h;
             }
-            contador--;
+        } else {
+            hores = this.segons / 3600;
+            while (hores > 23 && hores > 1) {
+                int res = hores - 24;
+                hores = hores - 24;
+                this.segons += res * 3600;
+            }
+            this.segons %= this.segons;
+            minuts = this.segons / 60;
+            while (minuts > 59 && minuts > 1) {
+                int res = minuts - 60;
+                minuts = minuts - 60;
+                hores++;
+                if (hores > 23) {
+                    hores = 0;
+                }
+                this.segons += res * 60;
+            }
+            this.segons %= 60;
+            while (this.segons > 59) {
+                int res = this.segons - 60;
+                this.segons = this.segons - 60;
+                minuts++;
+                if (minuts > 59) {
+                    hores++;
+                }
+                if (hores > 23) {
+                    hores = 0;
+                }
+                this.segons += res;
+            }
         }
     }
 
