@@ -1,9 +1,11 @@
+import javax.lang.model.util.ElementScanner6;
+
 public class Hora {
     private int hores;
     private int minuts;
     private int segons;
 
-    public Hora(){
+    public Hora() {
         this.hores = 0;
         this.minuts = 0;
         this.segons = 0;
@@ -39,8 +41,6 @@ public class Hora {
         return segons;
     }
 
-
-
     /**
      * Compara dues hores i retorna l'operador corresponent
      * Per exemple, si hora1 és menor que hora2, l'operador serà "<". Els
@@ -62,26 +62,81 @@ public class Hora {
     }
 
     // Fa que l’hora tingui un segon més
-    void incrementa(){
-
+    void incrementa() {
+        segons++;
+        while (this.segons >= 60) {
+            this.segons -= 60;
+            while (minuts >= 60) {
+                minuts -= 60;
+            }
+            while (hores >= 24) {
+                hores -= 24;
+            }
+        }
     }
 
     // Fa que l’hora s’incrementi en el nombre de segons indicats
-    void incrementa(int segons){
-
+    void incrementa(int segons) {
+        this.segons += segons;
+        while (this.segons >= 60) {
+            this.segons -= 60;
+            while (minuts >= 60) {
+                minuts -= 60;
+            }
+            while (hores >= 24) {
+                hores -= 24;
+            }
+        }
     }
 
     // Fa que l’hora tingui un segon menys
-    void decrementa(){
-
+    void decrementa() {
+        segons--;
+        while (this.segons >= 60) {
+            this.segons -= 60;
+            while (minuts >= 60) {
+                minuts -= 60;
+            }
+            while (hores >= 24) {
+                hores -= 24;
+            }
+        }
     }
+
     // Fa que l’hora es decrementi en el nombre de segons indicats
-    void decrementa(int segons){
-
+    void decrementa(int segons) {
+        this.segons -= segons;
+        while (this.segons >= 60) {
+            this.segons -= 60;
+            while (minuts >= 60) {
+                minuts -= 60;
+            }
+            while (hores >= 24) {
+                hores -= 24;
+            }
+        }
     }
 
-    // Compara amb l’hora indicada i retorna <0 si és menor que la indicada, 0 si són iguals i >0 si és més gran que la indicada
-    int compareTo(Hora hora){
+    // Compara amb l’hora indicada i retorna <0 si és menor que la indicada, 0 si
+    // són iguals i >0 si és més gran que la indicada
+    int compareTo(Hora hora) {
+        if (hores > hora.hores) {
+            return 1;
+        } else if (hores < hora.hores) {
+            return -1;
+        } else {
+            if (minuts > hora.minuts) {
+                return 1;
+            } else if (minuts < hora.minuts) {
+                return -1;
+            } else {
+                if (segons > hora.segons) {
+                    return 1;
+                } else if (segons < hora.segons) {
+                    return -1;
+                }
+            }
+        }
         return 0;
     }
 
@@ -89,7 +144,7 @@ public class Hora {
 
     @Override
     public String toString() {
-        return String.format("%d %02d %02d", getHores(), getMinuts(), getSegons());
+        return String.format("%d:%02d:%02d", getHores(), getMinuts(), getSegons());
     }
 
     public static void main(String[] args) {
