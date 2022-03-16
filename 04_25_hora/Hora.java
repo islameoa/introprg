@@ -194,7 +194,7 @@ public class Hora {
     // Fa que l’hora es decrementi en el nombre de segons indicats
     void decrementa(int segons) {
         this.segons += hores * 3600 + minuts * 60 - segons;
-        if (segons < 0) {
+        if (this.segons < 0) {
             int h = 23;
             int min = 59;
             int seg = 59;
