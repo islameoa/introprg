@@ -1,4 +1,5 @@
 import javax.lang.model.util.ElementScanner6;
+import javax.net.ssl.HostnameVerifier;
 
 public class Hora {
     private int hores;
@@ -133,25 +134,24 @@ public class Hora {
 
     // Fa que l’hora es decrementi en el nombre de segons indicats
     void decrementa(int segons) {
-        this.segons -= segons;
-        while (this.segons >= 60) {
-            this.segons -= 60;
-            while (minuts >= 60) {
-                minuts -= 60;
-            }
-            while (hores >= 24) {
-                hores -= 24;
-            }
+        this.segons += hores * 3600 + minuts * 60 - segons;
+        hores = segons / 3600;
+        while (hores > 23) {
+            int res = hores - 24;
+            hores = hores - 24;
+            this.segons += res * 3600;
         }
-        if(this.segons < 0){
-    		this.segons = 0;
-    	}
-    	if(minuts < 0){
-    		hores = 0;
-    	}
-    	if(hores < 0){
-    		hores = 0;
-    	}
+        segons %= 3600;
+        minuts = segons / 60;
+        while (minuts > 59) {
+            int res = minuts - 60;
+            minuts = minuts - 60;
+            hores++;
+            this.segons += res * 3600;
+        }
+        segons %= 60;
+        
+
     }
 
     // Compara amb l’hora indicada i retorna <0 si és menor que la indicada, 0 si
