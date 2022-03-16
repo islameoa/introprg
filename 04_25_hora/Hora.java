@@ -140,7 +140,7 @@ public class Hora {
         if (segons < 0) {
             int h = 23;
             int min = 59;
-            int seg = 59;
+            int seg = 00;
             while (segons < 0) {
                 seg += segons;
                 while (seg < 0) {
@@ -197,7 +197,7 @@ public class Hora {
         if (segons < 0) {
             int h = 23;
             int min = 59;
-            int seg = 59;
+            int seg = 00;
             while (segons < 0) {
                 seg += segons;
                 while (seg < 0) {
