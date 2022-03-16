@@ -132,21 +132,16 @@ public class Hora {
 
     // Fa que l’hora tingui un segon menys
     void decrementa() {
-        int contador = 1;
-        while (contador > 0) {
-            segons--;
-            if (segons < 0) {
-                segons = 59;
-                minuts--;
-                if (minuts < 0) {
-                    minuts = 59;
-                    hores--;
-                    if (hores < 0) {
-                        hores = 23;
-                    }
+        if (segons < 0) {
+            segons = 59;
+            minuts--;
+            if (minuts < 0) {
+                minuts = 59;
+                hores--;
+                if (hores < 0) {
+                    hores = 23;
                 }
             }
-            contador--;
         }
     }
 
