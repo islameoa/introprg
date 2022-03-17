@@ -149,6 +149,7 @@ public class Hora {
     // Fa que l’hora es decrementi en el nombre de segons indicats
     void decrementa(int segons) {
         if (segons < 0) {
+            segons = abs(segons);
             incrementa(segons);
         } else {
             while (segons > 0) {
@@ -213,5 +214,8 @@ public class Hora {
                 hora1,
                 composaOperadorComparacio(hora1, hora2),
                 hora2);
+    }
+    int abs (int numero) {
+        return numero > 0 ? numero : -numero;
     }
 }
