@@ -82,7 +82,7 @@ public class Hora {
             segons = abs(segons);
             decrementa(segons);
         } else {
-            while (contador <= segons) {
+            while (contador < segons) {
                 this.segons++;
                 if (this.segons > 59) {
                     this.segons = 0;
@@ -171,7 +171,7 @@ public class Hora {
     }
 
     public static void main(String[] args) {
-        Hora hora1 = new Hora();
+        Hora hora1 = new Hora(0,1,0);
         Hora hora2 = new Hora(0, 0, 2);
         System.out.printf("Inicialment hora1: %s %s hora2: %s%n",
                 hora1,
@@ -184,6 +184,8 @@ public class Hora {
                 hora1,
                 composaOperadorComparacio(hora1, hora2),
                 hora2);
+        //hora1.decrementa(-1);
+        //System.out.printf("hora: %s", hora1);
     }
 
     int abs(int numero) {
