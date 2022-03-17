@@ -78,10 +78,10 @@ public class Hora {
     // Fa que l’hora s’incrementi en el nombre de segons indicats
     void incrementa(int segons) {
         int contador = 0;
-        if (segons < 0) {
-            segons = abs(segons);
-            decrementa(segons);
-        } else {
+        // if (segons < 0) {
+        //     segons = abs(segons);
+        //     decrementa(segons);
+        // } else {
             while (contador < segons) {
                 this.segons++;
                 if (this.segons > 59) {
@@ -97,7 +97,7 @@ public class Hora {
                 }
                 contador++;
             }
-        }
+        //}
     }
 
     // Fa que l’hora tingui un segon menys
