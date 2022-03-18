@@ -75,6 +75,74 @@ public class Hora {
         }
     }
 
+    // Fa que l’hora s’incrementi en el nombre de segons indicats
+    void incrementa(int segons) {
+        // for (int i = segons; i > 0; i--) {
+        // this.segons++;
+        // if (this.segons > 59) {
+        // this.segons = 0;
+        // minuts++;
+        // if (minuts > 59) {
+        // minuts = 0;
+        // hores++;
+        // if (hores > 23) {
+        // hores = 0;
+        // }
+        // }
+        // }
+        // }
+        // if (segons < 0) {
+        //     segons = abs(segons);
+        //     while (segons > 0) {
+        //         this.segons--;
+        //         if (this.segons < 0) {
+        //             this.segons = 59;
+        //             minuts--;
+        //             if (minuts < 0) {
+        //                 minuts = 59;
+        //                 hores--;
+        //                 if (hores < 0) {
+        //                     hores = 23;
+        //                 }
+        //             }
+        //         }
+        //         segons--;
+        //     }
+        // } else {
+            this.segons += hores * 3600 + minuts * 60 + segons;
+            hores = this.segons / 3600;
+            while (hores > 23) {
+                int res = hores - 24;
+                hores = hores - 24;
+                this.segons += res * 3600;
+            }
+            this.segons %= 3600;
+            minuts = this.segons / 60;
+            while (minuts > 59) {
+                int res = minuts - 60;
+                minuts = minuts - 60;
+                hores++;
+                if (hores > 23) {
+                    hores = 0;
+                }
+                this.segons += res * 60;
+            }
+            this.segons %= 60;
+            while (this.segons > 59) {
+                int res = this.segons - 60;
+                this.segons = this.segons - 60;
+                minuts++;
+                if (minuts > 59) {
+                    hores++;
+                }
+                if (hores > 23) {
+                    hores = 0;
+                }
+                this.segons += res;
+            }
+        }
+    //}
+
     // Fa que l’hora tingui un segon menys
     void decrementa() {
         segons--;
@@ -91,60 +159,11 @@ public class Hora {
         }
     }
 
-    // Fa que l’hora s’incrementi en el nombre de segons indicats
-    void incrementa(int segons) {
-        if (segons < 0) {
-            int contador = abs(segons);
-            for (int i = contador; i > 0; i--) {
-                this.segons--;
-                if (this.segons < 0) {
-                    this.segons = 59;
-                    minuts--;
-                    if (minuts < 0) {
-                        minuts = 59;
-                        hores--;
-                        if (hores < 0) {
-                            hores = 23;
-                        }
-                    }
-                }
-            }
-        } else {
-            for (int i = segons; i > 0; i--) {
-                this.segons++;
-                if (this.segons > 59) {
-                    this.segons = 0;
-                    minuts++;
-                    if (minuts > 59) {
-                        minuts = 0;
-                        hores++;
-                        if (hores > 23) {
-                            hores = 0;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     // Fa que l’hora es decrementi en el nombre de segons indicats
     void decrementa(int segons) {
         if (segons < 0) {
             segons = abs(segons);
-            for (int i = segons; i > 0; i--) {
-                this.segons++;
-                if (this.segons > 59) {
-                    this.segons = 0;
-                    minuts++;
-                    if (minuts > 59) {
-                        minuts = 0;
-                        hores++;
-                        if (hores > 23) {
-                            hores = 0;
-                        }
-                    }
-                }
-            }
+            incrementa(segons);
         } else {
             while (segons > 0) {
                 this.segons--;
