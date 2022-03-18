@@ -130,7 +130,21 @@ public class Hora {
     void decrementa(int segons) {
         if (segons < 0) {
             segons = abs(segons);
-            incrementa(segons);
+            while (segons > 0) {
+                this.segons++;
+                if (this.segons > 59) {
+                    this.segons = 0;
+                    minuts++;
+                    if (minuts > 59) {
+                        minuts = 0;
+                        hores++;
+                        if (hores > 23) {
+                            hores = 0;
+                        }
+                    }
+                }
+                segons--;
+            }
         } else {
             while (segons > 0) {
                 this.segons--;
