@@ -78,10 +78,10 @@ public class Hora {
     // Fa que l’hora s’incrementi en el nombre de segons indicats
     void incrementa(int segons) {
         
-        // if (segons < 0) {
-        //     segons = abs(segons);
-        //     decrementa(segons);
-        // } else {
+        if (segons < 0) {
+            segons = abs(segons);
+            decrementa(segons);
+        } else {
             while (segons > 0) {
                 this.segons++;
                 if (this.segons > 59) {
@@ -97,7 +97,7 @@ public class Hora {
                 }
                 segons--;
             }
-        //}
+        }
     }
 
     // Fa que l’hora tingui un segon menys
@@ -118,10 +118,10 @@ public class Hora {
 
     // Fa que l’hora es decrementi en el nombre de segons indicats
     void decrementa(int segons) {
-        // if (segons < 0) {
-        //     segons = abs(segons);
-        //     incrementa(segons);
-        // } else {
+        if (segons < 0) {
+            segons = abs(segons);
+            incrementa(segons);
+        } else {
             while (segons > 0) {
                 this.segons--;
                 if (this.segons < 0) {
@@ -138,7 +138,7 @@ public class Hora {
                 segons--;
             }
         }
-    //}
+    }
 
     // Compara amb l’hora indicada i retorna <0 si és menor que la indicada, 0 si
     // són iguals i >0 si és més gran que la indicada
@@ -184,9 +184,6 @@ public class Hora {
                 hora1,
                 composaOperadorComparacio(hora1, hora2),
                 hora2);
-        //Hora hora1 = new Hora(0,0,0);
-        //hora1.decrementa(-1);
-        //System.out.printf("hora: %s", hora1);
     }
 
     int abs(int numero) {
