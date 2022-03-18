@@ -1,13 +1,9 @@
 public class Hora {
-    private int hores;
-    private int minuts;
-    private int segons;
+    private int hores = 0;
+    private int minuts = 0;
+    private int segons = 0;
 
-    public Hora() {
-        this.hores = 0;
-        this.minuts = 0;
-        this.segons = 0;
-    }
+    public Hora() {}
 
     public Hora(int hores, int minuts, int segons) {
         if (hores < 0 || minuts < 0 || segons < 0) {
