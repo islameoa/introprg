@@ -1,19 +1,22 @@
 
 public class Hora {
-    private int hores;
-    private int minuts;
-    private int segons;
+    private int hores = 0;
+    private int minuts = 0;
+    private int segons = 0;
 
     public Hora() {
-        this.hores = 0;
-        this.minuts = 0;
-        this.segons = 0;
     }
 
     public Hora(int hores, int minuts, int segons) {
-        this.hores = hores;
-        this.minuts = minuts;
-        this.segons = segons;
+        if (hores < 0 || hores > 23 || minuts < 0 || minuts > 59 || segons < 0 || segons > 59) {
+            this.hores = 0;
+            this.minuts = 0;
+            this.segons = 0;
+        } else {
+            this.hores = hores;
+            this.minuts = minuts;
+            this.segons = segons;
+        }
     }
 
     public void setHores(int hores) {
