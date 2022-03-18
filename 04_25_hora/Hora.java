@@ -100,7 +100,7 @@ public class Hora {
     //     }
     // }
     void incrementa(int segons){
-        while (segons > 0) {
+        while (segons != 0) {
             this.segons++;
             if (this.segons > 59) {
                 this.segons = 0;
