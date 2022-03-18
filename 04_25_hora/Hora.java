@@ -6,7 +6,7 @@ public class Hora {
     public Hora(){}
 
     public Hora(int hores, int minuts, int segons) {
-        if (hores < 0 || minuts < 0 || segons < 0) {
+        if (hores < 0 || hores > 23 || minuts < 0 || minuts > 59 || segons < 0 || segons > 59) {
             this.hores = 0;
             this.minuts = 0;
             this.segons = 0;
