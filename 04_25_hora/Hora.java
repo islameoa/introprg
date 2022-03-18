@@ -195,43 +195,43 @@ public class Hora {
     }
 
     public static void main(String[] args) {
-        // Hora hora1 = new Hora();
-        // Hora hora2 = new Hora(0, 0, 2);
-        // System.out.printf("Inicialment hora1: %s %s hora2: %s%n",
-        //         hora1,
-        //         composaOperadorComparacio(hora1, hora2),
-        //         hora2);
-        // System.out.println("Incrementem 1 segon a la primera i decrementem 1 segon a la segona");
-        // hora1.incrementa();
-        // hora2.decrementa();
-        // System.out.printf("Finalment hora1: %s %s hora2: %s%n",
-        //         hora1,
-        //         composaOperadorComparacio(hora1, hora2),
-        //         hora2);
         Hora hora1 = new Hora();
-        hora1.decrementa(-2147397248);
-        System.out.printf("Finalment hora1: %s ", hora1);
-        System.out.println();
-        Hora hora2 = new Hora();
-        hora2.incrementa(-2147397248);
-        System.out.printf("Finalment hora2: %s ", hora2);
-        System.out.println();
-        Hora hora3 = new Hora();
-        hora3.decrementa(-2147397678);
-        System.out.printf("Finalment hora3: %s ", hora3);
-        System.out.println();
-        Hora hora4 = new Hora();
-        hora4.incrementa(2147397333);
-        System.out.printf("Finalment hora4: %s ", hora4);
-        System.out.println();
-        Hora hora5 = new Hora();
-        hora5.decrementa(-2147397908);
-        System.out.printf("Finalment hora5: %s ", hora5);
-        System.out.println();
-        Hora hora6 = new Hora();
-        hora6.incrementa(-2147397800);
-        System.out.printf("Finalment hora6: %s ", hora6);
-        System.out.println();
+        Hora hora2 = new Hora(0, 0, 2);
+        System.out.printf("Inicialment hora1: %s %s hora2: %s%n",
+                hora1,
+                composaOperadorComparacio(hora1, hora2),
+                hora2);
+        System.out.println("Incrementem 1 segon a la primera i decrementem 1 segon a la segona");
+        hora1.incrementa();
+        hora2.decrementa();
+        System.out.printf("Finalment hora1: %s %s hora2: %s%n",
+                hora1,
+                composaOperadorComparacio(hora1, hora2),
+                hora2);
+        // Hora hora1 = new Hora();
+        // hora1.decrementa(-2147397248);
+        // System.out.printf("Finalment hora1: %s ", hora1);
+        // System.out.println();
+        // Hora hora2 = new Hora();
+        // hora2.incrementa(-2147397248);
+        // System.out.printf("Finalment hora2: %s ", hora2);
+        // System.out.println();
+        // Hora hora3 = new Hora();
+        // hora3.decrementa(-2147397678);
+        // System.out.printf("Finalment hora3: %s ", hora3);
+        // System.out.println();
+        // Hora hora4 = new Hora();
+        // hora4.incrementa(2147397333);
+        // System.out.printf("Finalment hora4: %s ", hora4);
+        // System.out.println();
+        // Hora hora5 = new Hora();
+        // hora5.decrementa(-2147397908);
+        // System.out.printf("Finalment hora5: %s ", hora5);
+        // System.out.println();
+        // Hora hora6 = new Hora();
+        // hora6.incrementa(-2147397800);
+        // System.out.printf("Finalment hora6: %s ", hora6);
+        // System.out.println();
     }
 
     int abs(int numero) {
