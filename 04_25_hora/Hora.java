@@ -101,6 +101,7 @@ public class Hora {
     // }
     void incrementa(int segons){
         while (segons != 0) {
+            segons--;
             this.segons++;
             if (this.segons > 59) {
                 this.segons = 0;
@@ -113,7 +114,6 @@ public class Hora {
                     }
                 }
             }
-            segons--;
         }
     }
 
@@ -137,8 +137,9 @@ public class Hora {
     void decrementa(int segons) {
         if (segons < 0) {
             segons = abs(segons);
-            while (segons > 0) {
+            while (segons != 0) {
                 this.segons++;
+                segons--;
                 if (this.segons > 59) {
                     this.segons = 0;
                     minuts++;
@@ -150,7 +151,6 @@ public class Hora {
                         }
                     }
                 }
-                segons--;
             }
         } else {
             while (segons > 0) {
