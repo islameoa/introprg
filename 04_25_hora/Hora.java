@@ -91,24 +91,24 @@ public class Hora {
         // }
         // }
         // }
-        // if (segons < 0) {
-        //     segons = abs(segons);
-        //     while (segons > 0) {
-        //         this.segons--;
-        //         if (this.segons < 0) {
-        //             this.segons = 59;
-        //             minuts--;
-        //             if (minuts < 0) {
-        //                 minuts = 59;
-        //                 hores--;
-        //                 if (hores < 0) {
-        //                     hores = 23;
-        //                 }
-        //             }
-        //         }
-        //         segons--;
-        //     }
-        // } else {
+        if (segons < 0) {
+            segons = abs(segons);
+            while (segons > 0) {
+                this.segons--;
+                if (this.segons < 0) {
+                    this.segons = 59;
+                    minuts--;
+                    if (minuts < 0) {
+                        minuts = 59;
+                        hores--;
+                        if (hores < 0) {
+                            hores = 23;
+                        }
+                    }
+                }
+                segons--;
+            }
+        } else {
             this.segons += hores * 3600 + minuts * 60 + segons;
             hores = this.segons / 3600;
             while (hores > 23) {
@@ -141,7 +141,7 @@ public class Hora {
                 this.segons += res;
             }
         }
-    //}
+    }
 
     // Fa que l’hora tingui un segon menys
     void decrementa() {
