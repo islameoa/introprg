@@ -93,7 +93,7 @@ public class Hora {
             if (hores > 23) {
                 hores = 0;
             }
-            this.segons += res * 3600;
+            this.segons += res * 60;
         }
         this.segons %= 60;
         while (this.segons > 59) {
@@ -106,7 +106,7 @@ public class Hora {
             if (hores > 23) {
                 hores = 0;
             }
-            this.segons += res * 3600;
+            this.segons += res;
         }
     }
 
