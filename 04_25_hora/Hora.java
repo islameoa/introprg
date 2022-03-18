@@ -162,8 +162,8 @@ public class Hora {
     // Fa que l’hora es decrementi en el nombre de segons indicats
     void decrementa(int segons) {
         if (segons < 0) {
-            segons = abs(segons);
-            incrementa(segons);
+            int contador = abs(segons);
+            incrementa(contador);
         } else {
             while (segons > 0) {
                 this.segons--;
