@@ -77,8 +77,7 @@ public class Hora {
 
     // Fa que l’hora s’incrementi en el nombre de segons indicats
     void incrementa(int segons) {
-        int contador = segons;
-        while(contador > 0){
+        for (int i = segons; i > 0; i--) {
             this.segons++;
             if (this.segons > 59) {
                 this.segons = 0;
@@ -91,7 +90,6 @@ public class Hora {
                     }
                 }
             }
-            contador--;
         }
         // this.segons += hores * 3600 + minuts * 60 + segons;
         // hores = this.segons / 3600;
