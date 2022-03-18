@@ -15,7 +15,6 @@ public class Hora {
             this.minuts = minuts;
             this.segons = segons;
         }
-
     }
 
     public void setHores(int hores) {
