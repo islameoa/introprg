@@ -76,29 +76,29 @@ public class Hora {
     }
 
     // Fa que l’hora s’incrementi en el nombre de segons indicats
-    void incrementa(int segons) {
+    // void incrementa(int segons) {
         
-        if (segons < 0) {
-            segons = abs(segons);
-            decrementa(segons);
-        } else {
-            while (segons > 0) {
-                this.segons++;
-                if (this.segons > 59) {
-                    this.segons = 0;
-                    minuts++;
-                    if (minuts > 59) {
-                        minuts = 0;
-                        hores++;
-                        if (hores > 23) {
-                            hores = 0;
-                        }
-                    }
-                }
-                segons--;
-            }
-        }
-    }
+    //     if (segons < 0) {
+    //         segons = abs(segons);
+    //         decrementa(segons);
+    //     } else {
+    //         while (segons > 0) {
+    //             this.segons++;
+    //             if (this.segons > 59) {
+    //                 this.segons = 0;
+    //                 minuts++;
+    //                 if (minuts > 59) {
+    //                     minuts = 0;
+    //                     hores++;
+    //                     if (hores > 23) {
+    //                         hores = 0;
+    //                     }
+    //                 }
+    //             }
+    //             segons--;
+    //         }
+    //     }
+    // }
 
     // Fa que l’hora tingui un segon menys
     void decrementa() {
