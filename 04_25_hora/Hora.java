@@ -91,36 +91,41 @@ public class Hora {
         //         }
         //     }
         // }
-        this.segons += hores * 3600 + minuts * 60 + segons;
-        hores = this.segons / 3600;
-        while (hores > 23) {
-        int res = hores - 24;
-        hores = hores - 24;
-        this.segons += res * 3600;
-        }
-        this.segons %= 3600;
-        minuts = this.segons / 60;
-        while (minuts > 59) {
-        int res = minuts - 60;
-        minuts = minuts - 60;
-        hores++;
-        if (hores > 23) {
-        hores = 0;
-        }
-        this.segons += res * 60;
-        }
-        this.segons %= 60;
-        while (this.segons > 59) {
-        int res = this.segons - 60;
-        this.segons = this.segons - 60;
-        minuts++;
-        if (minuts > 59) {
-        hores++;
-        }
-        if (hores > 23) {
-        hores = 0;
-        }
-        this.segons += res;
+        if (segons<0){
+            segons = abs(segons);
+            decrementa(segons);
+        } else {
+            this.segons += hores * 3600 + minuts * 60 + segons;
+            hores = this.segons / 3600;
+            while (hores > 23) {
+            int res = hores - 24;
+            hores = hores - 24;
+            this.segons += res * 3600;
+            }
+            this.segons %= 3600;
+            minuts = this.segons / 60;
+            while (minuts > 59) {
+            int res = minuts - 60;
+            minuts = minuts - 60;
+            hores++;
+            if (hores > 23) {
+            hores = 0;
+            }
+            this.segons += res * 60;
+            }
+            this.segons %= 60;
+            while (this.segons > 59) {
+            int res = this.segons - 60;
+            this.segons = this.segons - 60;
+            minuts++;
+            if (minuts > 59) {
+            hores++;
+            }
+            if (hores > 23) {
+            hores = 0;
+            }
+            this.segons += res;
+            }
         }
     }
 
