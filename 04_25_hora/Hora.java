@@ -118,10 +118,10 @@ public class Hora {
 
     // Fa que l’hora es decrementi en el nombre de segons indicats
     void decrementa(int segons) {
-        if (segons < 0) {
-            segons = abs(segons);
-            incrementa(segons);
-        } else {
+        // if (segons < 0) {
+        //     segons = abs(segons);
+        //     incrementa(segons);
+        // } else {
             while (segons > 0) {
                 this.segons--;
                 if (this.segons < 0) {
@@ -138,7 +138,7 @@ public class Hora {
                 segons--;
             }
         }
-    }
+    //}
 
     // Compara amb l’hora indicada i retorna <0 si és menor que la indicada, 0 si
     // són iguals i >0 si és més gran que la indicada
