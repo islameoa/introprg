@@ -99,6 +99,23 @@ public class Hora {
     //         }
     //     }
     // }
+    void incrementa(int segons){
+        while (segons > 0) {
+            this.segons++;
+            if (this.segons > 59) {
+                this.segons = 0;
+                minuts++;
+                if (minuts > 59) {
+                    minuts = 0;
+                    hores++;
+                    if (hores > 23) {
+                        hores = 0;
+                    }
+                }
+            }
+            segons--;
+        }
+    }
 
     // Fa que l’hora tingui un segon menys
     void decrementa() {
