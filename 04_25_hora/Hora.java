@@ -211,6 +211,9 @@ public class Hora {
         Hora hora1 = new Hora();
         hora1.decrementa(-2147397248);
         System.out.printf("Finalment hora1: %s ", hora1);
+        Hora hor2 = new Hora(;)
+        hora2.incrementa(-2147397248);
+        System.out.printf("Finalment hora2: %s ", hora2);
     }
 
     int abs(int numero) {
