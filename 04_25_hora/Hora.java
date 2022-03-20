@@ -159,34 +159,37 @@ public class Hora {
                 segons--;
             }
         }
-        //     segons %= 3600;
-        //     if (segons > 0){
-        //         while (segons > 0) {
-        //             this.segons--;
-        //             if (this.segons < 0) {
-        //                 this.segons = 59;
-        //                 minuts--;
-        //                 if (minuts < 0) {
-        //                     minuts = 59;
-        //                 }
-        //             }
-        //             segons--;
-        //         }
-        //     } else if (segons < 0){
-        //         while (segons < 0) {
-        //             this.segons--;
-        //             if (this.segons < 0) {
-        //                 this.segons = 59;
-        //                 minuts--;
-        //                 if (minuts < 0) {
-        //                     minuts = 59;
-        //                 }
-        //             }
-        //             segons++;
-        //         }
-        //     } else {
-        //         this.segons--;
-        //     }
+        if (minuts == 60) {
+            minuts = 0;
+        }
+        // segons %= 3600;
+        // if (segons > 0){
+        // while (segons > 0) {
+        // this.segons--;
+        // if (this.segons < 0) {
+        // this.segons = 59;
+        // minuts--;
+        // if (minuts < 0) {
+        // minuts = 59;
+        // }
+        // }
+        // segons--;
+        // }
+        // } else if (segons < 0){
+        // while (segons < 0) {
+        // this.segons--;
+        // if (this.segons < 0) {
+        // this.segons = 59;
+        // minuts--;
+        // if (minuts < 0) {
+        // minuts = 59;
+        // }
+        // }
+        // segons++;
+        // }
+        // } else {
+        // this.segons--;
+        // }
         // }
     }
 
