@@ -140,7 +140,7 @@ public class Hora {
                 hores = 23 + hores;
             }
             segons %= 3600;
-            while (segons < 0) {
+            while (segons != 0) {
                 this.segons--;
                 if (this.segons < 0) {
                     this.segons = 59;
