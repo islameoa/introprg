@@ -214,22 +214,22 @@ public class Hora {
     }
 
     public static void main(String[] args) {
-        // Hora hora1 = new Hora();
-        // Hora hora2 = new Hora(0, 0, 2);
-        // System.out.printf("Inicialment hora1: %s %s hora2: %s%n",
-        //         hora1,
-        //         composaOperadorComparacio(hora1, hora2),
-        //         hora2);
-        // System.out.println("Incrementem 1 segon a la primera i decrementem 1 segon a la segona");
-        // hora1.incrementa();
-        // hora2.decrementa();
-        // System.out.printf("Finalment hora1: %s %s hora2: %s%n",
-        //         hora1,
-        //         composaOperadorComparacio(hora1, hora2),
-        //        hora2);
-        Hora hora1 = new Hora(0,0,1);
-        hora1.decrementa(1);
-        System.out.printf("Finalment hora1: %s ", hora1);
+        Hora hora1 = new Hora();
+        Hora hora2 = new Hora(0, 0, 2);
+        System.out.printf("Inicialment hora1: %s %s hora2: %s%n",
+                hora1,
+                composaOperadorComparacio(hora1, hora2),
+                hora2);
+        System.out.println("Incrementem 1 segon a la primera i decrementem 1 segon a la segona");
+        hora1.incrementa();
+        hora2.decrementa();
+        System.out.printf("Finalment hora1: %s %s hora2: %s%n",
+                hora1,
+                composaOperadorComparacio(hora1, hora2),
+                hora2);
+        // Hora hora1 = new Hora(0,0,1);
+        // hora1.decrementa(1);
+        // System.out.printf("Finalment hora1: %s ", hora1);
         // System.out.println();
         // Hora hora2 = new Hora();
         // hora2.decrementa(3601);
