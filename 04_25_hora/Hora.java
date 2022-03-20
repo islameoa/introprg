@@ -122,7 +122,7 @@ public class Hora {
 
     // Fa que l’hora es decrementi en el nombre de segons indicats
     void decrementa(int segons) {
-        if (segons < 0){
+        if (segons < 0) {
             segons = abs(segons);
             incrementa(segons);
         } else {
@@ -156,14 +156,14 @@ public class Hora {
         // minuts = segons / 60;
         // float resto2 = segons % 3600;
         // while (minuts < -60) {
-        //     minuts += 60;
+        // minuts += 60;
         // }
         // if (minuts < 0) {
-        //     minuts = 59 + minuts;
+        // minuts = 59 + minuts;
         // }
         // this.segons = 60 + segons % 60;
         // if (this.segons > 59) {
-        //     this.segons -= 60;
+        // this.segons -= 60;
         // }
     }
 
@@ -201,17 +201,16 @@ public class Hora {
         Hora hora1 = new Hora();
         Hora hora2 = new Hora(0, 0, 2);
         System.out.printf("Inicialment hora1: %s %s hora2: %s%n",
-        hora1,
-        composaOperadorComparacio(hora1, hora2),
-        hora2);
-        System.out.println("Incrementem 1 segon a la primera i decrementem 1 segon a
-        la segona");
+                hora1,
+                composaOperadorComparacio(hora1, hora2),
+                hora2);
+        System.out.println("Incrementem 1 segon a la primera i decrementem 1 segon a la segona");
         hora1.incrementa();
         hora2.decrementa();
         System.out.printf("Finalment hora1: %s %s hora2: %s%n",
-        hora1,
-        composaOperadorComparacio(hora1, hora2),
-        hora2);
+                hora1,
+                composaOperadorComparacio(hora1, hora2),
+                hora2);
         // Hora hora1 = new Hora();
         // hora1.decrementa();
         // System.out.printf("Finalment hora1: %s ", hora1);
