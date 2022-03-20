@@ -139,47 +139,54 @@ public class Hora {
             if (hores < 0 && resto != 0) {
                 hores = 23 + hores;
             }
-            segons %= 3600;
-            if (segons > 0){
-                while (segons > 0) {
-                    this.segons--;
-                    if (this.segons < 0) {
-                        this.segons = 59;
-                        minuts--;
-                        if (minuts < 0) {
-                            minuts = 59;
-                        }
+        }
+        segons %= 3600;
+        minuts = segons / 60;
+        if (minuts < 60) {
+            while (minuts < 60) {
+                minuts += 60;
+            }
+        } else {
+            while (segons < 0) {
+                this.segons++;
+                if (this.segons < 0) {
+                    this.segons = 59;
+                    minuts--;
+                    if (minuts < 0) {
+                        minuts = 59;
                     }
-                    segons--;
                 }
-            } else if (segons < 0){
-                while (segons < 0) {
-                    this.segons--;
-                    if (this.segons < 0) {
-                        this.segons = 59;
-                        minuts--;
-                        if (minuts < 0) {
-                            minuts = 59;
-                        }
-                    }
-                    segons++;
-                }
-            } else {
-                this.segons--;
+                segons--;
             }
         }
-        // segons %= 3600;
-        // minuts = segons / 60;
-        // float resto2 = segons % 3600;
-        // while (minuts < -60) {
-        // minuts += 60;
-        // }
-        // if (minuts < 0) {
-        // minuts = 59 + minuts;
-        // }
-        // this.segons = 60 + segons % 60;
-        // if (this.segons > 59) {
-        // this.segons -= 60;
+        //     segons %= 3600;
+        //     if (segons > 0){
+        //         while (segons > 0) {
+        //             this.segons--;
+        //             if (this.segons < 0) {
+        //                 this.segons = 59;
+        //                 minuts--;
+        //                 if (minuts < 0) {
+        //                     minuts = 59;
+        //                 }
+        //             }
+        //             segons--;
+        //         }
+        //     } else if (segons < 0){
+        //         while (segons < 0) {
+        //             this.segons--;
+        //             if (this.segons < 0) {
+        //                 this.segons = 59;
+        //                 minuts--;
+        //                 if (minuts < 0) {
+        //                     minuts = 59;
+        //                 }
+        //             }
+        //             segons++;
+        //         }
+        //     } else {
+        //         this.segons--;
+        //     }
         // }
     }
 
