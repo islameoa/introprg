@@ -141,56 +141,18 @@ public class Hora {
             }
         }
         segons %= 3600;
-        minuts = segons / 60;
-        if (minuts < 60) {
-            while (minuts < 60) {
-                minuts += 60;
+        while (segons > 60) {
+            this.segons -= 60;
+            minuts--;
+            if (this.segons < 0) {
+                this.segons = 0;
             }
-        } else {
-            while (segons < 0) {
-                this.segons++;
-                if (this.segons < 0) {
-                    this.segons = 59;
-                    minuts--;
-                    if (minuts < 0) {
-                        minuts = 59;
-                    }
-                }
-                segons--;
-            }
+            segons--;
         }
-        if (minuts == 60) {
-            minuts = 0;
+        while (segons > 0) {
+            this.segons--;
+            segons--;
         }
-        // segons %= 3600;
-        // if (segons > 0){
-        // while (segons > 0) {
-        // this.segons--;
-        // if (this.segons < 0) {
-        // this.segons = 59;
-        // minuts--;
-        // if (minuts < 0) {
-        // minuts = 59;
-        // }
-        // }
-        // segons--;
-        // }
-        // } else if (segons < 0){
-        // while (segons < 0) {
-        // this.segons--;
-        // if (this.segons < 0) {
-        // this.segons = 59;
-        // minuts--;
-        // if (minuts < 0) {
-        // minuts = 59;
-        // }
-        // }
-        // segons++;
-        // }
-        // } else {
-        // this.segons--;
-        // }
-        // }
     }
 
     // Compara amb l’hora indicada i retorna <0 si és menor que la indicada, 0 si
