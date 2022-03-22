@@ -126,15 +126,6 @@ public class Hora {
             segons = abs(segons);
             incrementa(segons);
         } else {
-            if (hores == 0){
-                hores = 24;
-            }
-            if (minuts == 0){
-                minuts = 60;
-            }
-            if (this.segons == 0){
-                this.segons = 60;
-            }
             int hora2 = segons / 3600;
             while (hora2 >= 24) {
                 hora2 -= 24;
@@ -162,9 +153,12 @@ public class Hora {
                     }
                 }
             }
+            while (hores < 0) {
+                hores += 24;
+            }
             
 
-            System.out.println("hora a restar: " + hora2 + ":" + minuts2 + ":" + segons);
+            //System.out.println("hora a restar: " + hora2 + ":" + minuts2 + ":" + segons);
             // int segInicials = hores * 3600 + minuts * 60 + this.segons;
             // segons = segInicials - segons;
             // if (segons >= 0) {
@@ -277,8 +271,8 @@ public class Hora {
                 hora1,
                 composaOperadorComparacio(hora1, hora2),
                 hora2);
-        // Hora hora1 = new Hora(1, 0, 0);
-        // hora1.decrementa(1);
+        // Hora hora1 = new Hora(0, 0, 0);
+        // hora1.decrementa(3600);
         // System.out.printf("Finalment hora1: %s ", hora1);
         // System.out.println();
     }
