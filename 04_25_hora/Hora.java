@@ -126,6 +126,15 @@ public class Hora {
             segons = abs(segons);
             incrementa(segons);
         } else {
+            if (hores == 0){
+                hores = 24;
+            }
+            if (minuts == 0){
+                minuts = 60;
+            }
+            if (this.segons == 0){
+                this.segons = 60;
+            }
             int hora2 = segons / 3600;
             while (hora2 >= 24) {
                 hora2 -= 24;
