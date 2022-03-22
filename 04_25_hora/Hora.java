@@ -140,48 +140,48 @@ public class Hora {
                 }
                 this.segons = segons % 60;
             } else {
-                while (segons < 0) {
-                    this.segons--;
-                    if (this.segons < 0) {
-                        this.segons = 59;
-                        minuts--;
-                        if (minuts < 0) {
-                            minuts = 59;
-                            hores--;
-                            if (hores < 0) {
-                                hores = 23;
+                if (segons > -1000) {
+                    while (segons < 0) {
+                        this.segons--;
+                        if (this.segons < 0) {
+                            this.segons = 59;
+                            minuts--;
+                            if (minuts < 0) {
+                                minuts = 59;
+                                hores--;
+                                if (hores < 0) {
+                                    hores = 23;
+                                }
                             }
                         }
+                        segons++;
                     }
-                    segons++;
+                } else {
+                    hores = segons / 3600;
+                    float resto = segons % 3600;
+                    while (hores < -24) {
+                        hores += 24;
+                    }
+                    if (hores < 0 && resto == 0) {
+                        hores = 24 + hores;
+                    }
+                    if (hores < 0 && resto != 0) {
+                        hores = 23 + hores;
+                    }
+                    segons %= 3600;
+                    while (segons > 60) {
+                        this.segons -= 60;
+                        minuts--;
+                        if (this.segons < 0) {
+                            this.segons = 0;
+                        }
+                        segons--;
+                    }
+                    while (segons > 0) {
+                        this.segons--;
+                        segons--;
+                    }
                 }
-
-
-
-                // hores = segons / 3600;
-                // float resto = segons % 3600;
-                // while (hores < -24) {
-                //     hores += 24;
-                // }
-                // if (hores < 0 && resto == 0) {
-                //     hores = 24 + hores;
-                // }
-                // if (hores < 0 && resto != 0) {
-                //     hores = 23 + hores;
-                // }
-                // segons %= 3600;
-                // while (segons > 60) {
-                //     this.segons -= 60;
-                //     minuts--;
-                //     if (this.segons < 0) {
-                //         this.segons = 0;
-                //     }
-                //     segons--;
-                // }
-                // while (segons > 0) {
-                //     this.segons--;
-                //     segons--;
-                // }
             }
         }
     }
