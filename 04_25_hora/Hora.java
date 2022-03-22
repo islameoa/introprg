@@ -159,7 +159,7 @@ public class Hora {
                 } else {
                     hores = segons / 3600;
                     float resto = segons % 3600;
-                    while (hores < -24) {
+                    while (hores <= -24) {
                         hores += 24;
                     }
                     if (hores < 0 && resto == 0) {
@@ -169,18 +169,38 @@ public class Hora {
                         hores = 23 + hores;
                     }
                     segons %= 3600;
-                    while (segons > 60) {
-                        this.segons -= 60;
-                        minuts--;
-                        if (this.segons < 0) {
-                            this.segons = 0;
-                        }
-                        segons--;
+                    minuts = segons / 60;
+                    while (minuts < 0) {
+                        minuts += 60;
                     }
-                    while (segons > 0) {
+                    segons %= 60;
+                    while (segons < 0) {
                         this.segons--;
-                        segons--;
+                        if (this.segons < 0) {
+                            this.segons = 59;
+                            minuts--;
+                            if (minuts < 0) {
+                                minuts = 59;
+                                hores--;
+                                if (hores < 0) {
+                                    hores = 23;
+                                }
+                            }
+                        }
+                        segons++;
                     }
+                    // while (segons > 60) {
+                    //     this.segons -= 60;
+                    //     minuts--;
+                    //     if (this.segons < 0) {
+                    //         this.segons = 0;
+                    //     }
+                    //     segons--;
+                    // }
+                    // while (segons > 0) {
+                    //     this.segons--;
+                    //     segons--;
+                    // }
                 }
             }
         }
