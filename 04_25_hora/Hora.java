@@ -128,30 +128,43 @@ public class Hora {
         } else {
             int segInicials = hores * 3600 + minuts * 60 + this.segons;
             segons = segInicials - segons;
-            hores = segons / 3600;
-            float resto = segons % 3600;
-            while (hores < -24) {
-                hores += 24;
+            if (segons >= 0) {
+                hores = segons / 3600;
+                while (hores > 24) {
+                    hores -= 24;
+                }
+                segons %= 3600;
+                minuts = segons / 60;
+                while (minuts > 60) {
+                    minuts -= 60;
+                }
+                this.segons = segons % 60;
+            } else {
+                hores = segons / 3600;
+                float resto = segons % 3600;
+                while (hores < -24) {
+                    hores += 24;
+                }
+                if (hores < 0 && resto == 0) {
+                    hores = 24 + hores;
+                }
+                if (hores < 0 && resto != 0) {
+                    hores = 23 + hores;
+                }
+                segons %= 3600;
+                while (segons > 60) {
+                    this.segons -= 60;
+                    minuts--;
+                    if (this.segons < 0) {
+                        this.segons = 0;
+                    }
+                    segons--;
+                }
+                while (segons > 0) {
+                    this.segons--;
+                    segons--;
+                }
             }
-            if (hores < 0 && resto == 0) {
-                hores = 24 + hores;
-            }
-            if (hores < 0 && resto != 0) {
-                hores = 23 + hores;
-            }
-        }
-        segons %= 3600;
-        while (segons > 60) {
-            this.segons -= 60;
-            minuts--;
-            if (this.segons < 0) {
-                this.segons = 0;
-            }
-            segons--;
-        }
-        while (segons > 0) {
-            this.segons--;
-            segons--;
         }
     }
 
@@ -186,23 +199,24 @@ public class Hora {
     }
 
     public static void main(String[] args) {
-        // Hora hora1 = new Hora();
-        // Hora hora2 = new Hora(0, 0, 2);
-        // System.out.printf("Inicialment hora1: %s %s hora2: %s%n",
-        //         hora1,
-        //         composaOperadorComparacio(hora1, hora2),
-        //         hora2);
-        // System.out.println("Incrementem 1 segon a la primera i decrementem 1 segon a la segona");
-        // hora1.incrementa();
-        // hora2.decrementa();
-        // System.out.printf("Finalment hora1: %s %s hora2: %s%n",
-        //         hora1,
-        //         composaOperadorComparacio(hora1, hora2),
-        //         hora2);
-        Hora hora1 = new Hora(0,0,1);
-        hora1.decrementa(1);
-        System.out.printf("Finalment hora1: %s ", hora1);
-        System.out.println();
+        Hora hora1 = new Hora();
+        Hora hora2 = new Hora(0, 0, 2);
+        System.out.printf("Inicialment hora1: %s %s hora2: %s%n",
+        hora1,
+        composaOperadorComparacio(hora1, hora2),
+        hora2);
+        System.out.println("Incrementem 1 segon a la primera i decrementem 1 segon a
+        la segona");
+        hora1.incrementa();
+        hora2.decrementa();
+        System.out.printf("Finalment hora1: %s %s hora2: %s%n",
+        hora1,
+        composaOperadorComparacio(hora1, hora2),
+        hora2);
+        // Hora hora1 = new Hora(0, 0, 1);
+        // hora1.decrementa(1);
+        // System.out.printf("Finalment hora1: %s ", hora1);
+        // System.out.println();
     }
 
     int abs(int numero) {
