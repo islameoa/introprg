@@ -147,6 +147,7 @@ public class Hora {
             }
             while (this.segons < 0) {
                 this.segons += 60;
+                minuts--;
             }
 
             //System.out.println("hora a restar: " + hora2 + ":" + minuts2 + ":" + segons);
