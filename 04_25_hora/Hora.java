@@ -139,6 +139,15 @@ public class Hora {
             hores -= hora2;
             minuts -= minuts2;
             this.segons -= segons;
+            while (hores < 0) {
+                hores += 24;
+            }
+            while (minuts < 0) {
+                minuts += 60;
+            }
+            while (this.segons < 0) {
+                this.segons += 60;
+            }
 
             //System.out.println("hora a restar: " + hora2 + ":" + minuts2 + ":" + segons);
             // int segInicials = hores * 3600 + minuts * 60 + this.segons;
@@ -240,23 +249,23 @@ public class Hora {
     }
 
     public static void main(String[] args) {
-        Hora hora1 = new Hora();
-        Hora hora2 = new Hora(0, 0, 2);
-        System.out.printf("Inicialment hora1: %s %s hora2: %s%n",
-                hora1,
-                composaOperadorComparacio(hora1, hora2),
-                hora2);
-        System.out.println("Incrementem 1 segon a la primera i decrementem 1 segon a la segona");
-        hora1.incrementa();
-        hora2.decrementa();
-        System.out.printf("Finalment hora1: %s %s hora2: %s%n",
-                hora1,
-                composaOperadorComparacio(hora1, hora2),
-                hora2);
-        // Hora hora1 = new Hora(12, 21, 52);
-        // hora1.decrementa(432001);
-        // System.out.printf("Finalment hora1: %s ", hora1);
-        // System.out.println();
+        // Hora hora1 = new Hora();
+        // Hora hora2 = new Hora(0, 0, 2);
+        // System.out.printf("Inicialment hora1: %s %s hora2: %s%n",
+        //         hora1,
+        //         composaOperadorComparacio(hora1, hora2),
+        //         hora2);
+        // System.out.println("Incrementem 1 segon a la primera i decrementem 1 segon a la segona");
+        // hora1.incrementa();
+        // hora2.decrementa();
+        // System.out.printf("Finalment hora1: %s %s hora2: %s%n",
+        //         hora1,
+        //         composaOperadorComparacio(hora1, hora2),
+        //         hora2);
+        Hora hora1 = new Hora(0, 1, 0);
+        hora1.decrementa(1);
+        System.out.printf("Finalment hora1: %s ", hora1);
+        System.out.println();
     }
 
     int abs(int numero) {
