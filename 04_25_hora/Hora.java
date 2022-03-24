@@ -146,6 +146,14 @@ public class Hora {
                 minuts += 60;
                 hores++;
             }
+            boolean segonres = false;
+            if (segons < 0) {
+                this.segons = 60 + this.segons;
+                segonres = true;
+            }
+            if (segonres) {
+                minuts--;
+            }
         }
     }
 
