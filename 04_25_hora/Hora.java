@@ -142,8 +142,8 @@ public class Hora {
                 this.segons += 60;
                 minuts++;
             }
-            while (minuts2 < -60) {
-                minuts2 += 60;
+            while (minuts < -60) {
+                minuts += 60;
                 hores++;
             }
         }
