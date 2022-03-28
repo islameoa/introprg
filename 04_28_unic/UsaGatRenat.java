@@ -17,8 +17,6 @@ public class UsaGatRenat {
         if (novaPosicio.equals("3")) {
             novaPosicio = "dret";
         }
-        // XXX
-        GatRenat.setPosicio(novaPosicio);
         GatRenat.getInstancia(novaPosicio);
     }
 }

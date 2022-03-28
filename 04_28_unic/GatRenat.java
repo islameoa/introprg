@@ -1,5 +1,3 @@
-import java.io.ObjectInputStream.GetField;
-
 /*Programa que tindrà diversos constructors amb diferents arguments per posar-ho a prova*/
 
 public class GatRenat {
