@@ -1,5 +1,4 @@
 /*Programa que tindrà diversos constructors amb diferents arguments per posar-ho a prova*/
-
 public class GatRenat {
     private int vides = 7;
     private String posicio = "estirat";
