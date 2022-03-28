@@ -8,8 +8,15 @@ public class UsaGatRenat {
         }
     }
     private static void canviaPosicio(String novaPosicio) {
-        // Tradueix novaPosicio: 1 -> estirat, 2 -> assegut, 3 -> dret,
-        // altrament es queda com estava
+        if (novaPosicio.equals("1")) {
+            novaPosicio = "estirat";
+        }
+        if (novaPosicio.equals("2")){
+            novaPosicio = "assegut";
+        }
+        if (novaPosicio.equals("3")) {
+            novaPosicio = "dret";
+        }
         // XXX
         GatRenat.getInstancia(novaPosicio);
     }
