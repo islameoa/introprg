@@ -18,6 +18,7 @@ public class UsaGatRenat {
             novaPosicio = "dret";
         }
         // XXX
+        GatRenat.setPosicio(novaPosicio);
         GatRenat.getInstancia(novaPosicio);
     }
 }
