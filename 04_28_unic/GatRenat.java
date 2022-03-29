@@ -4,19 +4,14 @@ public class GatRenat {
     private static String posicio = "estirat";
     private static GatRenat instancia;
 
-    private GatRenat() {
-        // this(7, "estirat");
-    }
+    private GatRenat(){}
 
     private GatRenat(int vides) {
         setVides(vides);
-        // this.posicio = "estirat";
     }
 
     private GatRenat(String posicio) {
-        //this.posicio = posicio;
         setPosicio(posicio);
-        // vides = 7;
     }
 
     private GatRenat(int vides, String posicio) {
@@ -65,7 +60,7 @@ public class GatRenat {
     }
 
     public String getPosicio() {
-        return this.posicio;
+        return posicio;
     }
 
     public void setPosicio(String posicio) {
