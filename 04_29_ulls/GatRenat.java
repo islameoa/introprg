@@ -1,18 +1,39 @@
 public class GatRenat {
 
-    public UllDeGat ullDeGat;
+    public UllDeGat ullDret;
+    public UllDeGat ullEsquerre;
     private int vides = 7;
     private String posicio = "estirat";
+
+    public static void main(String[] args) {
+        GatRenat renat = new GatRenat();
+        UllDeGat ullDret = renat.getUllDret();
+        UllDeGat ullEsquerre = renat.getUllEsquerre();
+        System.out.printf("Quan està %s: %b + %b%n",
+                renat.getPosicio(),
+                renat.getUllDret().estaObert(),
+                renat.getUllEsquerre().estaObert());
+        renat.seu();
+        System.out.printf("Quan està %s: %b + %b%n",
+                renat.getPosicio(),
+                renat.getUllDret().estaObert(),
+                renat.getUllEsquerre().estaObert());
+        renat.aixecat();
+        System.out.printf("Quan està %s: %b + %b%n",
+                renat.getPosicio(),
+                renat.getUllDret().estaObert(),
+                renat.getUllEsquerre().estaObert());
+    }
 
     public GatRenat() {
     }
 
-    public UllDeGat getUllDret(){
-        ullDeGat.getUll();
+    public String getUllDret(){
+        return ullDret.getUll();
     }
 
-    public UllDeGat getUllEsquerre(){
-        getPosicio();
+    public String getUllEsquerre(){
+        return ullEsquerre.getUll();
     }
     @Override
     public String toString() {
@@ -67,25 +88,5 @@ public class GatRenat {
         }
         posicio = "assegut";
         return "m'assec";
-    }
-
-    public static void main(String[] args) {
-        // GatRenat renat = new GatRenat();
-        // UllDeGat ullDret = renat.getUllDret();
-        // UllDeGat ullEsquerre = renat.getUllEsquerre();
-        // System.out.printf("Quan està %s: %b + %b%n",
-        //         renat.getPosicio(),
-        //         renat.getUllDret().estaObert(),
-        //         renat.getUllEsquerre().estaObert());
-        // renat.seu();
-        // System.out.printf("Quan està %s: %b + %b%n",
-        //         renat.getPosicio(),
-        //         renat.getUllDret().estaObert(),
-        //         renat.getUllEsquerre().estaObert());
-        // renat.aixecat();
-        // System.out.printf("Quan està %s: %b + %b%n",
-        //         renat.getPosicio(),
-        //         renat.getUllDret().estaObert(),
-        //         renat.getUllEsquerre().estaObert());
     }
 }

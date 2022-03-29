@@ -1,22 +1,22 @@
 /*Programa que tindrà diversos constructors amb diferents arguments per posar-ho a prova*/
 public class GatRenat {
-    private int vides = 7;
-    private String posicio = "estirat";
+    private static int vides = 7;
+    private static String posicio = "estirat";
     private static GatRenat instancia;
 
     private GatRenat() {
-        //this(7, "estirat");
+        // this(7, "estirat");
     }
 
     private GatRenat(int vides) {
         setVides(vides);
-        //this.posicio = "estirat";
+        // this.posicio = "estirat";
     }
 
     private GatRenat(String posicio) {
         this.posicio = posicio;
-        //setPosicio(posicio);
-        //vides = 7;
+        // setPosicio(posicio);
+        // vides = 7;
     }
 
     private GatRenat(int vides, String posicio) {
@@ -24,26 +24,29 @@ public class GatRenat {
         setPosicio(posicio);
     }
 
-    public static GatRenat getInstancia(){
+    public static GatRenat getInstancia() {
         if (instancia == null) {
             return instancia = new GatRenat();
         }
         return instancia;
     }
-    public static GatRenat getInstancia(int vides){
+
+    public static GatRenat getInstancia(int vides) {
         if (instancia == null) {
             instancia = new GatRenat(vides);
         }
         return instancia;
     }
-    public static GatRenat getInstancia(String posicio){
+
+    public static GatRenat getInstancia(String posicio) {
         if (instancia == null) {
-            return instancia;
+            return instancia = new GatRenat(posicio);
+            ;
         }
-        instancia = new GatRenat(posicio);
         return instancia;
     }
-    public static GatRenat getInstancia(int vides, String posicio){
+
+    public static GatRenat getInstancia(int vides, String posicio) {
         if (instancia == null) {
             instancia = new GatRenat(vides, posicio);
         }
