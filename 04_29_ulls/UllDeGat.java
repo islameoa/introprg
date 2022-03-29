@@ -1,23 +1,17 @@
 public class UllDeGat {
 
-    private String ull = "tancat";
-    
-    public UllDeGat(){}
-    
-    public String getUll() {
-        return ull;
-    }
+    public boolean posicio = false;
 
     public void obret() {
-        ull = "obert";
+        posicio = true;
     }
 
-    public void tancat(){
-        ull = "tancat";
+    public void tancat() {
+        posicio = false;
     }
 
-    public boolean estaObert(){
-        if (getUll()=="obert") {
+    public boolean estaObert() {
+        if (posicio) {
             return true;
         }
         return false;
