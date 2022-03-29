@@ -35,7 +35,7 @@ public class GatRenat {
         if (instancia == null) {
             return instancia = new GatRenat(vides);
         }
-        instancia = new GatRenat(vides);
+        //instancia = new GatRenat(vides);
         return instancia;
     }
 
@@ -51,6 +51,7 @@ public class GatRenat {
         if (instancia == null) {
             instancia = new GatRenat(vides, posicio);
         }
+        instancia = new GatRenat(vides, posicio);
         return instancia;
     }
 
