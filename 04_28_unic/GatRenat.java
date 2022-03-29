@@ -14,7 +14,8 @@ public class GatRenat {
     }
 
     private GatRenat(String posicio) {
-        setPosicio(posicio);
+        this.posicio = posicio;
+        //setPosicio(posicio);
         //vides = 7;
     }
 
@@ -25,7 +26,7 @@ public class GatRenat {
 
     public static GatRenat getInstancia(){
         if (instancia == null) {
-            instancia = new GatRenat();
+            return instancia = new GatRenat();
         }
         return instancia;
     }
@@ -37,8 +38,9 @@ public class GatRenat {
     }
     public static GatRenat getInstancia(String posicio){
         if (instancia == null) {
-            instancia = new GatRenat(posicio);
+            return instancia;
         }
+        instancia = new GatRenat(posicio);
         return instancia;
     }
     public static GatRenat getInstancia(int vides, String posicio){
