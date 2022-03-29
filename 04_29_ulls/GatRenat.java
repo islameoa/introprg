@@ -1,3 +1,5 @@
+/* */
+
 public class GatRenat {
 
     public UllDeGat ullDret;
@@ -9,6 +11,7 @@ public class GatRenat {
         GatRenat renat = new GatRenat();
         UllDeGat ullDret = renat.getUllDret();
         UllDeGat ullEsquerre = renat.getUllEsquerre();
+        
         System.out.printf("Quan està %s: %b + %b%n",
                 renat.getPosicio(),
                 renat.getUllDret().estaObert(),
@@ -28,13 +31,16 @@ public class GatRenat {
     public GatRenat() {
     }
 
-    public String getUllDret(){
-        return ullDret.getUll();
+    public UllDeGat getUllDret(){
+        ullDret = new UllDeGat();
+
     }
 
-    public String getUllEsquerre(){
-        return ullEsquerre.getUll();
+    public UllDeGat getUllEsquerre(){
+        ullEsquerre = new UllDeGat();
+        
     }
+
     @Override
     public String toString() {
         return String.format("Vides: %d. Posició: %s", vides, posicio);
