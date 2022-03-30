@@ -33,9 +33,10 @@ public class GatRenat {
             setPicarol(picarol);
             return null;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
         } else {
-            Picarol antPicarol = new Picarol();
-            antPicarol = getPicarol();
-            return antPicarol;
+            Picarol anticPicarol = new Picarol();
+            anticPicarol = getPicarol();
+            setPicarol(picarol);
+            return anticPicarol;
         }
             
     }
