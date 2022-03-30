@@ -4,6 +4,9 @@ public class UllDeGat {
 
     public boolean posicio = false;
 
+    public UllDeGat() {
+    }
+
     public UllDeGat(boolean posicio) {
         if (posicio == true) {
             this.posicio = true;

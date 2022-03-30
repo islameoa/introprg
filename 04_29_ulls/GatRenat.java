@@ -31,11 +31,11 @@ public class GatRenat {
     public GatRenat() {
     }
 
-    public UllDeGat getUllDret(){
+    public UllDeGat getUllDret() {
         ullDret = new UllDeGat();
         if (posicio.equals("estirat")) {
             ullDret.tancat();
-        } else if (posicio.equals("assegut")){
+        } else if (posicio.equals("assegut")) {
             ullDret.obret();
         } else {
             ullDret.obret();
@@ -47,7 +47,7 @@ public class GatRenat {
         ullEsquerre = new UllDeGat();
         if (posicio.equals("estirat")) {
             ullEsquerre.tancat();
-        } else if (posicio.equals("assegut")){
+        } else if (posicio.equals("assegut")) {
             ullEsquerre.tancat();
         } else {
             ullEsquerre.obret();
