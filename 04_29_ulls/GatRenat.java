@@ -11,7 +11,7 @@ public class GatRenat {
         GatRenat renat = new GatRenat();
         UllDeGat ullDret = renat.getUllDret();
         UllDeGat ullEsquerre = renat.getUllEsquerre();
-        
+
         System.out.printf("Quan està %s: %b + %b%n",
                 renat.getPosicio(),
                 renat.getUllDret().estaObert(),
@@ -33,12 +33,26 @@ public class GatRenat {
 
     public UllDeGat getUllDret(){
         ullDret = new UllDeGat();
-
+        if (posicio.equals("estirat")) {
+            ullDret.tancat();
+        } else if (posicio.equals("assegut")){
+            ullDret.obret();
+        } else {
+            ullDret.obret();
+        }
+        return ullDret;
     }
 
-    public UllDeGat getUllEsquerre(){
+    public UllDeGat getUllEsquerre() {
         ullEsquerre = new UllDeGat();
-        
+        if (posicio.equals("estirat")) {
+            ullEsquerre.tancat();
+        } else if (posicio.equals("assegut")){
+            ullEsquerre.tancat();
+        } else {
+            ullEsquerre.obret();
+        }
+        return ullEsquerre;
     }
 
     @Override
@@ -72,27 +86,15 @@ public class GatRenat {
         setPosicio(posicio);
     }
 
-    public String aixecat() {
-        if (posicio.equals("dret")) {
-            return "no faig res";
-        }
+    public void aixecat() {
         posicio = "dret";
-        return "m'aixeco";
     }
 
-    public String estirat() {
-        if (posicio.equals("estirat")) {
-            return "no faig res";
-        }
+    public void estirat() {
         posicio = "estirat";
-        return "m'estiro";
     }
 
-    public String seu() {
-        if (posicio.equals("assegut")) {
-            return "no faig res";
-        }
+    public void seu() {
         posicio = "assegut";
-        return "m'assec";
     }
 }
