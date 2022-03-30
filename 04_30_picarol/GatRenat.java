@@ -38,7 +38,6 @@ public class GatRenat {
             setPicarol(picarol);
             return anticPicarol;
         }
-            
     }
 
     public Picarol treuPicarol(){
