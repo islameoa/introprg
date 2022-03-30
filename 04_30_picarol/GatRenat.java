@@ -3,7 +3,7 @@
 public class GatRenat {
     private int vides = 7;
     private String posicio = "estirat";
-    private Picarol picarol;
+    private static Picarol picarol;
 
     public static void main(String[] args) {
         Picarol picarol = new Picarol();
