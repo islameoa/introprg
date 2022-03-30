@@ -5,6 +5,14 @@ public class GatRenat {
     private String posicio = "estirat";
     private Picarol picarol;
 
+    public void setPicarol(Picarol picarol) {
+        this.picarol = picarol;
+    }
+
+    public Picarol getPicarol() {
+        return picarol;
+    }
+
     public static void main(String[] args) {
         Picarol picarol = new Picarol();
         picarol.sona(); // el picarol funciona fins i tot sense gat!
@@ -19,27 +27,27 @@ public class GatRenat {
     }
 
     // metodo Picarol posaPicarol que le assigna un picarol, si no te cap picarol, el posa
-    // public Picarol posaPicarol(Picarol picarol) {
-    //     if (picarol == null) {
-    //         return null;
-    //     } else {
-    //         picarol = new Picarol();
-    //         return picarol;
-    //     }
-    // }
+
     public Picarol posaPicarol(Picarol picarol) {
-        if (picarol == null) {
-            return null;
+        if (!tePicarol()) {
+            setPicarol(picarol);
+            return null;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
         } else {
-            this.picarol = picarol;
-            return this.picarol;
+            Picarol antPicarol = new Picarol();
+            antPicarol = getPicarol();
+            return antPicarol;
         }
+            
     }
 
     public Picarol treuPicarol(){
-        Picarol picarol = this.picarol;
-        this.picarol = null;
-        return picarol;
+        if (!tePicarol()) {
+            return null;
+        } else {
+            Picarol anticPicarol = getPicarol();
+            this.picarol = null;
+            return anticPicarol;
+        }
     }
 
     // metodo booleano tePicarol que retorna true si te picarol, false en cas contrari
