@@ -82,7 +82,7 @@ public class GatRenat {
         }
     }
 
-    private GatRenat(String posicio) {
+    public GatRenat(String posicio) {
         setPosicio(posicio);
     }
 

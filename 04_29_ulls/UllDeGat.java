@@ -1,6 +1,16 @@
+import java.lang.reflect.Constructor;
+
 public class UllDeGat {
 
     public boolean posicio = false;
+
+    public UllDeGat(boolean posicio) {
+        if (posicio == true) {
+            this.posicio = true;
+        } else {
+            this.posicio = false;
+        }
+    }
 
     public void obret() {
         posicio = true;
