@@ -3,7 +3,7 @@
 public class GatRenat {
     private int vides = 7;
     private String posicio = "estirat";
-    private static Picarol picarol;
+    private Picarol picarol;
 
     public static void main(String[] args) {
         Picarol picarol = new Picarol();
@@ -20,13 +20,12 @@ public class GatRenat {
 
     // metodo Picarol posaPicarol que le assigna un picarol, si no te cap picarol, el posa
     public Picarol posaPicarol(Picarol picarol) {
-        if (picarol == null) {
-            picarol = null;
+        if (this.picarol == null) {
+            return null;
         } else {
-            picarol = new Picarol();
             this.picarol = picarol;
+            return this.picarol;
         }
-        return picarol;
     }
 
     public Picarol treuPicarol(){
@@ -45,7 +44,7 @@ public class GatRenat {
     }
 
     public GatRenat() {
-        picarol = null;
+        //picarol = null;
     }
 
     @Override
