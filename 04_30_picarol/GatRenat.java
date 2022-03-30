@@ -1,3 +1,5 @@
+/*Classe gatrenat que fa neixer el gatrenat sense picarol i que se'l posa i se'l treu amb els mòduls posaPicarol i treuPicarol */
+
 public class GatRenat {
     private int vides = 7;
     private String posicio = "estirat";
