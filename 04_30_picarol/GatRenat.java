@@ -20,7 +20,10 @@ public class GatRenat {
 
     // metodo Picarol posaPicarol que le assigna un picarol, si no te cap picarol, el posa
     public Picarol posaPicarol(Picarol picarol) {
-        if (picarol == null || this.picarol == null) {
+        if (this.picarol == null) {
+            this.picarol = new Picarol();
+        }
+        if (picarol == null) {
             return null;
         } else {
             this.picarol = picarol;
