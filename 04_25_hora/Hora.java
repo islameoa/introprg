@@ -127,20 +127,43 @@ public class Hora {
             segons = abs(segons);
             incrementa(segons);
         } else {
-            segons += hores * 3600 + minuts * 60 + this.segons;
-            hores = segons / 3600;
-            while (hores > 24) {
-                hores -= 24;
-            }
-            segons %= 3600;
-            minuts = segons / 60;
-            while (minuts > 60) {
-                minuts -= 60;
-            }
-            this.segons = segons % 60;
-        }
-    }
+            int segonsActuals = hores * 3600 + minuts * 60 + this.segons;
+            int hora = 0;
+            int minuts = 0;
+            int segundos = 0;
 
+            if (segonsActuals < segons) {
+                segons = segons - segonsActuals;
+                while (segons > 86400) {
+                    segons -= 86400;
+                }
+                int horaRestada = 86400 - segons;
+                hora = horaRestada / 3600;
+                while (hora > 24) {
+                    hora -= 24;
+                }
+                segons = horaRestada % 3600;
+                minuts = segons / 60;
+                while (minuts > 60) {
+                    minuts -= 60;
+                }
+                this.segons = segons % 60;
+            } else {
+                segons = segonsActuals - segons;
+                hora = segons / 3600;
+                while (hora > 24) {
+                    hora -= 24;
+                }
+                segons = segons % 3600;
+                minuts = segons / 60;
+                while (minuts > 60) {
+                    minuts -= 60;
+                }
+                this.segons = segons % 60;
+            }
+                
+            }
+        }
 
     // Compara amb l’hora indicada i retorna <0 si és menor que la indicada, 0 si
     // són iguals i >0 si és més gran que la indicada
