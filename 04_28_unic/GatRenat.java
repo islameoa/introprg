@@ -1,4 +1,4 @@
-/*Programa que tindrà diversos constructors amb diferents arguments per posar-ho a prova*/
+/*Programa que tindrà una instància estàtica com a propietat, tindrà getter public i constructors privats per demostrar que es poden crear instàncies amb un constructor privat*/
 public class GatRenat {
     private static int vides = 7;
     private static String posicio = "estirat";
