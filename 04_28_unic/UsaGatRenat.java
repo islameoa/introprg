@@ -1,4 +1,5 @@
-/*Programa que utilitza la classe GatRenat per provar-la, creem una instància que té mòduls i propietats estàtiques i les canviem amb canviaPosicio*/
+/*Programa que utilitza la classe GatRenat per provar-la, creem una instància amb getInstancia i la propietat privada de GatRenat, desprès les canviem amb canviaPosicio i veiem que canvia per ser estatic*/
+
 public class UsaGatRenat {
     public static void main(String[] args) {
         GatRenat renat = GatRenat.getInstancia();
