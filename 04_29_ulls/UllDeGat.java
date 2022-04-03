@@ -1,5 +1,4 @@
-import java.lang.reflect.Constructor;
-
+/*Classe UllDeGat que te una propietat que indica la posicio de l'ull, true si està obert, false si està tancat i mòduls per obrir-lo o tancar-lo*/
 public class UllDeGat {
 
     public boolean posicio = false;

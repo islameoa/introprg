@@ -1,4 +1,4 @@
-/* */
+/*Classe GatRenat que servirà per practicar la composició, el gat neix amb dos ulls, un ull és propietat de la classe UllDeGatRenat */
 
 public class GatRenat {
 
