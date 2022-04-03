@@ -1,3 +1,4 @@
+/*Classe hora en la que tindrem com a propietats hores, minuts i segons i podrem afegir o restar temps amb diversos mòduls*/
 public class Hora {
     private int hores = 0;
     private int minuts = 0;
@@ -120,48 +121,26 @@ public class Hora {
         }
     }
 
-    // Fa que l’hora es decrementi en el nombre de segons indicats
+    //Módulo que hace que la hora decremente en el número de segundos indicados
     void decrementa(int segons) {
         if (segons < 0) {
             segons = abs(segons);
             incrementa(segons);
         } else {
-            int hora2 = segons / 3600;
-            while (hora2 >= 24) {
-                hora2 -= 24;
+            segons += hores * 3600 + minuts * 60 + this.segons;
+            hores = segons / 3600;
+            while (hores > 24) {
+                hores -= 24;
             }
             segons %= 3600;
-            int minuts2 = segons / 60;
-            segons = segons % 60;
-
-            hores -= hora2;
-            minuts -= minuts2;
-            this.segons -= segons;
-
-            while (this.segons < -60) {
-                this.segons += 60;
-                minuts++;
+            minuts = segons / 60;
+            while (minuts > 60) {
+                minuts -= 60;
             }
-            while (minuts < -60) {
-                minuts += 60;
-                hores++;
-            }
-            boolean segonres = false;
-            boolean minres = false;
-            if (this.segons < 0) {
-                this.segons = 60 + this.segons;
-                segonres = true;
-            }
-            if (segonres) {
-                minuts--;
-                minres = true;
-            }
-            if (minres){
-                minuts = 59;
-                hores--;
-            }
+            this.segons = segons % 60;
         }
     }
+
 
     // Compara amb l’hora indicada i retorna <0 si és menor que la indicada, 0 si
     // són iguals i >0 si és més gran que la indicada
