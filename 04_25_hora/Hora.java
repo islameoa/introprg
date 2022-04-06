@@ -19,20 +19,26 @@ public class Hora {
     }
 
     public void setHores(int hores) {
-        if (hores > 0 && hores < 24) {
+        if (hores >= 0 && hores < 24) {
             this.hores = hores;
+        } else {
+            this.hores = 0;
         }
     }
 
     public void setMinuts(int minuts) {
-        if (minuts > 0 && minuts < 60) {
+        if (minuts >= 0 && minuts < 60) {
             this.minuts = minuts;
+        } else {
+            this.minuts = 0;
         }
     }
 
     public void setSegons(int segons) {
-        if (segons > 0 && segons < 60) {
+        if (segons >= 0 && segons < 60) {
             this.segons = segons;
+        } else {
+            this.segons = 0;
         }
     }
 
