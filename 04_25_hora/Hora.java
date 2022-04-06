@@ -92,10 +92,11 @@ public class Hora {
             decrementa(segons);
         } else {
             segons += getHores() * 3600 + getMinuts() * 60 + getSegons();
-            setHores(segons / 3600);
-            while (getHores() > 23) {
-                setHores(getHores() - 24);
+            int h = segons / 3600;
+            while (h > 23) {
+                h -= 24;
             }
+            setHores(h);
             segons %= 3600;
             setMinuts(segons / 60);
             while (getMinuts() > 60) {
@@ -114,10 +115,11 @@ public class Hora {
                 segons -= 86400;
             }
             int segonsFinals = 86400 - segons;
-            setHores(segonsFinals / 3600);
-            while (getHores() > 23) {
-                setHores(getHores() - 24);
+            int h = segonsFinals / 3600;
+            while (h > 23) {
+                h -= 24;
             }
+            setHores(h);
             segonsFinals %= 3600;
             setMinuts(segonsFinals / 60);
             while (getMinuts() > 60) {
@@ -126,10 +128,11 @@ public class Hora {
             setSegons(segonsFinals % 60);
         } else {
             segonsInicials -= segons;
-            setHores(segonsInicials / 3600);
-            while (getHores() > 23) {
-                setHores(getHores() - 24);
+            int h = segonsInicials / 3600;
+            while (h > 23) {
+                h -= 24;
             }
+            setHores(h);
             segonsInicials %= 3600;
             setMinuts(segonsInicials / 60);
             while (getMinuts() > 60) {
@@ -170,19 +173,23 @@ public class Hora {
     }
 
     public static void main(String[] args) {
-        Hora hora1 = new Hora();
-        Hora hora2 = new Hora(0, 0, 2);
-        System.out.printf("Inicialment hora1: %s %s hora2: %s%n",
-                hora1,
-                composaOperadorComparacio(hora1, hora2),
-                hora2);
-        System.out.println("Incrementem 1 segon a la primera i decrementem 1 segon a la segona");
-        hora1.incrementa();
-        hora2.decrementa();
-        System.out.printf("Finalment hora1: %s %s hora2: %s%n",
-                hora1,
-                composaOperadorComparacio(hora1, hora2),
-                hora2);
+        // Hora hora1 = new Hora();
+        // Hora hora2 = new Hora(0, 0, 2);
+        // System.out.printf("Inicialment hora1: %s %s hora2: %s%n",
+        //         hora1,
+        //         composaOperadorComparacio(hora1, hora2),
+        //         hora2);
+        // System.out.println("Incrementem 1 segon a la primera i decrementem 1 segon a la segona");
+        // hora1.incrementa();
+        // hora2.decrementa();
+        // System.out.printf("Finalment hora1: %s %s hora2: %s%n",
+        //         hora1,
+        //         composaOperadorComparacio(hora1, hora2),
+        //         hora2);
+        Hora hora1 = new Hora(12, 21, 52);
+        hora1.decrementa(-432001);
+        System.out.printf("Finalment hora1: %s ", hora1);
+        System.out.println();
     }
 
     int abs(int numero) {
