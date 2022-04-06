@@ -4,7 +4,8 @@ public class Hora {
     private int minuts = 0;
     private int segons = 0;
 
-    public Hora() {}
+    public Hora() {
+    }
 
     public Hora(int hores, int minuts, int segons) {
         if (hores < 0 || hores > 23 || minuts < 0 || minuts > 59 || segons < 0 || segons > 59) {
@@ -104,7 +105,7 @@ public class Hora {
         }
     }
 
-    //Módulo que hace que la hora decremente en el número de segundos indicados
+    // Módulo que hace que la hora decremente en el número de segundos indicados
     void decrementa(int segons) {
         int segonsInicials = getHores() * 3600 + getMinuts() * 60 + getSegons();
         if (segonsInicials < segons) {
@@ -126,7 +127,7 @@ public class Hora {
         } else {
             segonsInicials -= segons;
             setHores(segonsInicials / 3600);
-            while (getHores() > 24) {
+            while (getHores() > 23) {
                 setHores(getHores() - 24);
             }
             segonsInicials %= 3600;
@@ -182,10 +183,6 @@ public class Hora {
                 hora1,
                 composaOperadorComparacio(hora1, hora2),
                 hora2);
-        // Hora hora1 = new Hora(0, 0, 0);
-        // hora1.decrementa(86399);
-        // System.out.printf("Finalment hora1: %s ", hora1);
-        // System.out.println();
     }
 
     int abs(int numero) {
