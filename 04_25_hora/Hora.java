@@ -92,17 +92,7 @@ public class Hora {
             decrementa(segons);
         } else {
             segons += getHores() * 3600 + getMinuts() * 60 + getSegons();
-            int h = segons / 3600;
-            while (h > 23) {
-                h -= 24;
-            }
-            setHores(h);
-            segons %= 3600;
-            setMinuts(segons / 60);
-            while (getMinuts() > 60) {
-                setMinuts(getMinuts() - 60);
-            }
-            setSegons(segons % 60);
+            converteixHora(segons);
         }
     }
 
@@ -115,30 +105,10 @@ public class Hora {
                 segons -= 86400;
             }
             int segonsFinals = 86400 - segons;
-            int h = segonsFinals / 3600;
-            while (h > 23) {
-                h -= 24;
-            }
-            setHores(h);
-            segonsFinals %= 3600;
-            setMinuts(segonsFinals / 60);
-            while (getMinuts() > 60) {
-                setMinuts(getMinuts() - 60);
-            }
-            setSegons(segonsFinals % 60);
+            converteixHora(segonsFinals);
         } else {
             segonsInicials -= segons;
-            int h = segonsInicials / 3600;
-            while (h > 23) {
-                h -= 24;
-            }
-            setHores(h);
-            segonsInicials %= 3600;
-            setMinuts(segonsInicials / 60);
-            while (getMinuts() > 60) {
-                setMinuts(getMinuts() - 60);
-            }
-            setSegons(segonsInicials % 60);
+            converteixHora(segonsInicials);
         }
     }
 
@@ -192,4 +162,17 @@ public class Hora {
         return numero > 0 ? numero : -numero;
     }
 
+    public void converteixHora(int segons) {
+        int h = segons / 3600;
+        while (h > 23) {
+            h -= 24;
+        }
+        setHores(h);
+        segons %= 3600;
+        setMinuts(segons / 60);
+        while (getMinuts() > 60) {
+            setMinuts(getMinuts() - 60);
+        }
+        setSegons(segons % 60);
+    }
 }
