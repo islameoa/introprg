@@ -70,34 +70,36 @@ public class Hora {
 
     // Fa que l’hora tingui un segon més
     void incrementa() {
-        setSegons(getSegons() + 1);
-        if (getSegons() > 59) {
-            setSegons(0);
-            setMinuts(getMinuts() + 1);
-            if (getMinuts() > 59) {
-                setMinuts(0);
-                setHores(getHores()+1);
-                if (getHores() > 23) {
-                    setHores(0);
-                }
-            }
-        }
+        incrementa(1);
+        // setSegons(getSegons() + 1);
+        // if (getSegons() > 59) {
+        //     setSegons(0);
+        //     setMinuts(getMinuts() + 1);
+        //     if (getMinuts() > 59) {
+        //         setMinuts(0);
+        //         setHores(getHores()+1);
+        //         if (getHores() > 23) {
+        //             setHores(0);
+        //         }
+        //     }
+        // }
     }
 
     // Fa que l’hora tingui un segon menys
     void decrementa() {
-        setSegons(getSegons() - 1);
-        if (getSegons() < 0) {
-            setSegons(59);
-            setMinuts(getMinuts() - 1);
-            if (getMinuts() < 0) {
-                setMinuts(59);
-                setHores(getHores() - 1);
-                if (getHores() < 0) {
-                    setHores(23);
-                }
-            }
-        }
+        decrementa(1);
+        // setSegons(getSegons()-1);
+        // if (getSegons() < 0) {
+        //     setSegons(59);
+        //     setMinuts(getMinuts() - 1);
+        //     if (getMinuts() < 0) {
+        //         setMinuts(59);
+        //         setHores(getHores() - 1);
+        //         if (getHores() < 0) {
+        //             setHores(23);
+        //         }
+        //     }
+        // }
     }
 
     // Fa que l’hora s’incrementi en el nombre de segons indicats
