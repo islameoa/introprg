@@ -77,35 +77,11 @@ public class Hora {
     // Fa que l’hora tingui un segon més
     void incrementa() {
         incrementa(1);
-        // setSegons(getSegons() + 1);
-        // if (getSegons() > 59) {
-        //     setSegons(0);
-        //     setMinuts(getMinuts() + 1);
-        //     if (getMinuts() > 59) {
-        //         setMinuts(0);
-        //         setHores(getHores()+1);
-        //         if (getHores() > 23) {
-        //             setHores(0);
-        //         }
-        //     }
-        // }
     }
 
     // Fa que l’hora tingui un segon menys
     void decrementa() {
         decrementa(1);
-        // setSegons(getSegons()-1);
-        // if (getSegons() < 0) {
-        //     setSegons(59);
-        //     setMinuts(getMinuts() - 1);
-        //     if (getMinuts() < 0) {
-        //         setMinuts(59);
-        //         setHores(getHores() - 1);
-        //         if (getHores() < 0) {
-        //             setHores(23);
-        //         }
-        //     }
-        // }
     }
 
     // Fa que l’hora s’incrementi en el nombre de segons indicats
@@ -116,7 +92,7 @@ public class Hora {
         } else {
             segons += getHores() * 3600 + getMinuts() * 60 + getSegons();
             setHores(segons / 3600);
-            while (getHores() > 24) {
+            while (getHores() > 23) {
                 setHores(getHores() - 24);
             }
             segons %= 3600;
@@ -138,7 +114,7 @@ public class Hora {
             }
             int segonsFinals = 86400 - segons;
             setHores(segonsFinals / 3600);
-            while (getHores() > 24) {
+            while (getHores() > 23) {
                 setHores(getHores() - 24);
             }
             segonsFinals %= 3600;
