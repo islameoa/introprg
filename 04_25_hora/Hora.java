@@ -4,8 +4,7 @@ public class Hora {
     private int minuts = 0;
     private int segons = 0;
 
-    public Hora() {
-    }
+    public Hora() {}
 
     public Hora(int hores, int minuts, int segons) {
         if (hores < 0 || hores > 23 || minuts < 0 || minuts > 59 || segons < 0 || segons > 59) {
@@ -20,19 +19,19 @@ public class Hora {
     }
 
     public void setHores(int hores) {
-        if (minuts > 0) {
-            this.minuts = minuts;
+        if (hores > 0 && hores < 24) {
+            this.hores = hores;
         }
     }
 
     public void setMinuts(int minuts) {
-        if (minuts > 0) {
+        if (minuts > 0 && minuts < 60) {
             this.minuts = minuts;
         }
     }
 
     public void setSegons(int segons) {
-        if (segons > 0) {
+        if (segons > 0 && segons < 60) {
             this.segons = segons;
         }
     }
@@ -71,15 +70,15 @@ public class Hora {
 
     // Fa que l’hora tingui un segon més
     void incrementa() {
-        segons++;
-        if (segons > 59) {
-            segons = 0;
-            minuts++;
-            if (minuts > 59) {
-                minuts = 0;
-                hores++;
-                if (hores > 23) {
-                    hores = 0;
+        setSegons(getSegons() + 1);
+        if (getSegons() > 59) {
+            setSegons(0);
+            setMinuts(getMinuts() + 1);
+            if (getMinuts() > 59) {
+                setMinuts(0);
+                setHores(getHores()+1);
+                if (getHores() > 23) {
+                    setHores(0);
                 }
             }
         }
@@ -87,15 +86,15 @@ public class Hora {
 
     // Fa que l’hora tingui un segon menys
     void decrementa() {
-        segons--;
-        if (segons < 0) {
-            segons = 59;
-            minuts--;
-            if (minuts < 0) {
-                minuts = 59;
-                hores--;
-                if (hores < 0) {
-                    hores = 23;
+        setSegons(getSegons() - 1);
+        if (getSegons() < 0) {
+            setSegons(59);
+            setMinuts(getMinuts() - 1);
+            if (getMinuts() < 0) {
+                setMinuts(59);
+                setHores(getHores() - 1);
+                if (getHores() < 0) {
+                    setHores(23);
                 }
             }
         }
@@ -107,80 +106,70 @@ public class Hora {
             segons = abs(segons);
             decrementa(segons);
         } else {
-            segons += hores * 3600 + minuts * 60 + this.segons;
-            hores = segons / 3600;
-            while (hores > 24) {
-                hores -= 24;
+            segons += getHores() * 3600 + getMinuts() * 60 + getSegons();
+            setHores(segons / 3600);
+            while (getHores() > 24) {
+                setHores(getHores() - 24);
             }
             segons %= 3600;
-            minuts = segons / 60;
-            while (minuts > 60) {
-                minuts -= 60;
+            setMinuts(segons / 60);
+            while (getMinuts() > 60) {
+                setMinuts(getMinuts() - 60);
             }
-            this.segons = segons % 60;
+            setSegons(segons % 60);
         }
     }
 
     //Módulo que hace que la hora decremente en el número de segundos indicados
     void decrementa(int segons) {
-        if (segons < 0) {
-            segons = abs(segons);
-            incrementa(segons);
+        int segonsInicials = getHores() * 3600 + getMinuts() * 60 + getSegons();
+        if (segonsInicials < segons) {
+            segons -= segonsInicials;
+            while (segons > 86400) {
+                segons -= 86400;
+            }
+            int segonsFinals = 86400 - segons;
+            setHores(segonsFinals / 3600);
+            while (getHores() > 24) {
+                setHores(getHores() - 24);
+            }
+            segonsFinals %= 3600;
+            setMinuts(segonsFinals / 60);
+            while (getMinuts() > 60) {
+                setMinuts(getMinuts() - 60);
+            }
+            setSegons(segonsFinals % 60);
         } else {
-            int segonsActuals = hores * 3600 + minuts * 60 + this.segons;
-            int hora = 0;
-            int minuts = 0;
-            int segundos = 0;
-
-            if (segonsActuals < segons) {
-                segons = segons - segonsActuals;
-                while (segons > 86400) {
-                    segons -= 86400;
-                }
-                int horaRestada = 86400 - segons;
-                hora = horaRestada / 3600;
-                while (hora > 24) {
-                    hora -= 24;
-                }
-                segons = horaRestada % 3600;
-                minuts = segons / 60;
-                while (minuts > 60) {
-                    minuts -= 60;
-                }
-                this.segons = segons % 60;
-            } else {
-                segons = segonsActuals - segons;
-                hora = segons / 3600;
-                while (hora > 24) {
-                    hora -= 24;
-                }
-                segons = segons % 3600;
-                minuts = segons / 60;
-                while (minuts > 60) {
-                    minuts -= 60;
-                }
-                this.segons = segons % 60;
+            segonsInicials -= segons;
+            setHores(segonsInicials / 3600);
+            while (getHores() > 24) {
+                setHores(getHores() - 24);
             }
-                
+            segonsInicials %= 3600;
+            setMinuts(segonsInicials / 60);
+            while (getMinuts() > 60) {
+                setMinuts(getMinuts() - 60);
             }
+            setSegons(segonsInicials % 60);
         }
+    }
 
     // Compara amb l’hora indicada i retorna <0 si és menor que la indicada, 0 si
     // són iguals i >0 si és més gran que la indicada
     int compareTo(Hora hora) {
-        if (hores > hora.hores) {
+        if (getHores() > hora.hores) {
             return 1;
-        } else if (hores < hora.hores) {
+        } else if (getHores() < hora.hores) {
             return -1;
         } else {
-            if (minuts > hora.minuts) {
+            if (getMinuts() > hora.minuts) {
                 return 1;
-            } else if (minuts < hora.minuts) {
+            } else if (getMinuts() < hora.minuts) {
                 return -1;
             } else {
-                if (segons > hora.segons) {
+                if (getSegons() > hora.segons) {
                     return 1;
-                } else if (segons < hora.segons) {
+                } else if (getSegons() < hora.segons) {
                     return -1;
                 }
             }
