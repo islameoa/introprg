@@ -55,7 +55,7 @@ public class Vi {
 
     @Override
     public String toString() {
-        return "\n\tVi: " + nom + "\n\tPreu: " + preu + "\n\tEstoc: " + estoc + "\n";
+        return "\n\t Vi: " + nom + "\n\t Preu: " + preu + "\n\t Estoc: " + estoc + "\n";
     }
 
     // metode normalitzaNom() que treu el espais en blanc del nom
