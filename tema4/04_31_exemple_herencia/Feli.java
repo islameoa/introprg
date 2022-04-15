@@ -3,9 +3,6 @@ public class Feli {
     public void caça(Animal presa) { /* … */ }
 }
 
-class Animal {
-    public String nom;
-}
 
 class Gat extends Feli {
     
