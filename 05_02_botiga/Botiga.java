@@ -13,12 +13,12 @@ public class Botiga {
         vins = new Vi[maxVins];
     }
 
-    public Vi afegeix(Vi vi){
+    public Vi afegeix(Vi vi) {
         boolean elegible = true;
-        if(vi.esValid()){
-            for(int i=0; i<vins.length; i++){
+        if (vi.esValid()) {
+            for (int i = 0; i < vins.length; i++) {
                 if (vins[i] != null) {
-                    if(vins[i].getNom() == vi.getNom()){
+                    if (vins[i].getNom() == vi.getNom()) {
                         elegible = false;
                     }
                 }
@@ -35,11 +35,11 @@ public class Botiga {
         return null;
     }
 
-    public Vi cerca(String nom){
+    public Vi cerca(String nom) {
         nom = Vi.normalitzaNom(nom);
-        for(int i=0; i<vins.length; i++){
+        for (int i = 0; i < vins.length; i++) {
             if (vins[i] != null) {
-                if(vins[i].getNom() == nom){
+                if (vins[i].getNom() == nom) {
                     return vins[i];
                 }
             }
@@ -47,12 +47,12 @@ public class Botiga {
         return null;
     }
 
-    public Vi elimina(String nom){
+    public Vi elimina(String nom) {
         nom = Vi.normalitzaNom(nom);
-        for(int i=0; i<vins.length; i++){
+        for (int i = 0; i < vins.length; i++) {
             if (vins[i] != null) {
-                if(vins[i].getNom() == nom){
-                    if (vins[i].getEstoc() > 0){
+                if (vins[i].getNom() == nom) {
+                    if (vins[i].getEstoc() > 0) {
                         return null;
                     } else {
                         vins[i] = null;
