@@ -60,7 +60,7 @@ public class Vi {
 
     // metode normalitzaNom() que treu el espais en blanc del nom
     public static String normalitzaNom(String nom) {
-        try {
+        // try {
             nom = nom.strip();
             String nomNormalitzat = "";
             boolean espai = false;
@@ -75,9 +75,9 @@ public class Vi {
                 }
             }
             return nomNormalitzat;
-        } catch (Exception e) {
-            return "NOM NO VÀLID!";
-        }
+        // } catch (Exception e) {
+        //     return "NOM NO VÀLID!";
+        // }
     }
 
     public boolean esValid() {
