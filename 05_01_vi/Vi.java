@@ -58,7 +58,6 @@ public class Vi {
         return "\n    Vi: " + getNom() + "\n    Preu: " + getPreu() + "\n    Estoc: " + getEstoc() + "\n";
     }
 
-    // metode normalitzaNom() que treu el espais en blanc del nom
     public static String normalitzaNom(String nom) {
         try {
             if (nom.isBlank()) {
@@ -85,10 +84,5 @@ public class Vi {
 
     public boolean esValid() {
         return (nom != null && nom != "NOM NO VÀLID!" && nom.length() > 0 && preu >= 0 && estoc >= 0);
-    }
-    public static void main(String[] args) {
-        Vi v1 = new Vi("nom    cognom1    cognom2", 10, 5);
-        v1.nom=normalitzaNom(v1.nom);
-        System.out.println(v1.toString());
     }
 }
