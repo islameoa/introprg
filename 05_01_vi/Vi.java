@@ -7,7 +7,7 @@ public class Vi {
 
     public Vi(String nom, int preu, int estoc) {
         this.nom = normalitzaNom(nom);
-        if (this.preu < 0) {
+        if (preu < 0) {
             this.preu = -1;
         } else {
             this.preu = preu;
@@ -21,7 +21,7 @@ public class Vi {
 
     public Vi(String nom, int preu) {
         this.nom = normalitzaNom(nom);
-        if (this.preu < 0) {
+        if (preu < 0) {
             this.preu = -1;
         } else {
             this.preu = preu;
