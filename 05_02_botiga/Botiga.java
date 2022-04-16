@@ -1,6 +1,6 @@
 public class Botiga {
-    int DEFAULT_MAX_VINS = 10;
-    Vi vins[];
+    private int DEFAULT_MAX_VINS = 10;
+    private Vi vins[];
 
     public Botiga() {
         vins = new Vi[DEFAULT_MAX_VINS];
@@ -36,10 +36,11 @@ public class Botiga {
     }
 
     public Vi cerca(String nom) {
-        nom = Vi.normalitzaNom(nom);
+        nom = Vi.normalitzaNom(nom).toLowerCase();
         for (int i = 0; i < vins.length; i++) {
             if (vins[i] != null) {
-                if (vins[i].getNom().equals(nom)) {
+                String vi = vins[i].getNom().toLowerCase();
+                if (vi.equals(nom)) {
                     return vins[i];
                 }
             }
