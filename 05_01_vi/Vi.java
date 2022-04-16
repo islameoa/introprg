@@ -61,6 +61,9 @@ public class Vi {
     // metode normalitzaNom() que treu el espais en blanc del nom
     public static String normalitzaNom(String nom) {
         try {
+            if (nom.isBlank()) {
+                throw new Exception("NOM NO VÀLID!");
+            }
             nom = nom.strip();
             String nomNormalitzat = "";
             boolean espai = false;
