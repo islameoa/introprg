@@ -18,7 +18,7 @@ public class Botiga {
         if (vi.esValid()) {
             for (int i = 0; i < vins.length; i++) {
                 if (vins[i] != null) {
-                    if (vins[i].getNom() == vi.getNom()) {
+                    if (vins[i].getNom().equals(vi.getNom())) {
                         elegible = false;
                     }
                 }
@@ -39,7 +39,7 @@ public class Botiga {
         nom = Vi.normalitzaNom(nom);
         for (int i = 0; i < vins.length; i++) {
             if (vins[i] != null) {
-                if (vins[i].getNom() == nom) {
+                if (vins[i].getNom().equals(nom)) {
                     return vins[i];
                 }
             }
@@ -51,7 +51,7 @@ public class Botiga {
         nom = Vi.normalitzaNom(nom);
         for (int i = 0; i < vins.length; i++) {
             if (vins[i] != null) {
-                if (vins[i].getNom() == nom) {
+                if (vins[i].getNom().equals(nom)) {
                     if (vins[i].getEstoc() > 0) {
                         return null;
                     } else {
