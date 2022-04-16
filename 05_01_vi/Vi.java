@@ -83,4 +83,9 @@ public class Vi {
     public boolean esValid() {
         return (nom != null && nom != "NOM NO VÀLID!" && nom.length() > 0 && preu >= 0 && estoc >= 0);
     }
+    // public static void main(String[] args) {
+    //     Vi v1 = new Vi("        nom", 10, 5);
+    //     v1.nom=normalitzaNom(v1.nom);
+    //     System.out.println(v1.toString());
+    // }
 }
