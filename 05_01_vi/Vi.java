@@ -6,7 +6,7 @@ public class Vi {
     private int estoc;
 
     public Vi(String nom, int preu, int estoc) {
-        this.nom = nom;
+        this.nom = normalitzaNom(nom);
         if (this.preu < 0) {
             this.preu = -1;
         } else {
@@ -20,7 +20,7 @@ public class Vi {
     }
 
     public Vi(String nom, int preu) {
-        this.nom = nom;
+        this.nom = normalitzaNom(nom);
         if (this.preu < 0) {
             this.preu = -1;
         } else {
@@ -60,7 +60,7 @@ public class Vi {
 
     // metode normalitzaNom() que treu el espais en blanc del nom
     public static String normalitzaNom(String nom) {
-        // try {
+        try {
             nom = nom.strip();
             String nomNormalitzat = "";
             boolean espai = false;
@@ -75,17 +75,17 @@ public class Vi {
                 }
             }
             return nomNormalitzat;
-        // } catch (Exception e) {
-        //     return "NOM NO VÀLID!";
-        // }
+        } catch (Exception e) {
+            return "NOM NO VÀLID!";
+        }
     }
 
     public boolean esValid() {
         return (nom != null && nom != "NOM NO VÀLID!" && nom.length() > 0 && preu >= 0 && estoc >= 0);
     }
-    // public static void main(String[] args) {
-    //     Vi v1 = new Vi("        nom", 10, 5);
-    //     v1.nom=normalitzaNom(v1.nom);
-    //     System.out.println(v1.toString());
-    // }
+    public static void main(String[] args) {
+        Vi v1 = new Vi("nom    cognom1    cognom2", 10, 5);
+        v1.nom=normalitzaNom(v1.nom);
+        System.out.println(v1.toString());
+    }
 }
