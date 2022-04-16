@@ -12,7 +12,7 @@ public class Vi {
         } else {
             this.preu = preu;
         }
-        if (this.estoc < 0) {
+        if (estoc < 0) {
             this.estoc = -1;
         } else {
             this.estoc = estoc;
