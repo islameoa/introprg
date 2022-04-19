@@ -32,12 +32,12 @@ public class Entorn {
     }
     private static void mostraAjuda() {
         System.out.println("Comandes disponibles:");
-        System.out.println("  ajuda");
-        System.out.println("  cerca");
-        System.out.println("  afegeix");
-        System.out.println("  modifica");
-        System.out.println("  elimina <nom>");
-        System.out.println("  surt");
+        System.out.println("ajuda");
+        System.out.println("cerca");
+        System.out.println("afegeix");
+        System.out.println("modifica");
+        System.out.println("elimina <nom>");
+        System.out.println("surt");
     }
     private void processaAfegeix() {
         System.out.println("nom (enter cancel·la)> ");
