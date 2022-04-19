@@ -70,7 +70,6 @@ public class Entorn {
     }
     private void processaCerca() {
         String nom = Entrada.readLine();
-        nom = Vi.normalitzaNom(nom);
         if (nom.isEmpty()) return;
         nom = Vi.normalitzaNom(nom);
         Vi vi = botiga.cerca(nom);
@@ -123,9 +122,8 @@ public class Entorn {
     private void processaElimina() {
         System.out.print("nom (enter cancel·la)> ");
         String nom = Entrada.readLine();
-        nom = Vi.normalitzaNom(nom);
         if (nom.isEmpty()) return;
-        
+        nom = Vi.normalitzaNom(nom);
         Vi vi = botiga.cerca(nom);
         if (vi == null) {
             System.out.println("No trobat");
