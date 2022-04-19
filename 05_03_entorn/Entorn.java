@@ -69,7 +69,7 @@ public class Entorn {
         }
     }
     private void processaCerca() {
-        System.out.print("nom (enter per cercar tots)> ");
+        System.out.print("nom (enter cancel·la)> ");
         String nom = Entrada.readLine();
         if (nom.isEmpty()) return;
         nom = Vi.normalitzaNom(nom);
