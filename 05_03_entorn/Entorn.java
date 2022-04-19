@@ -84,8 +84,8 @@ public class Entorn {
     private void processaModifica() {
         System.out.print("nom (enter cancel·la)> ");
         String nom = Entrada.readLine();
-        nom = Vi.normalitzaNom(nom);
         if (nom.isEmpty()) return;
+        nom = Vi.normalitzaNom(nom);
         Vi vi = botiga.cerca(nom);
         if (vi == null) {
             System.out.println("No trobat");
