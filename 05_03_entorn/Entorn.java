@@ -25,7 +25,7 @@ public class Entorn {
         mostraComiat();
     }
     private static void mostraBenvinguda() {
-        System.out.println("Celler La Bona Estrella. Escrivui ajuda per veure opcions.");
+        System.out.println("Celler La Bona Estrella. Escriviu ajuda per veure opcions.");
     }
     private static void mostraPrompt() {
         System.out.print("botiga> ");
