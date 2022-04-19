@@ -31,7 +31,7 @@ public class Entorn {
         System.out.print("botiga> ");
     }
     private static void mostraAjuda() {
-        System.out.println("\nComandes disponibles:");
+        System.out.println("Comandes disponibles:");
         System.out.println("  ajuda");
         System.out.println("  cerca");
         System.out.println("  afegeix");
