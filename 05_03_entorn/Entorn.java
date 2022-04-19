@@ -126,6 +126,7 @@ public class Entorn {
         if (nom.isEmpty()){
             return;
         } else {
+            if(nom.isEmpty()) return;
             nom = Vi.normalitzaNom(nom);
             Vi vi = botiga.cerca(nom);
             if (vi == null) {
