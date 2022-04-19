@@ -131,7 +131,7 @@ public class Entorn {
         } else {
             System.out.println("A eliminar:");
             System.out.println(vi);
-            System.out.println("Segur?> ");
+            System.out.print("Segur?> ");
             String resposta = Entrada.readLine();
             if (!UtilitatsConfirmacio.respostaABoolean(resposta)) {
                 System.out.println("No eliminat");
