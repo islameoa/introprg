@@ -123,26 +123,22 @@ public class Entorn {
     private void processaElimina() {
         System.out.print("nom (enter cancel·la)> ");
         String nom = Entrada.readLine();
-        if (nom.isEmpty()){
-            return;
+        if (nom.isEmpty()) return;
+        nom = Vi.normalitzaNom(nom);
+        Vi vi = botiga.cerca(nom);
+        if (vi == null) {
+            System.out.println("No trobat");
         } else {
-            if(nom.isEmpty()) return;
-            nom = Vi.normalitzaNom(nom);
-            Vi vi = botiga.cerca(nom);
+            System.out.println("A eliminar:");
+            System.out.println(vi);
+            System.out.println("Segur?> ");
+            String resposta = Entrada.readLine();
+            UtilitatsConfirmacio.respostaABoolean(resposta);
+            vi = botiga.elimina(nom);
             if (vi == null) {
-                System.out.println("No trobat");
+                System.out.println("ERROR: no s'ha pogut eliminar");
             } else {
-                System.out.println("A eliminar:");
-                System.out.println(vi);
-                System.out.println("Segur?> ");
-                String resposta = Entrada.readLine();
-                UtilitatsConfirmacio.respostaABoolean(resposta);
-                vi = botiga.elimina(nom);
-                if (vi == null) {
-                    System.out.println("ERROR: no s'ha pogut eliminar");
-                } else {
-                    System.out.println("Eliminat");
-                }
+                System.out.println("Eliminat");
             }
         }
     }
