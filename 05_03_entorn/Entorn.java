@@ -40,11 +40,11 @@ public class Entorn {
         System.out.println("surt");
     }
     private void processaAfegeix() {
-        System.out.println("nom (enter cancel·la)> ");
+        System.out.print("nom (enter cancel·la)> ");
         String nom = Entrada.readLine().strip();
         if (nom.isEmpty()) return;
         nom = Vi.normalitzaNom(nom);
-        System.out.println("preu (en cèntims)> ");
+        System.out.print("preu (en cèntims)> ");
         String preu = Entrada.readLine();
         if (preu.isEmpty()) preu = "0";
         int preuEnter = Integer.parseInt(preu);
@@ -52,7 +52,7 @@ public class Entorn {
             System.out.println("ERROR: el valor ha de ser un enter positiu");
             return;
         }
-        System.out.println("estoc (enter sense estoc)> ");
+        System.out.print("estoc (enter sense estoc)> ");
         String estoc = Entrada.readLine();
         if (estoc.isEmpty()) estoc = "0";
         int estocEnter = Integer.parseInt(estoc);
@@ -82,6 +82,7 @@ public class Entorn {
         }
     }
     private void processaModifica() {
+        System.out.print("nom (enter cancel·la)> ");
         String nom = Entrada.readLine();
         nom = Vi.normalitzaNom(nom);
         if (nom.isEmpty()) return;
@@ -89,6 +90,7 @@ public class Entorn {
         if (vi == null) {
             System.out.println("No trobat");
         } else {
+            System.out.print("preu ("+ vi.getPreu() + ")> ");
             String preu = Entrada.readLine();
             int preuEnter = 0;
             if (preu.isEmpty()){
@@ -101,6 +103,7 @@ public class Entorn {
                 }
                 vi.setPreu(preuEnter);
             }
+            System.out.print("estoc (enter " + vi.getEstoc() + ")> ");
             String estoc = Entrada.readLine();
             int estocEnter = 0;
             if (estoc.isEmpty()){
@@ -118,7 +121,7 @@ public class Entorn {
         }
     }
     private void processaElimina() {
-        System.out.println("nom (enter cancel·la)> ");
+        System.out.print("nom (enter cancel·la)> ");
         String nom = Entrada.readLine();
         if (nom.isEmpty()) return;
         nom = Vi.normalitzaNom(nom);
@@ -128,6 +131,7 @@ public class Entorn {
         } else {
             System.out.println("A eliminar:");
             System.out.println(vi);
+            System.out.println("Segur?> ");
             String resposta = Entrada.readLine();
             UtilitatsConfirmacio.respostaABoolean(resposta);
             vi = botiga.elimina(nom);
