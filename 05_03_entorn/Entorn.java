@@ -36,7 +36,7 @@ public class Entorn {
         System.out.println("cerca");
         System.out.println("afegeix");
         System.out.println("modifica");
-        System.out.println("elimina <nom>");
+        System.out.println("elimina");
         System.out.println("surt");
     }
     private void processaAfegeix() {
