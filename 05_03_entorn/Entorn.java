@@ -133,7 +133,10 @@ public class Entorn {
             System.out.println(vi);
             System.out.println("Segur?> ");
             String resposta = Entrada.readLine();
-            UtilitatsConfirmacio.respostaABoolean(resposta);
+            if (!UtilitatsConfirmacio.respostaABoolean(resposta)) {
+                System.out.println("No eliminat");
+                return;
+            }
             vi = botiga.elimina(nom);
             if (vi == null) {
                 System.out.println("ERROR: no s'ha pogut eliminar");
