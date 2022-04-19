@@ -1,3 +1,4 @@
+/* Classe entorn on hem programat "l'aplicació" que utilitzarà la senyora Estrella per afegir vins, buscar vins, modificar les característiques d'algun vi i eliminar-ne un del catàleg de la botiga*/
 public class Entorn {
     private final Botiga botiga = new Botiga();
     public static void main(String[] args) {
