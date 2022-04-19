@@ -123,8 +123,9 @@ public class Entorn {
     private void processaElimina() {
         System.out.print("nom (enter cancel·la)> ");
         String nom = Entrada.readLine();
-        if (nom.isEmpty()) return;
         nom = Vi.normalitzaNom(nom);
+        if (nom.isEmpty()) return;
+        
         Vi vi = botiga.cerca(nom);
         if (vi == null) {
             System.out.println("No trobat");
