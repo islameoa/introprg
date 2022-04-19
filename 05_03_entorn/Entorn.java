@@ -90,7 +90,7 @@ public class Entorn {
         if (vi == null) {
             System.out.println("No trobat");
         } else {
-            System.out.print("preu ("+ vi.getPreu() + ")> ");
+            System.out.print("preu (enter "+ vi.getPreu() + ")> ");
             String preu = Entrada.readLine();
             int preuEnter = 0;
             if (preu.isEmpty()){
