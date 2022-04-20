@@ -44,7 +44,7 @@ public class Entorn {
         try {
             System.out.println("Referències llegides: " + getReferencies());
         } catch (IOException e) {
-            System.out.println("Referències llegides: 0");
+            System.out.println("No s'ha trobat el fitxer botiga.csv");
         }
         botiga.iniciaRecorregut();
         while (true) {
@@ -83,7 +83,7 @@ public class Entorn {
         try {
             System.out.println("Referències guardades: " + getReferencies());
         } catch (IOException e) {
-            System.out.println("Referències guardades: 0");
+            System.out.println("No s'ha trobat el fitxer botiga.csv");
         }
         mostraComiat();
     }
