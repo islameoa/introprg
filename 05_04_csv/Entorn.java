@@ -41,7 +41,9 @@ public class Entorn {
     public static void main(String[] args) throws IOException {
         Entorn entorn = new Entorn();
         mostraBenvinguda();
-        System.out.println("Referències llegides: " + getReferencies());
+        try {
+            System.out.println("Referències llegides: " + getReferencies());
+        } catch (IOException e) {}
         botiga.iniciaRecorregut();
         while (true) {
             Vi vi = botiga.getSeguent();
