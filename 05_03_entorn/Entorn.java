@@ -1,3 +1,4 @@
+/* Classe entorn on hem programat "l'aplicació" que utilitzarà la senyora Estrella per afegir vins, buscar vins, modificar les característiques d'algun vi i eliminar-ne un del catàleg de la botiga*/
 public class Entorn {
     private final Botiga botiga = new Botiga();
     public static void main(String[] args) {
@@ -25,69 +26,130 @@ public class Entorn {
         mostraComiat();
     }
     private static void mostraBenvinguda() {
-        System.out.println("Benvingut a la botiga de vins");
+        System.out.println("Celler La Bona Estrella. Escriviu ajuda per veure opcions.");
     }
     private static void mostraPrompt() {
         System.out.print("botiga> ");
     }
     private static void mostraAjuda() {
-        System.out.println("\nComandes disponibles:");
-        System.out.println("  ajuda");
-        System.out.println("  cerca");
-        System.out.println("  afegeix");
-        System.out.println("  modifica");
-        System.out.println("  elimina <nom>");
-        System.out.println("  surt");
+        System.out.println("Comandes disponibles:");
+        System.out.println("ajuda");
+        System.out.println("cerca");
+        System.out.println("afegeix");
+        System.out.println("modifica");
+        System.out.println("elimina");
+        System.out.println("surt");
     }
     private void processaAfegeix() {
-        String nom = Entrada.readLine("Nom del vin: ").strip();
+        System.out.print("nom (enter cancel·la)> ");
+        String nom = Entrada.readLine().strip();
         if (nom.isEmpty()) return;
-        double preu = Entrada.readDouble("Preu del vin: ");
-        int estoc = Entrada.readInt("Estoc del vin: ");
-        Vi vi = new Vi(nom, preu, estoc);
+        nom = Vi.normalitzaNom(nom);
+        System.out.print("preu (en cèntims)> ");
+        String preu = Entrada.readLine();
+        if (preu.isEmpty()) preu = "0";
+        int preuEnter = Integer.parseInt(preu);
+        if (preuEnter < 0) {
+            System.out.println("ERROR: el valor ha de ser un enter positiu");
+            return;
+        }
+        System.out.print("estoc (enter sense estoc)> ");
+        String estoc = Entrada.readLine();
+        if (estoc.isEmpty()) estoc = "0";
+        int estocEnter = Integer.parseInt(estoc);
+        if (estocEnter < 0) {
+            System.out.println("ERROR: el valor ha de ser un enter positiu");
+            return;
+        }
+        Vi vi = new Vi(nom, preuEnter, estocEnter);
         if (botiga.afegeix(vi) == null) {
-            System.out.println("El vin " + nom + " ja existeix");
+            System.out.println("ERROR: no s'ha pogut afegir");
         } else {
-            System.out.println("El vin " + nom + " s'ha afegit correctament");
+            System.out.println("Introduït:");
+            System.out.println(vi);
         }
     }
     private void processaCerca() {
-        String nom = Entrada.readLine("Nom del vin: ").strip();
+        System.out.print("nom (enter cancel·la)> ");
+        String nom = Entrada.readLine();
         if (nom.isEmpty()) return;
+        nom = Vi.normalitzaNom(nom);
         Vi vi = botiga.cerca(nom);
         if (vi == null) {
-            System.out.println("El vin " + nom + " no existeix");
+            System.out.println("No trobat");
         } else {
-            System.out.println("El vin " + nom + " es troba a la botiga");
+            System.out.println("Trobat:");
+            System.out.println(vi);
         }
     }
     private void processaModifica() {
-        String nom = Entrada.readLine("Nom del vin: ").strip();
+        System.out.print("nom (enter cancel·la)> ");
+        String nom = Entrada.readLine();
         if (nom.isEmpty()) return;
+        nom = Vi.normalitzaNom(nom);
         Vi vi = botiga.cerca(nom);
         if (vi == null) {
-            System.out.println("El vin " + nom + " no existeix");
+            System.out.println("No trobat");
         } else {
-            double preu = Entrada.readDouble("Preu del vin: ");
-            int estoc = Entrada.readInt("Estoc del vin: ");
-            vi.modifica(preu, estoc);
-            System.out.println("El vin " + nom + " s'ha modificat correctament");
+            System.out.print("preu (enter "+ vi.getPreu() + ")> ");
+            String preu = Entrada.readLine();
+            int preuEnter = 0;
+            if (preu.isEmpty()){
+                preuEnter = vi.getPreu();
+            } else {
+                preuEnter = Integer.parseInt(preu);
+                if (preuEnter < 0) {
+                    System.out.println("ERROR: el valor ha de ser un enter positiu");
+                    return;
+                }
+                vi.setPreu(preuEnter);
+            }
+            System.out.print("estoc (enter " + vi.getEstoc() + ")> ");
+            String estoc = Entrada.readLine();
+            int estocEnter = 0;
+            if (estoc.isEmpty()){
+                estocEnter = vi.getEstoc();
+            } else {
+                estocEnter = Integer.parseInt(estoc);
+                if (estocEnter < 0) {
+                    System.out.println("ERROR: el valor ha de ser un enter positiu");
+                    return;
+                }
+                vi.setEstoc(estocEnter);
+            }            
+            System.out.println("Modificat:");
+            System.out.println(vi);
         }
     }
     private void processaElimina() {
-        String nom = Entrada.readLine("Nom del vin: ").strip();
+        System.out.print("nom (enter cancel·la)> ");
+        String nom = Entrada.readLine();
         if (nom.isEmpty()) return;
-        Vi vi = botiga.elimina(nom);
+        nom = Vi.normalitzaNom(nom);
+        Vi vi = botiga.cerca(nom);
         if (vi == null) {
-            System.out.println("El vin " + nom + " no existeix");
+            System.out.println("No trobat");
         } else {
-            System.out.println("El vin " + nom + " s'ha eliminat correctament");
+            System.out.println("A eliminar:");
+            System.out.println(vi);
+            System.out.print("Segur?> ");
+            String resposta = Entrada.readLine();
+            if (!UtilitatsConfirmacio.respostaABoolean(resposta)) {
+                System.out.println("No eliminat");
+                return;
+            }
+            vi = botiga.elimina(nom);
+            if (vi == null) {
+                System.out.println("ERROR: no s'ha pogut eliminar");
+            } else {
+                System.out.println("Eliminat");
+            }
         }
     }
     private static void mostraComiat() {
-        System.out.println("\nAdeu!");
+        System.out.println("adéu");
     }
     private static void mostraErrorComandaDesconeguda() {
-        System.out.println("\nComanda desconeguda");
+        System.out.println("ERROR: comanda no reconeguda. Escriviu help per ajuda");
     }
 }
