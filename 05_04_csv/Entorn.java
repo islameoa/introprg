@@ -43,7 +43,9 @@ public class Entorn {
         mostraBenvinguda();
         try {
             System.out.println("Referències llegides: " + getReferencies());
-        } catch (IOException e) {}
+        } catch (IOException e) {
+            System.out.println("No s'ha pogut llegir el fitxer");
+        }
         botiga.iniciaRecorregut();
         while (true) {
             Vi vi = botiga.getSeguent();
