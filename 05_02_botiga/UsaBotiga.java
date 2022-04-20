@@ -1,3 +1,4 @@
+/*Classe UsaBotiga que utilitzarem per provar que funciona correctament la classe Botiga inicialitzarà 3 vins, n'afegirà 1 en buscarà dos*/
 public class UsaBotiga {
     public static void main(String[] args) {
         System.out.println("Creem uns quants vins");
