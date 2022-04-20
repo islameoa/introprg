@@ -44,7 +44,7 @@ public class Entorn {
         try {
             System.out.println("Referències llegides: " + getReferencies());
         } catch (IOException e) {
-            System.out.println("No s'ha pogut llegir el fitxer");
+            //System.out.println("No s'ha pogut llegir el fitxer");
         }
         botiga.iniciaRecorregut();
         while (true) {
@@ -80,7 +80,11 @@ public class Entorn {
                     mostraErrorComandaDesconeguda();
             }
         }
-        System.out.println("Referències llegides: " + getReferencies());
+        try {
+            System.out.println("Referències llegides: " + getReferencies());
+        } catch (IOException e) {
+            //System.out.println("No s'ha pogut llegir el fitxer");
+        }
         mostraComiat();
     }
 
