@@ -81,9 +81,9 @@ public class Entorn {
             }
         }
         try {
-            System.out.println("Referències llegides: " + getReferencies());
+            System.out.println("Referències guardades: " + getReferencies());
         } catch (IOException e) {
-            System.out.println("Referències llegides: 0");
+            System.out.println("Referències guardades: 0");
         }
         mostraComiat();
     }
