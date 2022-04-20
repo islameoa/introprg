@@ -1,3 +1,4 @@
+/*Classe botiga que contindrà un catàleg dels vins i  mòduls per afegir vins, cercar un vi, i eliminar vins del catàleg. Es pot inicialitzar una instància de la classe botiga amb un array amb el número de posicions que vulguem*/
 public class Botiga {
     private int DEFAULT_MAX_VINS = 10;
     private Vi vins[];
