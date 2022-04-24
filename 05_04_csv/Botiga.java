@@ -6,7 +6,7 @@ public class Botiga {
     private int DEFAULT_MAX_VINS = 10;
     private Vi vins[];
     private int apuntador = -1;
-    
+
     public int getApuntador(){
     	return this.apuntador;
     }

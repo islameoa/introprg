@@ -1,13 +1,36 @@
-
 /* Classe entorn on hem programat "l'aplicació" que utilitzarà la senyora Estrella per afegir vins, buscar vins, modificar les característiques d'algun vi i eliminar-ne un del catàleg de la botiga*/
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.File;
 
 public class Entorn {
     private final static Botiga botiga = new Botiga();
+
+    public static int comptaReferencies() throws IOException {
+        File fitxer = new File("botiga.txt");
+        if (fitxer.isFile()) {
+            System.out.println("El fitxer botiga.txt existeix");
+            BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
+            String line = input.readLine();
+            int i = 0;
+            while (line != null) {
+                String[] parts = line.split(";");
+                if (parts[i] != null) {
+                    botiga.afegeix(Vi.deArrayString(parts));
+                }
+                line = input.readLine();
+                i++;
+            }
+            input.close();
+            return i;
+        } else {
+            System.out.println("El fitxer botiga.txt no existeix");
+        }
+        return 0;
+    }
 
     public static int getReferencies() throws IOException {
         BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
@@ -29,7 +52,7 @@ public class Entorn {
         BufferedWriter sortida = new BufferedWriter(new FileWriter("botiga.csv"));
         String[] parts = Vi.aArrayString(botiga.getSeguent());
         String line = String.join(";", parts);
-        while (line.isBlank() == false) {
+        while (line != null) {
             sortida.write(line);
             parts = Vi.aArrayString(botiga.getSeguent());
             line = String.join(";", parts);
@@ -42,11 +65,12 @@ public class Entorn {
         Entorn entorn = new Entorn();
         mostraBenvinguda();
         try {
-            System.out.println("Referències llegides: " + getReferencies());
+            System.out.println("Referències llegides: " + comptaReferencies());
         } catch (IOException e) {
-            System.out.println("Referències llegides: 0");
+            System.out.println("No s'ha trobat el fitxer botiga.csv");
         }
         botiga.iniciaRecorregut();
+
         while (true) {
             Vi vi = botiga.getSeguent();
             if (vi == null)
@@ -83,7 +107,7 @@ public class Entorn {
         try {
             System.out.println("Referències guardades: " + getReferencies());
         } catch (IOException e) {
-            System.out.println("Referències guardades: 0");
+            System.out.println("No s'ha trobat el fitxer botiga.csv");
         }
         mostraComiat();
     }
