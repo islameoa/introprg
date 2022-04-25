@@ -96,12 +96,13 @@ public class Botiga {
         if (getApuntador() < vins.length) {
             setApuntador(getApuntador() + 1);
         }
+        if (getApuntador() == vins.length) {
+            return null;
+        }
 
         while (vins[getApuntador()] == null && getApuntador() < vins.length-1) {
             setApuntador(getApuntador() + 1);
-            if (getApuntador() == vins.length) {
-                return null;
-            }
+            
         }
 
         return vins[getApuntador()];
