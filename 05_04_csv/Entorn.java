@@ -6,32 +6,44 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.File;
+import java.nio.file.*;
 
 public class Entorn {
     private final static Botiga botiga = new Botiga();
 
-    public static int comptaReferencies() throws IOException {
-        File fitxer = new File("botiga.csv");
-        botiga.iniciaRecorregut();
-        if (fitxer.isFile()) {
-            BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
-            String line = input.readLine();
-            int i = 0;
-            while (true) {
-                if (line == null) {
-                    break;
-                }
-                String[] parts = line.split(";");
-                if (parts.length == 3) {
-                    i++;
-                }
-                line = input.readLine();
-            }
-            input.close();
-            return i;
+    public static long comptaReferencies() throws IOException {
+        try {
+            Path file = Paths.get("input.txt");
+
+            long count = Files.lines(file).count();
+            return count;
+
+        } catch (Exception e) {
+            e.getStackTrace();
         }
         return 0;
     }
+
+    // File fitxer = new File("botiga.csv");
+    // botiga.iniciaRecorregut();
+    // if (fitxer.isFile()) {
+    // BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
+    // String line = input.readLine();
+    // int i = 0;
+    // while (true) {
+    // if (line == null) {
+    // break;
+    // }
+    // String[] parts = line.split(";");
+    // if (parts.length == 3) {
+    // i++;
+    // }
+    // line = input.readLine();
+    // }
+    // input.close();
+    // return i;
+    // }
+    // return 0;
 
     public static void getReferencies() throws IOException {
         BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
@@ -53,7 +65,8 @@ public class Entorn {
         botiga.iniciaRecorregut();
         while (true) {
             Vi vi = botiga.getSeguent();
-            if (vi == null) break;
+            if (vi == null)
+                break;
             String[] parts = Vi.aArrayString(vi);
             String line = String.join(";", parts);
             sortida.write(line);
