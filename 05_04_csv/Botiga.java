@@ -91,14 +91,26 @@ public class Botiga {
    		if (getApuntador() < vins.length){
             setApuntador(getApuntador() + 1);
         }
-        while (vins[getApuntador()] == null){
-            setApuntador(getApuntador() + 1);
+        if(!estaBuida()){
+            while (vins[getApuntador()] == null){
+                setApuntador(getApuntador() + 1);
+            }
         }
     	return vins[getApuntador()];
     }
 
     public Vi getActual(){
     	return vins[0];
+    }
+
+    //modulo que mira si la botiga esta buida
+    public boolean estaBuida(){
+    	for (int i = 0; i < vins.length; i++){
+    		if (vins[i] != null){
+    			return false;
+    		}
+    	}
+    	return true;
     }
 
     //modulo que ordena el array de vinos
