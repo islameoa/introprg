@@ -111,7 +111,7 @@ public class Entorn {
             }
         }
         try {
-            System.out.println("Referències guardades: " + getReferencies());
+            System.out.println("Referències guardades: " + comptaReferencies());
         } catch (IOException e) {
             System.out.println("No s'ha trobat el fitxer botiga.csv");
         }
