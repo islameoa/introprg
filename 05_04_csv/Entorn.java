@@ -19,9 +19,8 @@ public class Entorn {
             int contador = 0;
             while (true) {
                 Vi vi = botiga.getSeguent();
+                if (vi == null) break;
                 contador++;
-                if (vi == null)
-                    break;
             }
             return contador;
         }
