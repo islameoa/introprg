@@ -100,39 +100,10 @@ public class Botiga {
             return null;
         }
 
-        while (vins[getApuntador()] == null && getApuntador() < vins.length) {
+        while (vins[getApuntador()] == null && getApuntador() < vins.length - 1) {
             setApuntador(getApuntador() + 1);
         }
 
         return vins[getApuntador()];
-    }
-
-    public Vi getActual() {
-        return vins[0];
-    }
-
-    // modulo que mira si la botiga esta buida
-    public boolean estaBuida() {
-        for (int i = 0; i < vins.length; i++) {
-            if (vins[i] != null) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    // modulo que ordena el array de vinos
-    public void ordena() {
-        for (int i = 0; i < vins.length; i++) {
-            for (int j = i + 1; j < vins.length; j++) {
-                if (vins[i] != null && vins[j] != null) {
-                    if (vins[i].getNom().compareTo(vins[j].getNom()) > 0) {
-                        Vi aux = vins[i];
-                        vins[i] = vins[j];
-                        vins[j] = aux;
-                    }
-                }
-            }
-        }
     }
 }
