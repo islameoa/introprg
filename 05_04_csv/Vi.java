@@ -97,6 +97,9 @@ public class Vi {
         try {
             int preu = Integer.parseInt(vi[1]);
             int estoc = Integer.parseInt(vi[2]);
+            if (preu < 0 || estoc < 0 || vi[0].equals("NOM NO VÀLID!")){
+                return null;
+            }
             return new Vi(vi[0], preu, estoc);
         } catch (Exception e) {
             return null;
@@ -115,11 +118,6 @@ public class Vi {
     public String[] aArrayString(){
         String[] vi = new String[3];
         vi[0] = getNom();
-        vi[1] = Integer.toString(getPreu());
-        vi[2] = Integer.toString(getEstoc());
-        if (getPreu() < 0 || getEstoc() < 0 || getNom().equals("NOM NO VÀLID!")){
-            return null;
-        }
         vi[1] = Integer.toString(getPreu());
         vi[2] = Integer.toString(getEstoc());
         return vi;
