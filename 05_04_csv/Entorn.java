@@ -58,7 +58,7 @@ public class Entorn {
         while (line != null) {
             String[] parts = line.split(";");
             if (parts[i] != null) {
-                if(!UtilString.esEnter(parts[1]) || !UtilString.esEnter(parts[2])){
+                if(UtilString.esEnter(parts[1]) && UtilString.esEnter(parts[2])){
                     botiga.afegeix(Vi.deArrayString(parts));
                 }
             }
