@@ -40,7 +40,7 @@ public class Entorn {
                     break;
                 }
                 String[] parts = line.split(";");
-                if (parts.length == 3) {
+                if (parts.length == 3 && UtilString.esEnter(parts[1]) && UtilString.esEnter(parts[2])) {
                     i++;
                 }
                 line = input.readLine();
