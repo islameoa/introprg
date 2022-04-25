@@ -63,7 +63,7 @@ public class Botiga {
     }
     //mòdul elimina que rep el nom d'un vi i l'elimina de l'array si el troba
     public Vi elimina(String nom) {
-        ordena();
+        //ordena();
         nom = Vi.normalitzaNom(nom);
         for (int i = 0; i < vins.length; i++) {
             if (vins[i] != null) {
@@ -88,7 +88,12 @@ public class Botiga {
     
     //retorna el segÜent vi del recorregut de la botiga
     public Vi getSeguent(){
-   		setApuntador(getApuntador() + 1);
+   		while (getApuntador() < vins.length){
+            setApuntador(getApuntador() + 1);
+        }
+        while (vins[getApuntador()] == null){
+            setApuntador(getApuntador() + 1);
+        }
     	return vins[getApuntador()];
     }
 
