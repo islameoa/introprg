@@ -10,83 +10,6 @@ import java.io.File;
 public class Entorn {
     private final static Botiga botiga = new Botiga();
 
-    // public static int comptaReferencies2() throws IOException {
-    //     File input = new File("botiga.csv");
-    //     if (input.isFile()) {
-    //         botiga.iniciaRecorregut();
-    //         int contador = 0;
-    //         while (true) {
-    //             Vi vi = botiga.getSeguent();
-                
-    //             if (vi == null)
-    //                 break;
-    //             contador++;
-                
-    //         }
-    //         return contador;
-    //     }
-    //     return 0;
-    // }
-
-    public static int comptaReferencies() throws IOException {
-        File fitxer = new File("botiga.csv");
-        botiga.iniciaRecorregut();
-        if (fitxer.isFile()) {
-            BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
-            String line = input.readLine();
-            int i = 0;
-            while (true) {
-                if (line == null) {
-                    break;
-                }
-                String[] parts = line.split(";");
-                if (parts.length == 3 && UtilString.esEnter(parts[1]) && UtilString.esEnter(parts[2])) {
-                    i++;
-                }
-                line = input.readLine();
-            }
-            input.close();
-            return i;
-        }
-        return 0;
-    }
-
-    public static void getReferencies() throws IOException {
-        BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
-        String line = input.readLine();
-        while (line != null) {
-            String[] parts = line.split(";");
-            if (parts.length == 3) {
-                if(UtilString.esEnter(parts[1]) && UtilString.esEnter(parts[2])){
-                    botiga.afegeix(Vi.deArrayString(parts));
-                }
-            }               
-            line = input.readLine();
-        }
-        input.close();
-    }
-
-    public static void writeReferencies() throws IOException {
-        BufferedWriter sortida = new BufferedWriter(new FileWriter("botiga.csv"));
-        botiga.iniciaRecorregut();
-        while (true) {
-            Vi vi = botiga.getSeguent();
-            if (vi == null)
-                break;
-            String[] parts = Vi.aArrayString(vi);
-            String line = String.join(";", parts);
-            sortida.write(line);
-            sortida.newLine();
-        }
-        sortida.close();
-    }
-
-    // metodo booleano que mira si existe el fichero botiga.txt
-    public static boolean existeixFitxer() {
-        File fitxer = new File("botiga.csv");
-        return fitxer.isFile();
-    }
-
     public static void main(String[] args) throws IOException {
         Entorn entorn = new Entorn();
         mostraBenvinguda();
@@ -274,5 +197,64 @@ public class Entorn {
 
     private static void mostraErrorComandaDesconeguda() {
         System.out.println("ERROR: comanda no reconeguda. Escriviu help per ajuda");
+    }
+
+    public static int comptaReferencies() throws IOException {
+        File fitxer = new File("botiga.csv");
+        botiga.iniciaRecorregut();
+        if (fitxer.isFile()) {
+            BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
+            String line = input.readLine();
+            int i = 0;
+            while (true) {
+                if (line == null) {
+                    break;
+                }
+                String[] parts = line.split(";");
+                if (parts.length == 3 && UtilString.esEnter(parts[1]) && UtilString.esEnter(parts[2])) {
+                    i++;
+                }
+                line = input.readLine();
+            }
+            input.close();
+            return i;
+        }
+        return 0;
+    }
+
+    public static void getReferencies() throws IOException {
+        BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
+        String line = input.readLine();
+        while (line != null) {
+            String[] parts = line.split(";");
+            if (parts.length == 3) {
+                if (UtilString.esEnter(parts[1]) && UtilString.esEnter(parts[2])) {
+                    botiga.afegeix(Vi.deArrayString(parts));
+                }
+            }
+            line = input.readLine();
+        }
+        input.close();
+    }
+
+    public static void writeReferencies() throws IOException {
+        BufferedWriter sortida = new BufferedWriter(new FileWriter("botiga.csv"));
+        botiga.iniciaRecorregut();
+        while (true) {
+            Vi vi = botiga.getSeguent();
+            if (vi == null)
+                break;
+            String[] parts = Vi.aArrayString(vi);
+            String line = String.join(";", parts);
+            sortida.write(line);
+            sortida.newLine();
+        }
+        sortida.close();
+    }
+
+    // metodo booleano que mira si existe el fichero botiga.txt
+    public static boolean existeixFitxer() {
+        File fitxer = new File("botiga.csv");
+        return fitxer.isFile();
     }
 }
