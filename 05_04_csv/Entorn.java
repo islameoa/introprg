@@ -73,12 +73,6 @@ public class Entorn {
         try {
             if (existeixFitxer()) {
                 getReferencies();
-                while (true) {
-                    Vi vi = botiga.getSeguent();
-                    if (vi == null)
-                        break;
-                    System.out.println(vi);
-                }
             }
         } catch (IOException e) {
             System.out.println("El fitxer botiga.txt no existeix");
