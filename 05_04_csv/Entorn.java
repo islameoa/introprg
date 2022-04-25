@@ -27,7 +27,7 @@ public class Entorn {
         return 0;
     }
 
-    public static int comptaReferencies() throws IOException {
+    public static int comptaReferencies1() throws IOException {
         File fitxer = new File("botiga.csv");
         botiga.iniciaRecorregut();
         if (fitxer.isFile()) {
