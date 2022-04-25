@@ -57,6 +57,7 @@ public class Entorn {
             sortida.write(line);
             sortida.newLine();
         }
+        sortida.close();
     }
 
     // metodo booleano que mira si existe el fichero botiga.txt
