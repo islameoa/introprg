@@ -88,7 +88,7 @@ public class Botiga {
     
     //retorna el segÜent vi del recorregut de la botiga
     public Vi getSeguent(){
-   		while (getApuntador() < vins.length){
+   		if (getApuntador() < vins.length){
             setApuntador(getApuntador() + 1);
         }
         while (vins[getApuntador()] == null){
