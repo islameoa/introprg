@@ -11,7 +11,7 @@ public class Entorn {
     private final static Botiga botiga = new Botiga();
 
     public static int comptaReferencies() throws IOException {
-        File fitxer = new File("botiga.txt");
+        File fitxer = new File("botiga.csv");
         botiga.iniciaRecorregut();
         if (fitxer.isFile()) {
             BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
@@ -61,7 +61,7 @@ public class Entorn {
 
     // metodo booleano que mira si existe el fichero botiga.txt
     public static boolean existeixFitxer() {
-        File fitxer = new File("botiga.txt");
+        File fitxer = new File("botiga.csv");
         return fitxer.isFile();
     }
 
