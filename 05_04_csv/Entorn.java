@@ -14,8 +14,11 @@ public class Entorn {
 
     public static long comptaReferencies() throws IOException {
         File input = new File("botiga.csv"); Scanner iterate = new Scanner(input);
-        int numLines=0; while(iterate.hasNextLine()) { String currLine=iterate.nextLine(); numLines++; }
-        return numLines;
+        if (input.isFile()){
+            int numLines=0; while(iterate.hasNextLine()) { String currLine=iterate.nextLine(); numLines++; }
+            return numLines;
+        }
+        return 0;
     }
 
     // File fitxer = new File("botiga.csv");
