@@ -19,7 +19,7 @@ public class Entorn {
             int i = 0;
             while (true) {
                 if (line.isEmpty() || line.equals("\n")) {
-                    continue;
+                    line = input.readLine();
                 }
                 String[] parts = line.split(";");
                 if (parts.length == 3) {
