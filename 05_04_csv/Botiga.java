@@ -63,6 +63,7 @@ public class Botiga {
     }
     //mòdul elimina que rep el nom d'un vi i l'elimina de l'array si el troba
     public Vi elimina(String nom) {
+        ordena();
         nom = Vi.normalitzaNom(nom);
         for (int i = 0; i < vins.length; i++) {
             if (vins[i] != null) {
@@ -93,5 +94,20 @@ public class Botiga {
 
     public Vi getActual(){
     	return vins[0];
+    }
+
+    //modulo que ordena el array de vinos
+    public void ordena() {
+        for (int i = 0; i < vins.length; i++) {
+            for (int j = i + 1; j < vins.length; j++) {
+                if (vins[i] != null && vins[j] != null) {
+                    if (vins[i].getNom().compareTo(vins[j].getNom()) > 0) {
+                        Vi aux = vins[i];
+                        vins[i] = vins[j];
+                        vins[j] = aux;
+                    }
+                }
+            }
+        }
     }
 }
