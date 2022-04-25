@@ -97,7 +97,7 @@ public class Botiga {
             setApuntador(getApuntador() + 1);
         }
 
-        while (vins[getApuntador()] == null && getApuntador() < vins.length) {
+        while (vins[getApuntador()] == null && getApuntador() < vins.length-1) {
             setApuntador(getApuntador() + 1);
         }
 
