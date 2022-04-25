@@ -47,7 +47,7 @@ public class Entorn {
 
     public static void writeReferencies() throws IOException {
         BufferedWriter sortida = new BufferedWriter(new FileWriter("botiga.csv"));
-        if (botiga.getSeguent() != null) {
+        if (botiga.getActual() != null) {
             String[] parts = Vi.aArrayString(botiga.getSeguent());
             String line = String.join(";", parts);
             while (true) {

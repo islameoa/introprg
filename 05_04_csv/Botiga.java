@@ -90,4 +90,8 @@ public class Botiga {
    		setApuntador(getApuntador() + 1);
     	return vins[getApuntador()];
     }
+
+    public Vi getActual(){
+    	return vins[0];
+    }
 }
