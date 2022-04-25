@@ -18,17 +18,14 @@ public class Entorn {
             String line = input.readLine();
             int i = 0;
             while (true) {
-                if (line.isEmpty() || line.equals("\n")) {
-                    line = input.readLine();
+                if (line == null) {
+                    break;
                 }
                 String[] parts = line.split(";");
                 if (parts.length == 3) {
                     i++;
                 }
                 line = input.readLine();
-                if (line == null) {
-                    break;
-                }
             }
             input.close();
             return i;
