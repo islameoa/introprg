@@ -117,7 +117,7 @@ public class Vi {
         vi[0] = getNom();
         vi[1] = Integer.toString(getPreu());
         vi[2] = Integer.toString(getEstoc());
-        if (Integer.parseInt(vi[1]) <0 || Integer.parseInt(vi[2]) < 0 || vi[0].equals("NOM NO VÀLID!")){
+        if (getPreu() < 0 || getEstoc() < 0 || getNom().equals("NOM NO VÀLID!")){
             return null;
         }
         vi[1] = Integer.toString(getPreu());
