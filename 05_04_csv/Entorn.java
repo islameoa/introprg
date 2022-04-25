@@ -5,23 +5,17 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 import java.io.File;
-import java.nio.file.*;
+
 
 public class Entorn {
     private final static Botiga botiga = new Botiga();
 
     public static long comptaReferencies() throws IOException {
-        try {
-            Path file = Paths.get("input.txt");
-
-            long count = Files.lines(file).count();
-            return count;
-
-        } catch (Exception e) {
-            e.getStackTrace();
-        }
-        return 0;
+        File input = new File("myFile.txt"); Scanner iterate = new Scanner(input);
+        int numLines=0; while(iterate.hasNextLine()) { String currLine=iterate.nextLine(); numLines++; }
+        return numLines;
     }
 
     // File fitxer = new File("botiga.csv");
