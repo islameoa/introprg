@@ -12,7 +12,6 @@ public class Entorn {
     public static int comptaReferencies() throws IOException {
         File fitxer = new File("botiga.txt");
         if (fitxer.isFile()) {
-            System.out.println("El fitxer botiga.txt existeix");
             BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
             String line = input.readLine();
             int i = 0;
@@ -26,13 +25,11 @@ public class Entorn {
             }
             input.close();
             return i;
-        } else {
-            System.out.println("El fitxer botiga.txt no existeix");
         }
         return 0;
     }
 
-    public static int getReferencies() throws IOException {
+    public static void getReferencies() throws IOException {
         BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
         String line = input.readLine();
         int i = 0;
@@ -45,7 +42,6 @@ public class Entorn {
             i++;
         }
         input.close();
-        return i;
     }
 
     public static void writeReferencies() throws IOException {
@@ -61,21 +57,31 @@ public class Entorn {
         sortida.close();
     }
 
+    //metodo booleano que mira si existe el fichero botiga.txt
+    public static boolean existeixFitxer() {
+        File fitxer = new File("botiga.txt");
+        return fitxer.isFile();
+    }
+
     public static void main(String[] args) throws IOException {
         Entorn entorn = new Entorn();
         mostraBenvinguda();
-        try {
-            System.out.println("Referències llegides: " + comptaReferencies());
-        } catch (IOException e) {
-            System.out.println("No s'ha trobat el fitxer botiga.csv");
-        }
+        System.out.println("Referències llegides: " + comptaReferencies());
+        
         botiga.iniciaRecorregut();
 
-        while (true) {
-            Vi vi = botiga.getSeguent();
-            if (vi == null)
-                break;
-            System.out.println(vi);
+        try {
+            if (existeixFitxer()) {
+                getReferencies();
+                while (true) {
+                    Vi vi = botiga.getSeguent();
+                    if (vi == null)
+                        break;
+                    System.out.println(vi);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("El fitxer botiga.txt no existeix");
         }
         while (true) {
             mostraPrompt();
