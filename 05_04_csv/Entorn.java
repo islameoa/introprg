@@ -12,12 +12,18 @@ import java.io.File;
 public class Entorn {
     private final static Botiga botiga = new Botiga();
 
-    public static long comptaReferencies() throws IOException {
+    public static int comptaReferencies() throws IOException {
         File input = new File("botiga.csv"); 
         if (input.isFile()){
-            Scanner iterate = new Scanner(input);
-            int numLines=0; while(iterate.hasNextLine()) { String currLine=iterate.nextLine(); numLines++; }
-            return numLines;
+            botiga.iniciaRecorregut();
+            int contador = 0;
+            while (true) {
+                Vi vi = botiga.getSeguent();
+                contador++;
+                if (vi == null)
+                    break;
+            }
+            return contador;
         }
         return 0;
     }
