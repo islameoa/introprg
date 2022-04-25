@@ -1,3 +1,4 @@
+
 /* Classe entorn on hem programat "l'aplicació" que utilitzarà la senyora Estrella per afegir vins, buscar vins, modificar les característiques d'algun vi i eliminar-ne un del catàleg de la botiga*/
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -46,18 +47,23 @@ public class Entorn {
 
     public static void writeReferencies() throws IOException {
         BufferedWriter sortida = new BufferedWriter(new FileWriter("botiga.csv"));
-        String[] parts = Vi.aArrayString(botiga.getSeguent());
-        String line = String.join(";", parts);
-        while (line != null) {
-            sortida.write(line);
-            parts = Vi.aArrayString(botiga.getSeguent());
-            line = String.join(";", parts);
-            sortida.newLine();
+        if (botiga.getSeguent() != null) {
+            String[] parts = Vi.aArrayString(botiga.getSeguent());
+            String line = String.join(";", parts);
+            while (true) {
+                sortida.write(line);
+                parts = Vi.aArrayString(botiga.getSeguent());
+                if (parts[0] == null) {
+                    break;
+                }
+                line = String.join(";", parts);
+                sortida.newLine();
+            }
+            sortida.close();
         }
-        sortida.close();
     }
 
-    //metodo booleano que mira si existe el fichero botiga.txt
+    // metodo booleano que mira si existe el fichero botiga.txt
     public static boolean existeixFitxer() {
         File fitxer = new File("botiga.txt");
         return fitxer.isFile();
@@ -67,7 +73,7 @@ public class Entorn {
         Entorn entorn = new Entorn();
         mostraBenvinguda();
         System.out.println("Referències llegides: " + comptaReferencies());
-        
+
         botiga.iniciaRecorregut();
 
         try {
