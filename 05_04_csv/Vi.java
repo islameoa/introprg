@@ -97,6 +97,7 @@ public class Vi {
         try {
             int preu = Integer.parseInt(vi[1]);
             int estoc = Integer.parseInt(vi[2]);
+            vi[0] = normalitzaNom(vi[0]);
             if (preu < 0 || estoc < 0 || vi[0].equals("NOM NO VÀLID!")){
                 return null;
             }
