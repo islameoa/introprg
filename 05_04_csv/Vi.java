@@ -97,6 +97,10 @@ public class Vi {
         try {
             int preu = Integer.parseInt(vi[1]);
             int estoc = Integer.parseInt(vi[2]);
+            vi[0] = normalitzaNom(vi[0]);
+            if (preu < 0 || estoc < 0 || vi[0].equals("NOM NO VÀLID!")){
+                return null;
+            }
             return new Vi(vi[0], preu, estoc);
         } catch (Exception e) {
             return null;
@@ -104,11 +108,19 @@ public class Vi {
     }
     
     //rep una instància de vi i retorna un array de strings amb els atributs del vi
+
     public static String[] aArrayString(Vi vino){
         String[] vi = new String[3];
         vi[0] = vino.getNom();
         vi[1] = Integer.toString(vino.getPreu());
         vi[2] = Integer.toString(vino.getEstoc());
+        return vi;
+    }
+    public String[] aArrayString(){
+        String[] vi = new String[3];
+        vi[0] = getNom();
+        vi[1] = Integer.toString(getPreu());
+        vi[2] = Integer.toString(getEstoc());
         return vi;
     }
 }
