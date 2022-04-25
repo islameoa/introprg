@@ -8,18 +8,18 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.io.File;
 
-
 public class Entorn {
     private final static Botiga botiga = new Botiga();
 
-    public static int comptaReferencies() throws IOException {
-        File input = new File("botiga.csv"); 
-        if (input.isFile()){
+    public static int comptaReferencies2() throws IOException {
+        File input = new File("botiga.csv");
+        if (input.isFile()) {
             botiga.iniciaRecorregut();
             int contador = 0;
             while (true) {
                 Vi vi = botiga.getSeguent();
-                if (vi == null) break;
+                if (vi == null)
+                    break;
                 contador++;
             }
             return contador;
@@ -27,26 +27,28 @@ public class Entorn {
         return 0;
     }
 
-    // File fitxer = new File("botiga.csv");
-    // botiga.iniciaRecorregut();
-    // if (fitxer.isFile()) {
-    // BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
-    // String line = input.readLine();
-    // int i = 0;
-    // while (true) {
-    // if (line == null) {
-    // break;
-    // }
-    // String[] parts = line.split(";");
-    // if (parts.length == 3) {
-    // i++;
-    // }
-    // line = input.readLine();
-    // }
-    // input.close();
-    // return i;
-    // }
-    // return 0;
+    public static int comptaReferencies() throws IOException {
+        File fitxer = new File("botiga.csv");
+        botiga.iniciaRecorregut();
+        if (fitxer.isFile()) {
+            BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
+            String line = input.readLine();
+            int i = 0;
+            while (true) {
+                if (line == null) {
+                    break;
+                }
+                String[] parts = line.split(";");
+                if (parts.length == 3) {
+                    i++;
+                }
+                line = input.readLine();
+            }
+            input.close();
+            return i;
+        }
+        return 0;
+    }
 
     public static void getReferencies() throws IOException {
         BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
@@ -87,7 +89,7 @@ public class Entorn {
     public static void main(String[] args) throws IOException {
         Entorn entorn = new Entorn();
         mostraBenvinguda();
-        System.out.println("Referències llegides: " + comptaReferencies());
+        System.out.println("Referències llegides: " + comptaReferencies1());
         try {
             if (existeixFitxer()) {
                 getReferencies();
@@ -124,7 +126,7 @@ public class Entorn {
         }
         try {
             writeReferencies();
-            System.out.println("Referències guardades: " + comptaReferencies());
+            System.out.println("Referències guardades: " + comptaReferencies2());
         } catch (IOException e) {
             System.out.println("No s'ha trobat el fitxer botiga.csv");
         }
