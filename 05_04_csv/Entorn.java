@@ -13,8 +13,9 @@ public class Entorn {
     private final static Botiga botiga = new Botiga();
 
     public static long comptaReferencies() throws IOException {
-        File input = new File("botiga.csv"); Scanner iterate = new Scanner(input);
+        File input = new File("botiga.csv"); 
         if (input.isFile()){
+            Scanner iterate = new Scanner(input);
             int numLines=0; while(iterate.hasNextLine()) { String currLine=iterate.nextLine(); numLines++; }
             return numLines;
         }
