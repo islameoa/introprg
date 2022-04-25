@@ -94,4 +94,3 @@ public class Botiga {
     public Vi getActual(){
     	return vins[0];
     }
-}

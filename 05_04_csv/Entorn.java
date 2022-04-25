@@ -49,19 +49,13 @@ public class Entorn {
     public static void writeReferencies() throws IOException {
         BufferedWriter sortida = new BufferedWriter(new FileWriter("botiga.csv"));
         botiga.iniciaRecorregut();
-        if (botiga.getActual() != null) {
-            String[] parts = Vi.aArrayString(botiga.getSeguent());
+        while (true) {
+            Vi vi = botiga.getSeguent();
+            if (vi == null) break;
+            String[] parts = Vi.aArrayString(vi);
             String line = String.join(";", parts);
-            while (true) {
-                sortida.write(line);
-                parts = Vi.aArrayString(botiga.getSeguent());
-                if (parts[0] == null) {
-                    break;
-                }
-                line = String.join(";", parts);
-                sortida.newLine();
-            }
-            sortida.close();
+            sortida.write(line);
+            sortida.newLine();
         }
     }
 
