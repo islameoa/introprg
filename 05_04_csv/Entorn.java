@@ -17,9 +17,6 @@ public class Entorn {
             BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
             String line = input.readLine();
             int i = 0;
-            if (line.isEmpty() || line.equals("\n")) {
-                line = input.readLine();
-            }
             while (line != null) {
                 if (line.isEmpty() || line.equals("\n")) {
                     line = input.readLine();
