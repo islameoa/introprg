@@ -12,6 +12,7 @@ public class Entorn {
 
     public static int comptaReferencies() throws IOException {
         File fitxer = new File("botiga.txt");
+        botiga.iniciaRecorregut();
         if (fitxer.isFile()) {
             BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
             String line = input.readLine();
@@ -47,6 +48,7 @@ public class Entorn {
 
     public static void writeReferencies() throws IOException {
         BufferedWriter sortida = new BufferedWriter(new FileWriter("botiga.csv"));
+        botiga.iniciaRecorregut();
         if (botiga.getActual() != null) {
             String[] parts = Vi.aArrayString(botiga.getSeguent());
             String line = String.join(";", parts);
@@ -73,9 +75,6 @@ public class Entorn {
         Entorn entorn = new Entorn();
         mostraBenvinguda();
         System.out.println("Referències llegides: " + comptaReferencies());
-
-        botiga.iniciaRecorregut();
-
         try {
             if (existeixFitxer()) {
                 getReferencies();
