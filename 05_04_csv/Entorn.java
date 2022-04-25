@@ -17,15 +17,18 @@ public class Entorn {
             BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
             String line = input.readLine();
             int i = 0;
-            while (line != null) {
+            while (true) {
                 if (line.isEmpty() || line.equals("\n")) {
-                    line = input.readLine();
+                    continue;
                 }
                 String[] parts = line.split(";");
                 if (parts.length == 3) {
                     i++;
                 }
                 line = input.readLine();
+                if (line == null) {
+                    break;
+                }
             }
             input.close();
             return i;
