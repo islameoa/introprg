@@ -53,26 +53,51 @@ public class Botiga {
     }
 
     // mòdul cerca que rep el nom d'un vi i si el troba el retorna
-    public Vi cerca(String nom) {
-        nom = Vi.normalitzaNom(nom).toLowerCase();
+    public Vi cerca(String ref) {
+        ref = Vi.normalitzaString(ref).toLowerCase();
         for (int i = 0; i < vins.length; i++) {
             if (vins[i] != null) {
-                String vi = vins[i].getNom().toLowerCase();
-                if (vi.equals(nom)) {
+                String vi = vins[i].getRef().toLowerCase();
+                if (vi.equals(ref)) {
                     return vins[i];
                 }
             }
         }
         return null;
     }
+    public Vi cerca(Vi plantilla) {
+        if (plantilla.esValid()) {
+            for (int i = 0; i < vins.length; i++) {
+                if (vins[i] != null) {
+                    if (vins[i].equals(plantilla)) {
+                        return vins[i];
+                    }
+                }
+            }
+        } else {
+            for (Vi vi: vins) {
+                if (vi == null) continue;
+                if (! plantilla.getRef().isEmpty() && ! plantilla.getRef().equalsIgnoreCase(vi.getRef())) continue;
+                if (! plantilla.getNom().isEmpty() && ! plantilla.getNom().equalsIgnoreCase(vi.getNom())) continue;
+                if (! plantilla.getTipus().isEmpty() && ! plantilla.getTipus().equalsIgnoreCase(vi.getTipus())) continue;
+                if (plantilla.getPreu() >= 0 && plantilla.getPreu() <= vi.getPreu()) continue;
+                if (! plantilla.getOrigen().isEmpty() && ! plantilla.getOrigen().equalsIgnoreCase(vi.getOrigen())) continue;
+                if (! plantilla.getLloc().isEmpty() && ! plantilla.getLloc().equalsIgnoreCase(vi.getLloc())) continue;
+                if (plantilla.getEstoc() >= 0 && plantilla.getEstoc() <= vi.getEstoc()) continue;
+                if (! plantilla.getCollita().isEmpty() && ! plantilla.getCollita().equalsIgnoreCase(vi.getCollita())) continue;
+                return vi;
+            }
+        }
+        return null;
+    }
 
     // mòdul elimina que rep el nom d'un vi i l'elimina de l'array si el troba
-    public Vi elimina(String nom) {
+    public Vi elimina(String ref) {
         // ordena();
-        nom = Vi.normalitzaNom(nom);
+        ref = Vi.normalitzaString(ref);
         for (int i = 0; i < vins.length; i++) {
             if (vins[i] != null) {
-                if (vins[i].getNom().equals(nom)) {
+                if (vins[i].getRef().equals(ref)) {
                     if (vins[i].getEstoc() > 0) {
                         return null;
                     } else {
