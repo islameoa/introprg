@@ -15,11 +15,12 @@ public class GatRenat {
     }
 
     public void setPosicio(GatPosicio pos){
-        try {
-            posicio = pos;
-        } catch (Exception e) {
-            throw new IllegalArgumentException(String.format("Nom \"%s\" no suportat per GatPosicio", pos));
-        }
+        posicio = pos;
+        // try {
+        //     posicio = pos;
+        // } catch (Exception e) {
+        //     throw new IllegalArgumentException(String.format("Nom \"%s\" no suportat per GatPosicio", pos));
+        // }
     }
 
     public void setPosicio(String pos){
