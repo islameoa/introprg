@@ -7,7 +7,7 @@ public class UsaGatRenat {
             GatRenat renat = new GatRenat(posicio);
             System.out.println("El gat Renat està: " + renat.getPosicio());
         } catch (IllegalArgumentException e) {
-        System.out.println("Posició incorrecta");
+            throw new IllegalArgumentException(String.format("Nom \"%s\" no suportat per GatPosicio", nom));
         }
     }
 }
