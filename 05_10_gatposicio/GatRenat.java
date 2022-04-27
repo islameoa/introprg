@@ -1,5 +1,3 @@
-import java.security.PublicKey;
-
 /*Exercici en el que declarem la classe GatRenat que tindrà com a propietat posició i diversos mòduls per gestionar-la*/
 
 public class GatRenat {
@@ -23,12 +21,6 @@ public class GatRenat {
 
     public void setPosicio(GatPosicio pos) {
         posicio = pos;
-        // try {
-        // posicio = pos;
-        // } catch (Exception e) {
-        // throw new IllegalArgumentException(String.format("Nom \"%s\" no suportat per
-        // GatPosicio", pos));
-        // }
     }
 
     public void setPosicio(String pos) {
