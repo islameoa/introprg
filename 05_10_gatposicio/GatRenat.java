@@ -18,7 +18,7 @@ public class GatRenat {
         try {
             posicio = pos;
         } catch (Exception e) {
-            System.out.println("Posició incorrecta");
+            throw new IllegalArgumentException(String.format("Nom \"%s\" no suportat per GatPosicio", nom));
         }
     }
 
