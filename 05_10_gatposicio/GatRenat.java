@@ -1,7 +1,7 @@
 /*Exercici en el que declarem la classe GatRenat que tindrà com a propietat posició i diversos mòduls per gestionar-la*/
 
 public class GatRenat {
-    private GatPosicio posicio;
+    private GatPosicio posicio = GatPosicio.ESTIRAT;
     public GatRenat(GatPosicio pos){
         posicio = pos;
     }
