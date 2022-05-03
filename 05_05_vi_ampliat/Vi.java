@@ -10,8 +10,19 @@ public class Vi {
     private String tipus;
     private String collita;
 
+    public Vi() {
+        this.nom = null;
+        this.preu = -1;
+        this.estoc = -1;
+        this.ref = null;
+        this.lloc = null;
+        this.origen = null;
+        this.tipus = null;
+        this.collita = null;
+    }
 
-    public Vi(String ref, String nom, String lloc, int preu, String origen, int estoc, String tipus, String collita) {
+             
+    public Vi(String ref, String nom, int preu, int estoc, String lloc, String origen, String tipus, String collita) {
         this.nom = normalitzaString(nom);
         this.ref = normalitzaString(ref);
         this.lloc = normalitzaString(lloc);
@@ -146,18 +157,18 @@ public class Vi {
             return null;
         }
         try {
-            int preu = Integer.parseInt(vi[3]);
-            int estoc = Integer.parseInt(vi[5]);
             vi[0] = normalitzaString(vi[0]);
             vi[1] = normalitzaString(vi[1]);
-            vi[2] = normalitzaString(vi[2]);
+            int preu = Integer.parseInt(vi[2]);
+            int estoc = Integer.parseInt(vi[3]);
             vi[4] = normalitzaString(vi[4]);
+            vi[5] = normalitzaString(vi[5]);
             vi[6] = normalitzaString(vi[6]);
             vi[7] = normalitzaString(vi[7]);
-            if (preu < 0 || estoc < 0 || vi[0] == null || vi[1] == null || vi[2] == null || vi[4] == null || vi[6] == null || vi[7] == null) {
+            if (preu < 0 || estoc < 0 || vi[0] == null || vi[1] == null || vi[4] == null || vi[5] == null || vi[6] == null || vi[7] == null) {
                 return null;
             }
-            return new Vi(vi[0], vi[1], vi[2], preu, vi[4], estoc, vi[6], vi[7]);
+            return new Vi(vi[0], vi[1],preu, estoc, vi[4], vi[5], vi[6], vi[7]);
         } catch (Exception e) {
             return null;
         }
@@ -169,12 +180,12 @@ public class Vi {
         String[] vi = new String[8];
         vi[0] = getRef();
         vi[1] = getNom();
-        vi[2] = getTipus();
-        vi[3] = Integer.toString(getPreu());
-        vi[4] = getCollita();
+        vi[2] = Integer.toString(getPreu());
+        vi[3] = Integer.toString(getEstoc());
+        vi[4] = getLloc(); 
         vi[5] = getOrigen();
-        vi[6] = Integer.toString(getEstoc());
-        vi[7] = getLloc();
+        vi[6] = getTipus();
+        vi[7] = getCollita();
         return vi;
     }
 }
