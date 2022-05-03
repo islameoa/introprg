@@ -86,13 +86,15 @@ public class Entorn {
             String tipus = "";
             String collita = "";
             for (int i = 0; i < 8; i++) {
-                System.out.print("nom> ");
-                ambivalente = Entrada.readLine();
-                if (ambivalente.equals("!")) {
-                    nom = null;
-                    break;
-                } else {
-                    nom = ambivalente;
+                if (i == 0) {
+                    System.out.print("nom> ");
+                    ambivalente = Entrada.readLine();
+                    if (ambivalente.equals("!")) {
+                        nom = null;
+                        break;
+                    } else {
+                        nom = ambivalente;
+                    }
                 }
                 if (i == 1) {
                     System.out.print("preu max.> ");
