@@ -1,3 +1,4 @@
+
 /* Classe entorn on hem programat "l'aplicació" que utilitzarà la senyora Estrella per afegir vins, buscar vins, modificar les característiques d'algun vi i eliminar-ne un del catàleg de la botiga*/
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -47,12 +48,6 @@ public class Entorn {
                     mostraErrorComandaDesconeguda();
             }
         }
-        try {
-            writeReferencies();
-            System.out.println("Referències guardades: " + comptaReferencies());
-        } catch (IOException e) {
-            System.out.println("No s'ha trobat el fitxer botiga.csv");
-        }
         mostraComiat();
     }
 
@@ -75,119 +70,117 @@ public class Entorn {
     }
 
     private void processaAfegeix() {
-        System.out.print("nom (enter cancel·la)> ");
-        String nom = Entrada.readLine().strip();
-        if (nom.isEmpty())
-            return;
-        nom = Vi.normalitzaNom(nom);
-        System.out.print("preu (en cèntims)> ");
-        String preu = Entrada.readLine();
-        if (preu.isEmpty())
-            preu = "0";
-        int preuEnter = Integer.parseInt(preu);
-        if (preuEnter < 0) {
-            System.out.println("ERROR: el valor ha de ser un enter positiu");
-            return;
-        }
-        System.out.print("estoc (enter sense estoc)> ");
-        String estoc = Entrada.readLine();
-        if (estoc.isEmpty())
-            estoc = "0";
-        int estocEnter = Integer.parseInt(estoc);
-        if (estocEnter < 0) {
-            System.out.println("ERROR: el valor ha de ser un enter positiu");
-            return;
-        }
-        Vi vi = new Vi(nom, preuEnter, estocEnter);
-        if (botiga.afegeix(vi) == null) {
-            System.out.println("ERROR: no s'ha pogut afegir");
-        } else {
-            System.out.println("Introduït:");
-            System.out.println(vi);
-        }
+        System.out.println("Comanda temporalment no disponible");
     }
 
     private void processaCerca() {
-        System.out.print("nom (enter cancel·la)> ");
-        String nom = Entrada.readLine();
-        if (nom.isEmpty())
-            return;
-        nom = Vi.normalitzaNom(nom);
-        Vi vi = botiga.cerca(nom);
-        if (vi == null) {
-            System.out.println("No trobat");
+        System.out.print("ref (enter cancel·la)> ");
+        String ref = Entrada.readLine();
+        if (ref.isEmpty()) {
+            String ambivalente = "";
+            String nom = "";
+            int preu = -1;
+            int estoc = -1;
+            String lloc = "";
+            String origen = "";
+            String tipus = "";
+            String collita = "";
+            for (int i = 0; i < 8; i++) {
+                System.out.print("nom> ");
+                ambivalente = Entrada.readLine();
+                if (ambivalente.equals("!")) {
+                    nom = null;
+                    break;
+                } else {
+                    nom = ambivalente;
+                }
+                if (i == 1) {
+                    System.out.print("preu max.> ");
+                    String preuString = Entrada.readLine();
+                    if (preuString.equals("!")) {
+                        preu = -1;
+                        break;
+                    } else {
+                        preu = Integer.parseInt(preuString);
+                    }
+                }
+                if (i == 2) {
+                    System.out.print("estoc max.> ");
+                    String estocString = Entrada.readLine();
+                    if (estocString.equals("!")) {
+                        estoc = -1;
+                        break;
+                    } else {
+                        estoc = Integer.parseInt(estocString);
+                    }
+                }
+                if (i == 3) {
+                    System.out.print("lloc> ");
+                    ambivalente = Entrada.readLine();
+                    if (ambivalente.equals("!")) {
+                        lloc = null;
+                        break;
+                    } else {
+                        lloc = ambivalente;
+                    }
+                }
+                if (i == 4) {
+                    System.out.print("origen> ");
+                    ambivalente = Entrada.readLine();
+                    if (ambivalente.equals("!")) {
+                        origen = null;
+                        break;
+                    } else {
+                        origen = ambivalente;
+                    }
+                }
+                if (i == 5) {
+                    System.out.print("tipus> ");
+                    ambivalente = Entrada.readLine();
+                    if (ambivalente.equals("!")) {
+                        tipus = null;
+                        break;
+                    } else {
+                        tipus = ambivalente;
+                    }
+                }
+                if (i == 6) {
+                    System.out.print("collita> ");
+                    ambivalente = Entrada.readLine();
+                    if (ambivalente.equals("!")) {
+                        collita = null;
+                        break;
+                    } else {
+                        collita = ambivalente;
+                    }
+                }
+            }
+            Vi vi = new Vi(ref, nom, preu, estoc, collita, lloc, origen, tipus);
+            Vi viTrobat = botiga.cerca(vi);
+            if (viTrobat == null) {
+                System.out.println("No trobat");
+            } else {
+                System.out.println("Trobat:");
+                System.out.println(viTrobat);
+            }
         } else {
-            System.out.println("Trobat:");
-            System.out.println(vi);
+            ref = Vi.normalitzaString(ref);
+            Vi vi = botiga.cerca(ref);
+            if (vi == null) {
+                System.out.println("No trobat");
+            } else {
+                System.out.println("Trobat:");
+                System.out.println(vi);
+            }
         }
     }
 
     private void processaModifica() {
-        System.out.print("nom (enter cancel·la)> ");
-        String nom = Entrada.readLine();
-        if (nom.isEmpty())
-            return;
-        nom = Vi.normalitzaNom(nom);
-        Vi vi = botiga.cerca(nom);
-        if (vi == null) {
-            System.out.println("No trobat");
-        } else {
-            System.out.print("preu (enter " + vi.getPreu() + ")> ");
-            String preu = Entrada.readLine();
-            int preuEnter = 0;
-            if (preu.isEmpty()) {
-                preuEnter = vi.getPreu();
-            } else {
-                preuEnter = Integer.parseInt(preu);
-                if (preuEnter < 0) {
-                    System.out.println("ERROR: el valor ha de ser un enter positiu");
-                    return;
-                }
-                vi.setPreu(preuEnter);
-            }
-            System.out.print("estoc (enter " + vi.getEstoc() + ")> ");
-            String estoc = Entrada.readLine();
-            int estocEnter = 0;
-            if (estoc.isEmpty()) {
-                estocEnter = vi.getEstoc();
-            } else {
-                estocEnter = Integer.parseInt(estoc);
-                if (estocEnter < 0) {
-                    System.out.println("ERROR: el valor ha de ser un enter positiu");
-                    return;
-                }
-                vi.setEstoc(estocEnter);
-            }
-            System.out.println("Modificat:");
-            System.out.println(vi);
-        }
+        System.out.println("Comanda temporalment no disponible");
     }
 
     private void processaElimina() {
-        System.out.print("nom (enter cancel·la)> ");
-        String nom = Entrada.readLine();
-        if (nom.isEmpty())
-            return;
-        nom = Vi.normalitzaNom(nom);
-        Vi vi = botiga.cerca(nom);
-        if (vi == null) {
-            System.out.println("No trobat");
-        } else {
-            System.out.println("A eliminar:");
-            System.out.println(vi);
-            System.out.print("Segur?> ");
-            String resposta = Entrada.readLine();
-            if (!UtilitatsConfirmacio.respostaABoolean(resposta)) {
-                System.out.println("No eliminat");
-                return;
-            }
-            vi = botiga.elimina(nom);
-            if (vi == null) {
-                System.out.println("ERROR: no s'ha pogut eliminar");
-            } else {
-                System.out.println("Eliminat");
-            }
-        }
+        System.out.println("Comanda temporalment no disponible");
     }
 
     private static void mostraComiat() {
@@ -234,21 +227,6 @@ public class Entorn {
             line = input.readLine();
         }
         input.close();
-    }
-
-    public static void writeReferencies() throws IOException {
-        BufferedWriter sortida = new BufferedWriter(new FileWriter("botiga.csv"));
-        botiga.iniciaRecorregut();
-        while (true) {
-            Vi vi = botiga.getSeguent();
-            if (vi == null)
-                break;
-            String[] parts = Vi.aArrayString(vi);
-            String line = String.join(";", parts);
-            sortida.write(line);
-            sortida.newLine();
-        }
-        sortida.close();
     }
 
     // metodo booleano que mira si existe el fichero botiga.txt
