@@ -19,7 +19,7 @@ public class Entorn {
                 getReferencies();
             }
         } catch (IOException e) {
-            System.out.println("El fitxer botiga.txt no existeix");
+            System.out.println("El fitxer botiga.csv no existeix");
         }
         while (true) {
             mostraPrompt();
@@ -205,7 +205,7 @@ public class Entorn {
                     break;
                 }
                 String[] parts = line.split(";");
-                if (parts.length == 3 && UtilString.esEnter(parts[1]) && UtilString.esEnter(parts[2])) {
+                if (parts.length == 8 && UtilString.esEnter(parts[2]) && UtilString.esEnter(parts[3]) && UtilString.esEnter(parts[7])) {
                     i++;
                 }
                 line = input.readLine();
