@@ -148,7 +148,7 @@ public class Vi {
         //format del vi per ser mostrat com String
     @Override
     public String toString() {
-        return "\n    Referència: " + getRef() + "\n    Vi: " + getNom() + "\n    Tipus: " + getTipus() + "\n    Preu: " + getPreu() + "\n    Collita: " + getCollita() + "\n    Estoc: " + getEstoc() + "\n    Denominació d'origen: " + getOrigen() + "\n    Lloc: " + getLloc()  +"\n";
+        return "\n    Ref: " + getRef() + "\n    Vi: " + getNom() + "\n    Preu: " + getPreu() + "\n    Estoc: " + getEstoc() + "\n    Lloc: " + getLloc() + "\n    D.O.: " + getOrigen() + "\n    Tipus: " + getTipus() + "\n    Collita: " + getCollita()  +"\n";
     }
     
     //rep un array de Strings amb els atributs del vi i retorna un vi amb aquests atributs
