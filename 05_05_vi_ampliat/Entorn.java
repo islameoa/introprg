@@ -221,8 +221,8 @@ public class Entorn {
         String line = input.readLine();
         while (line != null) {
             String[] parts = line.split(";");
-            if (parts.length == 3) {
-                if (UtilString.esEnter(parts[1]) && UtilString.esEnter(parts[2])) {
+            if (parts.length == 8 && UtilString.esEnter(parts[2]) && UtilString.esEnter(parts[3]) && UtilString.esEnter(parts[7])) {
+                if (UtilString.esEnter(parts[2]) && UtilString.esEnter(parts[3]) && UtilString.esEnter(parts[7])) {
                     botiga.afegeix(Vi.deArrayString(parts));
                 }
             }
