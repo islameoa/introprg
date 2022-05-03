@@ -74,7 +74,7 @@ public class Entorn {
     }
 
     private void processaCerca() {
-        System.out.print("ref (enter cancel·la)> ");
+        System.out.print("ref> ");
         String ref = Entrada.readLine();
         if (ref.isEmpty()) {
             String ambivalente = "";
@@ -163,6 +163,8 @@ public class Entorn {
                 System.out.println("Trobat:");
                 System.out.println(viTrobat);
             }
+        } else if (ref.equals("!")) {
+            ref = null;
         } else {
             ref = Vi.normalitzaString(ref);
             Vi vi = botiga.cerca(ref);
