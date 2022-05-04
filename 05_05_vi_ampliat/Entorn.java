@@ -99,7 +99,7 @@ public class Entorn {
                 if (i == 1) {
                     System.out.print("preu max.> ");
                     String preuString = Entrada.readLine();
-                    if (preuString.equals("!")) {
+                    if (preuString.equals("!") || !UtilString.esEnter(preuString)) {
                         preu = -1;
                         break;
                     } else {
@@ -109,7 +109,7 @@ public class Entorn {
                 if (i == 2) {
                     System.out.print("estoc max.> ");
                     String estocString = Entrada.readLine();
-                    if (estocString.equals("!")) {
+                    if (estocString.equals("!") || !UtilString.esEnter(estocString)) {
                         estoc = -1;
                         break;
                     } else {
