@@ -85,6 +85,7 @@ public class Entorn {
             String origen = "";
             String tipus = "";
             String collita = "";
+            boolean error = false;
             for (int i = 0; i < 8; i++) {
                 if (i == 0) {
                     System.out.print("nom> ");
@@ -104,6 +105,7 @@ public class Entorn {
                         break;
                     } else if (!UtilString.esEnter(preuString)) {
                         System.out.println("ERROR: el valor ha de ser un enter positiu");
+                        error = true;
                         break;
                     } else {
                         preu = Integer.parseInt(preuString);
@@ -117,6 +119,7 @@ public class Entorn {
                         break;
                     } else if (!UtilString.esEnter(estocString)) {
                         System.out.println("ERROR: el valor ha de ser un enter positiu");
+                        error = true;
                         break;
                     } else {
                         estoc = Integer.parseInt(estocString);
@@ -165,11 +168,13 @@ public class Entorn {
             }
             Vi vi = new Vi(ref, nom, preu, estoc, collita, lloc, origen, tipus);
             Vi viTrobat = botiga.cerca(vi);
-            if (viTrobat == null) {
-                System.out.println("No trobat");
-            } else {
-                System.out.println("Trobat:");
-                System.out.println(viTrobat);
+            if (!error) {
+                if (viTrobat == null) {
+                    System.out.println("No trobat");
+                } else {
+                    System.out.println("Trobat:");
+                    System.out.println(viTrobat);
+                }
             }
         } else if (ref.equals("!")) {
             ref = null;
