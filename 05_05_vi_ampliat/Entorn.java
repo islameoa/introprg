@@ -114,7 +114,7 @@ public class Entorn {
                     }
                 }
                 if (i == 2) {
-                    System.out.print("estoc max.> ");
+                    System.out.print("estoc min.> ");
                     String estocString = Entrada.readLine();
                     if (estocString.equals("!")) {
                         estoc = -1;
