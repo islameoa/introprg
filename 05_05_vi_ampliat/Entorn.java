@@ -99,8 +99,11 @@ public class Entorn {
                 if (i == 1) {
                     System.out.print("preu max.> ");
                     String preuString = Entrada.readLine();
-                    if (preuString.equals("!") || !UtilString.esEnter(preuString)) {
+                    if (preuString.equals("!")) {
                         preu = -1;
+                        break;
+                    } else if (!UtilString.esEnter(preuString)) {
+                        System.out.println("ERROR: el valor ha de ser un enter positiu");
                         break;
                     } else {
                         preu = Integer.parseInt(preuString);
@@ -111,6 +114,9 @@ public class Entorn {
                     String estocString = Entrada.readLine();
                     if (estocString.equals("!") || !UtilString.esEnter(estocString)) {
                         estoc = -1;
+                        break;
+                    } else if (!UtilString.esEnter(estocString)) {
+                        System.out.println("ERROR: el valor ha de ser un enter positiu");
                         break;
                     } else {
                         estoc = Integer.parseInt(estocString);
