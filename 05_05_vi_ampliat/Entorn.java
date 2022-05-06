@@ -145,7 +145,7 @@ public class Entorn {
                     }
                 }
                 if (i == 4) {
-                    System.out.print("origen> ");
+                    System.out.print("D.O.> ");
                     ambivalente = Entrada.readLine();
                     if (ambivalente.equals("!")) {
                         origen = null;
