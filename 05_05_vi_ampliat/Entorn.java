@@ -138,6 +138,8 @@ public class Entorn {
                     if (ambivalente.equals("!")) {
                         lloc = null;
                         break;
+                    } else if (ambivalente.isEmpty()) {
+                        lloc = null;
                     } else {
                         lloc = ambivalente;
                     }
@@ -148,6 +150,8 @@ public class Entorn {
                     if (ambivalente.equals("!")) {
                         origen = null;
                         break;
+                    } else if (ambivalente.isEmpty()) {
+                        origen = null;
                     } else {
                         origen = ambivalente;
                     }
@@ -158,6 +162,8 @@ public class Entorn {
                     if (ambivalente.equals("!")) {
                         tipus = null;
                         break;
+                    } else if (ambivalente.isEmpty()) {
+                        tipus = null;
                     } else {
                         tipus = ambivalente;
                     }
@@ -168,6 +174,8 @@ public class Entorn {
                     if (ambivalente.equals("!")) {
                         collita = null;
                         break;
+                    } else if (ambivalente.isEmpty()) {
+                        collita = null;
                     } else {
                         collita = ambivalente;
                     }
