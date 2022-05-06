@@ -77,14 +77,15 @@ public class Entorn {
         System.out.print("ref> ");
         String ref = Entrada.readLine();
         if (ref.isEmpty()) {
+            ref = null;
             String ambivalente = "";
-            String nom = "";
+            String nom = null;
             int preu = -1;
             int estoc = -1;
-            String lloc = "";
-            String origen = "";
-            String tipus = "";
-            String collita = "";
+            String lloc = null;
+            String origen = null;
+            String tipus = null;
+            String collita = null;
             boolean error = false;
             for (int i = 0; i < 8; i++) {
                 if (i == 0) {

@@ -57,35 +57,30 @@ public class Vi {
                 this.lloc = null;
             }
         }
-        
-        
-        origen = normalitzaString(origen);
-        tipus = normalitzaString(tipus);
-        collita = normalitzaString(collita);
-
-        
-        
-        
-        if ((lloc != null) || (!lloc.isBlank())){
-            this.lloc = lloc;
-        } else {
-            this.lloc = null;
+        if (origen != null){
+            origen = normalitzaString(origen);
+            if (!origen.isBlank()) {
+                this.origen = origen;
+            } else {
+                this.origen = null;
+            }
         }
-        if ((origen != null) || (!origen.isBlank())){
-            this.origen = origen;
-        } else {
-            this.origen = null;
+        if (tipus != null){
+            tipus = normalitzaString(tipus);
+            if (!tipus.isBlank()) {
+                this.tipus = tipus;
+            } else {
+                this.tipus = null;
+            }
         }
-        if ((tipus != null) || (!tipus.isBlank())){
-            this.tipus = tipus;
-        } else {
-            this.tipus = null;
-        }
-        if ((collita != null) || (!collita.isBlank())){
-            this.collita = collita;
-        } else {
-            this.collita = null;
-        }
+        if (collita != null){
+            collita = normalitzaString(collita);
+            if (!collita.isBlank()) {
+                this.collita = collita;
+            } else {
+                this.collita = null;
+            }
+        }     
     }
 
     public String getNom() {
