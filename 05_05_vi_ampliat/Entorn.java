@@ -91,7 +91,7 @@ public class Entorn {
                 if (i == 0) {
                     System.out.print("nom> ");
                     ambivalente = Entrada.readLine();
-                    if (ambivalente.equals("!")) {
+                    if (ambivalente.equals("!") || ambivalente.equals("")) {
                         nom = null;
                         break;
                     } else {

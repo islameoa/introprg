@@ -25,7 +25,7 @@ public class Vi {
     public Vi(String ref, String nom, int preu, int estoc, String lloc, String origen, String tipus, String collita) {
         if(ref != null){
             ref = normalitzaString(ref);
-            if (!ref.isBlank()){
+            if (!ref.isEmpty()){
                 this.ref = ref;
             } else {
                 this.ref = null;
@@ -33,7 +33,7 @@ public class Vi {
         }
         if(nom != null){
             nom = normalitzaString(nom);
-            if (!nom.isBlank()){
+            if (!nom.isEmpty()){
                 this.nom = nom;
             } else {
                 this.nom = null;
@@ -51,7 +51,7 @@ public class Vi {
         }
         if (lloc != null){
             lloc = normalitzaString(lloc);
-            if (!lloc.isBlank()) {
+            if (!lloc.isEmpty()) {
                 this.lloc = lloc;
             } else {
                 this.lloc = null;
@@ -59,7 +59,7 @@ public class Vi {
         }
         if (origen != null){
             origen = normalitzaString(origen);
-            if (!origen.isBlank()) {
+            if (!origen.isEmpty()) {
                 this.origen = origen;
             } else {
                 this.origen = null;
@@ -67,7 +67,7 @@ public class Vi {
         }
         if (tipus != null){
             tipus = normalitzaString(tipus);
-            if (!tipus.isBlank()) {
+            if (!tipus.isEmpty()) {
                 this.tipus = tipus;
             } else {
                 this.tipus = null;
@@ -75,7 +75,7 @@ public class Vi {
         }
         if (collita != null){
             collita = normalitzaString(collita);
-            if (!collita.isBlank()) {
+            if (!collita.isEmpty()) {
                 this.collita = collita;
             } else {
                 this.collita = null;
