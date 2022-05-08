@@ -103,10 +103,13 @@ public class Botiga {
                 if (plantilla.getNom() != null && !plantilla.getNom().equalsIgnoreCase(vi.getNom()))
                     continue;
 
-                if (plantilla.getPreu() >= 0 && plantilla.getPreu() <= vi.getPreu())
+                if (plantilla.getPreu() >= 0 && plantilla.getPreu() < vi.getPreu())
                     continue;
+                if (plantilla.getPreu() == vi.getPreu()){
+                    return vi;
+                }
 
-                if (plantilla.getEstoc() >= 0 && plantilla.getEstoc() >= vi.getEstoc())
+                if (plantilla.getEstoc() >= 0 && plantilla.getEstoc() > vi.getEstoc())
                     continue;
 
                 if (plantilla.getTipus() != null && !plantilla.getTipus().equalsIgnoreCase(vi.getTipus()))
