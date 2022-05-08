@@ -70,7 +70,25 @@ public class Botiga {
         if (plantilla.esValid()) {
             for (int i = 0; i < vins.length; i++) {
                 if (vins[i] != null) {
-                    if (vins[i].equals(plantilla)) {
+                    if (vins[i].getNom().equals(plantilla.getNom())) {
+                        return vins[i];
+                    }
+                    if (vins[i].getRef().equals(plantilla.getRef())) {
+                        return vins[i];
+                    }
+                    if (vins[i].getPreu() == plantilla.getPreu()) {
+                        return vins[i];
+                    }
+                    if (vins[i].getEstoc() == plantilla.getEstoc()) {
+                        return vins[i];
+                    }
+                    if (vins[i].getLloc().equals(plantilla.getLloc())) {
+                        return vins[i];
+                    }
+                    if (vins[i].getOrigen().equals(plantilla.getOrigen())) {
+                        return vins[i];
+                    }
+                    if (vins[i].getTipus().equals(plantilla.getTipus())) {
                         return vins[i];
                     }
                 }
