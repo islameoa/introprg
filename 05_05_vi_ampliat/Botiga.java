@@ -113,7 +113,7 @@ public class Botiga {
         ref = Vi.normalitzaString(ref);
         for (int i = 0; i < vins.length; i++) {
             if (vins[i] != null) {
-                if (vins[i].getRef().equals(ref)) {
+                if (Vi.normalitzaString(vins[i].getRef()).equals(ref)) {
                     if (vins[i].getEstoc() > 0) {
                         return null;
                     } else {
