@@ -70,6 +70,7 @@ public class Botiga {
         for (Vi vi : vins) {
             if (vi == null)
                 continue;
+            if (vi.getPreu() == plantilla.getPreu()) return vi;
             if (plantilla.getRef() != null && !plantilla.getRef().equalsIgnoreCase(vi.getRef()))
                 continue;
 
@@ -96,8 +97,8 @@ public class Botiga {
 
             return vi;
         }
-    
-    return null;
+
+        return null;
     }
 
     // mòdul elimina que rep el nom d'un vi i l'elimina de l'array si el troba
