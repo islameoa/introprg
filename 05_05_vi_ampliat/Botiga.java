@@ -134,6 +134,7 @@ public class Botiga {
 
     // retorna el segÜent vi del recorregut de la botiga
     public Vi getSeguent() {
+        iniciaRecorregut();
         if (getApuntador() < vins.length) {
             setApuntador(getApuntador() + 1);
         }
