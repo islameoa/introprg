@@ -158,7 +158,7 @@ public class Vi {
     }
         //comprova si un vi es valid
     public boolean esValid() {
-        return (nom != null && nom.length() > 0 && preu >= 0 && estoc >= 0);
+        return (nom != null && nom.length() > 0 && ref != null && ref.length() > 0 && preu >= 0 && estoc >= 0);
     }
 
         //format del vi per ser mostrat com String
