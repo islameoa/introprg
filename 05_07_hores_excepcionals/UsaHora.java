@@ -1,8 +1,20 @@
 public class UsaHora {
     private static void canviaHora(Hora hora, int hores, int minuts, int segons) throws Exception {
-        hora.setHores(hores);
-        hora.setMinuts(minuts);
-        hora.setSegons(segons);
+        try {
+            hora.setHores(hores);
+        } catch (Exception e) {
+            System.out.println("hores fora de rang: " + hores);
+        }
+        try {
+            hora.setMinuts(minuts);
+        } catch (Exception e) {
+            System.out.println("minuts fora de rang: " + minuts);
+        }
+        try {
+            hora.setSegons(segons);
+        } catch (Exception e) {
+            System.out.println("segons fora de rang: " + segons);
+        }
     }
     public static void main(String[] args) throws Exception {
         Hora hora = new Hora();

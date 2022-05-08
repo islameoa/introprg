@@ -18,38 +18,26 @@ public class Hora {
     }
 
     public void setHores(int hores) throws Exception{
-        try {
-            if (hores < 0 || hores > 23) {
-                throw new Exception("java.lang.Exception: hores fora de rang: " + hores);
-            } else {
-                this.hores = hores;
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        if (hores>=0 && hores<24) {
+            this.hores=hores;
+        } else {
+            throw new Exception("Hores fora de rang: " + hores);
         }
     }
 
     public void setMinuts(int minuts) throws Exception{
-        try {
-            if (minuts < 0 || minuts > 60){
-                throw new Exception("java.lang.Exception: minuts fora de rang: " + minuts);
-            } else {
-                this.minuts = minuts;
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        if (minuts>=0 && minuts<60) {
+            this.minuts=minuts;
+        } else {
+            throw new Exception("Minuts fora de rang: " + minuts);
         }
     }
 
     public void setSegons(int segons) throws Exception{
-        try {
-            if (segons < 0 || segons > 60){
-                throw new Exception("java.lang.Exception: segons fora de rang: " + segons);
-            } else {
-                this.segons = segons;
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        if (segons>=0 && segons<60) {
+            this.segons=segons;
+        } else {
+            throw new Exception("Segons fora de rang: " + segons);
         }
     }
 
