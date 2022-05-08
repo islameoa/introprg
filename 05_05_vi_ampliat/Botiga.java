@@ -67,64 +67,37 @@ public class Botiga {
     }
 
     public Vi cerca(Vi plantilla) {
-        if (!plantilla.esValid()) {
-            for (int i = 0; i < vins.length; i++) {
-                if (vins[i] != null) {
-                    if (vins[i].getNom().equals(plantilla.getNom())) {
-                        return vins[i];
-                    }
-                    if (vins[i].getRef().equals(plantilla.getRef())) {
-                        return vins[i];
-                    }
-                    if (vins[i].getPreu() == plantilla.getPreu()) {
-                        return vins[i];
-                    }
-                    if (vins[i].getEstoc() == plantilla.getEstoc()) {
-                        return vins[i];
-                    }
-                    if (vins[i].getLloc().equals(plantilla.getLloc())) {
-                        return vins[i];
-                    }
-                    if (vins[i].getOrigen().equals(plantilla.getOrigen())) {
-                        return vins[i];
-                    }
-                    if (vins[i].getTipus().equals(plantilla.getTipus())) {
-                        return vins[i];
-                    }
-                }
-            }
-        } else {
-            for (Vi vi : vins) {
-                if (vi == null)
-                    continue;
-                if (plantilla.getRef() != null && !plantilla.getRef().equalsIgnoreCase(vi.getRef()))
-                    continue;
+        for (Vi vi : vins) {
+            if (vi == null)
+                continue;
+            if (plantilla.getRef() != null && !plantilla.getRef().equalsIgnoreCase(vi.getRef()))
+                continue;
 
-                if (plantilla.getNom() != null && !plantilla.getNom().equalsIgnoreCase(vi.getNom()))
-                    continue;
+            if (plantilla.getNom() != null && !plantilla.getNom().equalsIgnoreCase(vi.getNom()))
+                continue;
 
-                if (plantilla.getPreu() >= 0 && plantilla.getPreu() < vi.getPreu())
-                    continue;
+            if (plantilla.getPreu() >= 0 && plantilla.getPreu() < vi.getPreu())
+                continue;
 
-                if (plantilla.getEstoc() >= 0 && plantilla.getEstoc() > vi.getEstoc())
-                    continue;
+            if (plantilla.getEstoc() >= 0 && plantilla.getEstoc() > vi.getEstoc())
+                continue;
 
-                if (plantilla.getTipus() != null && !plantilla.getTipus().equalsIgnoreCase(vi.getTipus()))
-                    continue;
+            if (plantilla.getTipus() != null && !plantilla.getTipus().equalsIgnoreCase(vi.getTipus()))
+                continue;
 
-                if (plantilla.getOrigen() != null && !plantilla.getOrigen().equalsIgnoreCase(vi.getOrigen()))
-                    continue;
+            if (plantilla.getOrigen() != null && !plantilla.getOrigen().equalsIgnoreCase(vi.getOrigen()))
+                continue;
 
-                if (plantilla.getLloc() != null && !plantilla.getLloc().equalsIgnoreCase(vi.getLloc()))
-                    continue;
+            if (plantilla.getLloc() != null && !plantilla.getLloc().equalsIgnoreCase(vi.getLloc()))
+                continue;
 
-                if (plantilla.getCollita() != null && !plantilla.getCollita().equalsIgnoreCase(vi.getCollita()))
-                    continue;
+            if (plantilla.getCollita() != null && !plantilla.getCollita().equalsIgnoreCase(vi.getCollita()))
+                continue;
 
-                return vi;
-            }
+            return vi;
         }
-        return null;
+    
+    return null;
     }
 
     // mòdul elimina que rep el nom d'un vi i l'elimina de l'array si el troba
