@@ -67,7 +67,7 @@ public class Botiga {
     }
 
     public Vi cerca(Vi plantilla) {
-        if (plantilla.esValid()) {
+        if (!plantilla.esValid()) {
             for (int i = 0; i < vins.length; i++) {
                 if (vins[i] != null) {
                     if (vins[i].getNom().equals(plantilla.getNom())) {
