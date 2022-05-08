@@ -1,3 +1,4 @@
+//programa que ens permetra introduir una hora i probar el llançament de les excepcions
 public class UsaHora {
     private static void canviaHora(Hora hora, int hores, int minuts, int segons) throws Exception {
         try {

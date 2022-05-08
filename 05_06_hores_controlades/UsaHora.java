@@ -1,3 +1,4 @@
+//programa que ens permetra introduir una hora i probar el llançament de les excepcions
 public class UsaHora {
     public static void main(String[] args) {
         Hora hora = new Hora();
