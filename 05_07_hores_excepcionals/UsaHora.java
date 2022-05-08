@@ -3,17 +3,17 @@ public class UsaHora {
         try {
             hora.setHores(hores);
         } catch (Exception e) {
-            System.out.println("hores fora de rang: " + hores);
+            System.out.println(e + "hores fora de rang: " + hores);
         }
         try {
             hora.setMinuts(minuts);
         } catch (Exception e) {
-            System.out.println("minuts fora de rang: " + minuts);
+            System.out.println(e + "minuts fora de rang: " + minuts);
         }
         try {
             hora.setSegons(segons);
         } catch (Exception e) {
-            System.out.println("segons fora de rang: " + segons);
+            System.out.println(e + "segons fora de rang: " + segons);
         }
     }
     public static void main(String[] args) throws Exception {
