@@ -22,7 +22,7 @@ public class Hora {
     public void setHores(int hores) throws Exception{
         try {
             if (hores < 0 || hores > 23) {
-                throw new Exception("hores fora de rang: " + hores);
+                throw new Exception("java.lang.Exception: hores fora de rang: " + hores);
             } else {
                 this.hores = hores;
             }
@@ -34,7 +34,7 @@ public class Hora {
     public void setMinuts(int minuts) {
         try {
             if (minuts < 0 || minuts > 60){
-                throw new Exception("minuts fora de rang: " + minuts);
+                throw new Exception("java.lang.Exception: minuts fora de rang: " + minuts);
             } else {
                 this.minuts = minuts;
             }
@@ -46,7 +46,7 @@ public class Hora {
     public void setSegons(int segons) {
         try {
             if (segons < 0 || segons > 60){
-                throw new Exception("segons fora de rang: " + segons);
+                throw new Exception("java.lang.Exception: segons fora de rang: " + segons);
             } else {
                 this.segons = segons;
             }
