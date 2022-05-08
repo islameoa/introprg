@@ -110,10 +110,10 @@ public class Botiga {
     // mòdul elimina que rep el nom d'un vi i l'elimina de l'array si el troba
     public Vi elimina(String ref) {
         // ordena();
-        ref = Vi.normalitzaString(ref);
+        ref = Vi.normalitzaString(ref).toLowerCase();
         for (int i = 0; i < vins.length; i++) {
             if (vins[i] != null) {
-                if (Vi.normalitzaString(vins[i].getRef()).equals(ref)) {
+                if (vins[i].getRef().toLowerCase().equals(ref)) {
                     if (vins[i].getEstoc() > 0) {
                         return null;
                     } else {
