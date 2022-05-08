@@ -97,28 +97,28 @@ public class Botiga {
             for (Vi vi : vins) {
                 if (vi == null)
                     continue;
-                if (plantilla.getRef() != null && !plantilla.getRef().equalsIgnoreCase(vi.getRef()))
+                if (plantilla.getRef() == null && !plantilla.getRef().equalsIgnoreCase(vi.getRef()))
                     continue;
 
-                if (plantilla.getNom() != null && !plantilla.getNom().equalsIgnoreCase(vi.getNom()))
+                if (plantilla.getNom() == null && !plantilla.getNom().equalsIgnoreCase(vi.getNom()))
                     continue;
 
-                if (plantilla.getPreu() < 0 && plantilla.getPreu() < vi.getPreu())
+                if (plantilla.getPreu() >= 0 && plantilla.getPreu() < vi.getPreu())
                     continue;
 
-                if (plantilla.getEstoc() < 0 && plantilla.getEstoc() > vi.getEstoc())
+                if (plantilla.getEstoc() >= 0 && plantilla.getEstoc() > vi.getEstoc())
                     continue;
 
-                if (plantilla.getTipus() != null && !plantilla.getTipus().equalsIgnoreCase(vi.getTipus()))
+                if (plantilla.getTipus() == null && !plantilla.getTipus().equalsIgnoreCase(vi.getTipus()))
                     continue;
 
-                if (plantilla.getOrigen() != null && !plantilla.getOrigen().equalsIgnoreCase(vi.getOrigen()))
+                if (plantilla.getOrigen() == null && !plantilla.getOrigen().equalsIgnoreCase(vi.getOrigen()))
                     continue;
 
-                if (plantilla.getLloc() != null && !plantilla.getLloc().equalsIgnoreCase(vi.getLloc()))
+                if (plantilla.getLloc() == null && !plantilla.getLloc().equalsIgnoreCase(vi.getLloc()))
                     continue;
 
-                if (plantilla.getCollita() != null && !plantilla.getCollita().equalsIgnoreCase(vi.getCollita()))
+                if (plantilla.getCollita() == null && !plantilla.getCollita().equalsIgnoreCase(vi.getCollita()))
                     continue;
 
                 return vi;
