@@ -1,4 +1,4 @@
-//prpgrama que ens permetra introduir una hora i probar el llançament de les excepcions
+//programa que ens permetra introduir una hora i probar el llançament de les excepcions
 public class UsaHora {
     public static void main(String[] args) throws Exception {
         System.out.println("Intentarem crear una hora amb valors no vàlids");
