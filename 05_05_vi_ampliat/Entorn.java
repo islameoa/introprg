@@ -61,9 +61,6 @@ public class Entorn {
         System.out.println("Comandes disponibles:");
         System.out.println("ajuda");
         System.out.println("cerca");
-        System.out.println("afegeix");
-        System.out.println("modifica");
-        System.out.println("elimina");
         System.out.println("surt");
     }
 
