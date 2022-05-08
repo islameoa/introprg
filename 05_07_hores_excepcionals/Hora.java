@@ -7,15 +7,13 @@ public class Hora {
     public Hora() {
     }
 
-    public Hora(int hores, int minuts, int segons) {
-        if (hores < 0 || hores > 23 || minuts < 0 || minuts > 59 || segons < 0 || segons > 59) {
-            this.hores = 0;
-            this.minuts = 0;
-            this.segons = 0;
-        } else {
-            this.hores = hores;
-            this.minuts = minuts;
-            this.segons = segons;
+    public Hora(int hores, int minuts, int segons) throws Exception {
+        try {
+            setHores(hores);
+            setMinuts(minuts);
+            setSegons(segons);
+        } catch (Exception e) {
+            throw e;
         }
     }
 
@@ -31,7 +29,7 @@ public class Hora {
         }
     }
 
-    public void setMinuts(int minuts) {
+    public void setMinuts(int minuts) throws Exception{
         try {
             if (minuts < 0 || minuts > 60){
                 throw new Exception("java.lang.Exception: minuts fora de rang: " + minuts);
@@ -43,7 +41,7 @@ public class Hora {
         }
     }
 
-    public void setSegons(int segons) {
+    public void setSegons(int segons) throws Exception{
         try {
             if (segons < 0 || segons > 60){
                 throw new Exception("java.lang.Exception: segons fora de rang: " + segons);
