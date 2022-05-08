@@ -1,10 +1,10 @@
-public public class UsaHora {
-    private static void canviaHora(Hora hora, int hores, int minuts, int segons) {
+public class UsaHora {
+    private static void canviaHora(Hora hora, int hores, int minuts, int segons) throws Exception {
         hora.setHores(hores);
         hora.setMinuts(minuts);
         hora.setSegons(segons);
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Hora hora = new Hora();
         System.out.println("Inicialment " + hora);
         System.out.println("Si intentem assignar a hores un -1");
