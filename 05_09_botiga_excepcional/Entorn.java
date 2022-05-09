@@ -12,7 +12,7 @@ public class Entorn {
         Entorn entorn = new Entorn();
         mostraBenvinguda();
         int i = comptaReferencies();
-        if (i <= 10) {
+        if (i < 10) {
             System.out.println("Referències llegides: " + comptaReferencies());
         }
         try {
@@ -293,5 +293,11 @@ public class Entorn {
     public static boolean existeixFitxer() {
         File fitxer = new File("botiga.csv");
         return fitxer.isFile();
+    }
+    @SuppressWarnings("serial")
+    public class BotigaException extends Exception {
+        public BotigaException(){
+            super("Botiga plena");
+        }
     }
 }
