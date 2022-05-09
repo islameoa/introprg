@@ -63,6 +63,8 @@ public class Botiga {
                 throw new Exception("El vi ha de ser vàlid");
             }
             return null;
+        } catch (BotigaException e) {
+            throw new BotigaException("Botiga plena");
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
