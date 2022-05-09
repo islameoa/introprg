@@ -294,10 +294,5 @@ public class Entorn {
         File fitxer = new File("botiga.csv");
         return fitxer.isFile();
     }
-    @SuppressWarnings("serial")
-    public class BotigaException extends Exception {
-        public BotigaException(){
-            super("Botiga plena");
-        }
-    }
+    
 }
