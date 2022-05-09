@@ -11,6 +11,10 @@ public class Entorn {
     public static void main(String[] args) throws Exception {
         Entorn entorn = new Entorn();
         mostraBenvinguda();
+        int i = comptaReferencies();
+        if (i <= 10) {
+            System.out.println("Referències llegides: " + comptaReferencies());
+        }
         try {
             if (existeixFitxer()) {
                 getReferencies();
@@ -216,9 +220,29 @@ public class Entorn {
     }
 
     public static int comptaReferencies() throws IOException {
-        int i = 0;
-        botiga.getApuntador();
-        return i;
+        File fitxer = new File("botiga.csv");
+        botiga.iniciaRecorregut();
+        if (fitxer.isFile()) {
+            BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
+            String line = input.readLine();
+            int i = 0;
+            while (true) {
+                if (line == null) {
+                    break;
+                }
+                String[] parts = line.split(";");
+                if (parts.length == 8 && UtilString.esEnter(parts[2]) && UtilString.esEnter(parts[3]) && UtilString.esEnter(parts[7])) {
+                    i++;
+                }
+                line = input.readLine();
+            }
+            input.close();
+            if (i >= 10) {
+                i = 10;
+            }
+            return i;
+        }
+        return 0;
     }
 
     public static void getReferencies() throws Exception {
