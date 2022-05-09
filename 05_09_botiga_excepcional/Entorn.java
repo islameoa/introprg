@@ -68,7 +68,7 @@ public class Entorn {
         System.out.println("Comanda temporalment no disponible");
     }
 
-    private void processaCerca() {
+    private void processaCerca() throws Exception {
         System.out.print("ref> ");
         String ref = Entrada.readLine();
         if (ref.isEmpty()) {
@@ -240,18 +240,23 @@ public class Entorn {
         return 0;
     }
 
-    public static void getReferencies() throws IOException {
+    public static void getReferencies() throws Exception {
         BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
         String line = input.readLine();
+        int contador = 0;
         while (line != null) {
             String[] parts = line.split(";");
             if (parts.length == 8 && UtilString.esEnter(parts[2]) && UtilString.esEnter(parts[3])
                     && UtilString.esEnter(parts[7])) {
                 if (UtilString.esEnter(parts[2]) && UtilString.esEnter(parts[3]) && UtilString.esEnter(parts[7])) {
                     botiga.afegeix(Vi.deArrayString(parts));
+                    contador ++;
                 }
             }
             line = input.readLine();
+            if (contador == 9){
+                throw new Exception("ERROR: massa entrades a botiga.csv");
+            }
         }
         input.close();
     }
