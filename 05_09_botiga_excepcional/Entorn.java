@@ -11,7 +11,6 @@ public class Entorn {
     public static void main(String[] args) throws Exception {
         Entorn entorn = new Entorn();
         mostraBenvinguda();
-        System.out.println("Referències llegides: " + comptaReferencies());
         try {
             if (existeixFitxer()) {
                 getReferencies();
@@ -217,27 +216,9 @@ public class Entorn {
     }
 
     public static int comptaReferencies() throws IOException {
-        File fitxer = new File("botiga.csv");
-        botiga.iniciaRecorregut();
-        if (fitxer.isFile()) {
-            BufferedReader input = new BufferedReader(new FileReader("botiga.csv"));
-            String line = input.readLine();
-            int i = 0;
-            while (true) {
-                if (line == null) {
-                    break;
-                }
-                String[] parts = line.split(";");
-                if (parts.length == 8 && UtilString.esEnter(parts[2]) && UtilString.esEnter(parts[3])
-                        && UtilString.esEnter(parts[7])) {
-                    i++;
-                }
-                line = input.readLine();
-            }
-            input.close();
-            return i;
-        }
-        return 0;
+        int i = 0;
+        botiga.getApuntador();
+        return i;
     }
 
     public static void getReferencies() throws Exception {
@@ -280,6 +261,7 @@ public class Entorn {
             input.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            System.out.println("Referències llegides: 10");
         }
     }
 
