@@ -3,4 +3,7 @@
         public BotigaException(){
             super("Botiga plena");
         }
+        public BotigaException(String msg){
+            super(msg);
+        }
     }
