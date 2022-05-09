@@ -27,6 +27,8 @@ public class Botiga {
             vins = new Vi[maxVins];
         } catch (IllegalArgumentException e) {
             System.out.println("No es pot crear una botiga amb menys d'un vi");
+        } catch (Exception e) {
+            System.out.println("No es pot crear una botiga");
         }
     }
 
@@ -67,13 +69,6 @@ public class Botiga {
         }
     }
 
-    @SuppressWarnings("serial")
-    public class BotigaException extends Exception {
-        public BotigaException(){
-            super("Botiga plena");
-        }
-    }
-
     // mòdul cerca que rep el nom d'un vi i si el troba el retorna
     public Vi cerca(String ref) throws Exception{
         try {
@@ -89,6 +84,9 @@ public class Botiga {
             return null;
         } catch (IllegalArgumentException e) {
             System.out.println("La referència no pot ser null");
+            return null;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
             return null;
         }
     }
@@ -129,6 +127,9 @@ public class Botiga {
             return null;
         } catch (IllegalArgumentException e) {
             System.out.println("La plantilla no pot ser null");
+            return null;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
             return null;
         }
     }
