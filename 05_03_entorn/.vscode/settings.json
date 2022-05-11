@@ -7,8 +7,5 @@
             "vmargs": [ "-Xmx512M" ],
             "env": { "key": "value" },
         },
-        {
-            // Another configuration item...
-        },
     ]
 }
