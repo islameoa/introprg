@@ -1,4 +1,4 @@
-/*Classe TestPunt que ens crearà el seu test, simplement declara un nou punt.*/
+/*Classe TestPunt que ens crearà el seu test,    h simplement declara un nou punt.*/
 
 import org.junit.Test;
 public class TestPunt {
