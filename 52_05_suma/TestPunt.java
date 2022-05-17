@@ -28,6 +28,12 @@ public class TestPunt {
         Assertions.assertEquals(42, p.getX());
     }
     @Test
+    public void setY42() {
+        Punt p = new Punt();
+        p.setY(24);
+        Assertions.assertEquals(24, p.getY());
+    }
+    @Test
     public void constructorEspecific() {
         Punt p = new Punt(1, 2);
         Assertions.assertAll(
