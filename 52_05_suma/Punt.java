@@ -4,9 +4,11 @@ public class Punt {
    private int x = 0;
    private int y = 0;
 
-   public Punt() {
-      getX();
-      getY();
+   public Punt() {}
+
+   public Punt(int x, int y) {
+      this.x = x;
+      this.y = y;
    }
 
    public int getX() {
