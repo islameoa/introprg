@@ -42,13 +42,14 @@ public class TestPunt {
         );
     }
     @Test
-    public void testSuma(Punt p) {
+    public void testSuma() {
         Punt p1 = new Punt();
+        Punt p2 = new Punt(1, 2);
         int x = p1.getX();
         int y = p1.getY();
-        p1.suma(p);
-        Assertions.assertEquals(p1.getX(), p.getX() + x);
-        Assertions.assertEquals(p1.getY(), p.getY() + y);
+        p1.suma(p2);
+        Assertions.assertEquals(p1.getX(), p2.getX() + x);
+        Assertions.assertEquals(p1.getY(), p2.getY() + y);
     }
     
 }
