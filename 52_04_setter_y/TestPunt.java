@@ -27,4 +27,10 @@ public class TestPunt {
         p.setX(42);
         Assertions.assertEquals(42, p.getX());
     }
+    @Test
+    public void setY42() {
+        Punt p = new Punt();
+        p.setY(24);
+        Assertions.assertEquals(24, p.getY());
+    }
 }
