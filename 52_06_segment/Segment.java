@@ -1,7 +1,7 @@
 /**Classe Segment on tindrem dos propietats que seran punts, getters i setters respectius i un metode longitud que calcula la longitud entre els dos punts */
 public class Segment {
-    private Punt p1;
-    private Punt p2;
+    private Punt p1 = new Punt();
+    private Punt p2 = new Punt();
 
     public Segment() {}
 
