@@ -1,6 +1,5 @@
 
 /* CLasse TestPunt que ens crea els diversos test per la classe punt */
-import java.beans.Transient;
 
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
