@@ -25,6 +25,6 @@ public class TestPunt {
     public void setX42() {
         Punt p = new Punt();
         p.setX(42);
-        assertEquals(42, p.getX());
+        Assertions.assertEquals(42, p.getX());
     }
 }
