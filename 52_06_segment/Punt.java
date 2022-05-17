@@ -33,6 +33,6 @@ public class Punt {
    }
 
    public String toString() {
-      return String.format("Punt: (%d, %d)", x, y);
+      return String.format("Punt:(%d, %d)", x, y);
    }
 }
