@@ -1,17 +1,31 @@
+
 /* CLasse TestPunt que ens crea els diversos test per la classe punt */
+import java.beans.Transient;
+
+import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+
 public class TestPunt {
     @Test
     public void constructor() {
         new Punt();
     }
-    @@Test
+
+    @Test
     public void constructorDefecteXZero() {
         Punt p = new Punt();
         Assertions.assertEquals(0, p.getX());
     }
+
     @Test
-    public void constructorDefecteYZero(){
+    public void constructorDefecteYZero() {
         Punt p = new Punt();
         Assertions.assertEquals(0, p.getY());
+    }
+    @Test
+    public void setX42() {
+        Punt p = new Punt();
+        p.setX(42);
+        assertEquals(42, p.getX());
     }
 }
