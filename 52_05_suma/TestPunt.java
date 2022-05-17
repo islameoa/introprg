@@ -37,11 +37,11 @@ public class TestPunt {
     public void constructorEspecific() {
         Punt p = new Punt(1, 2);
         Assertions.assertAll(
-            () -> assertEquals(1, p.getX()),
-            () -> assertEquals(2, p.getY())
+            () -> Assertions.assertEquals(1, p.getX()),
+            () -> Assertions.assertEquals(2, p.getY())
         );
     }
-    @test
+    @Test
     public void testSuma(Punt p) {
         Punt p1 = new Punt();
         int x = p1.getX();
