@@ -1,4 +1,3 @@
-
 /* CLasse TestPunt que ens crea els diversos test per la classe punt */
 
 import org.junit.Test;
@@ -33,4 +32,23 @@ public class TestPunt {
         p.setY(24);
         Assertions.assertEquals(24, p.getY());
     }
+    @Test
+    public void constructorEspecific() {
+        Punt p = new Punt(1, 2);
+        Assertions.assertAll(
+            () -> Assertions.assertEquals(1, p.getX()),
+            () -> Assertions.assertEquals(2, p.getY())
+        );
+    }
+    @Test
+    public void testSuma() {
+        Punt p1 = new Punt();
+        Punt p2 = new Punt(1, 2);
+        int x = p1.getX();
+        int y = p1.getY();
+        p1.suma(p2);
+        Assertions.assertEquals(p1.getX(), p2.getX() + x);
+        Assertions.assertEquals(p1.getY(), p2.getY() + y);
+    }
+    
 }
