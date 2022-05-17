@@ -31,6 +31,6 @@ public class Segment {
     }
 
     public String toString() {
-        return String.format("Segment: (%d, %d) - (%d, %d)", p1.getX(), p1.getY(), p2.getX(), p2.getY());
+        return String.format("Segment(Punt(%d, %d), Punt(%d, %d))", p1.getX(), p1.getY(), p2.getX(), p2.getY());
     }
 }
