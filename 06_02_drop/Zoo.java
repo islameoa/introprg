@@ -1,4 +1,4 @@
-/**Classe Zoo  */
+/**Classe Zoo en la que tenim un metode que crea la taula categories i un metode que l'elimina.*/
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.SQLException;
