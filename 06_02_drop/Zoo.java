@@ -22,15 +22,9 @@ public class Zoo {
 
     public void eliminaTaulaCategories() throws SQLException {
         String sql = "DROP TABLE IF EXISTS CATEGORIES";
-        Statement st = null;
-        try {
-            st = conn.createStatement();
-            st.executeUpdate(sql);
-        } finally {
-            if (st != null) {
-                st.close();
-            }
-        }
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate(sql);
+        stmt.close();
     }
 
     public void creaTaulaCategories() throws SQLException {
