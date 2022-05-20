@@ -1,3 +1,4 @@
+/*Classe Categoria que ofereix dues maneres de construir instàncies: amb o sense identificador. Les instàncies tenen id i nom com a propietats. */
 public class Categoria {
     private int id = -1;  // -1 indica no assignat/indefinit
     private String nom;
