@@ -1,0 +1,19 @@
+Indica quines de les següents afirmacions són certes respecte JDBC. Intenta argumentar-les:
+
+És un sistema que ens permet accedir des d’una base de dades relacional, a un programa fet en Java.
+
+	-F:JDBC és la API que ens permet accedit i processar dades emmagatzemades a una SGBD, res a veure amb la definició d'adalt.
+
+Per a poder accedir a un SGBD concret, ens caldrà una !implementació! adequada del JDBC, doncs JDBC per si sol només defineix interfaces i poc més.
+	-V:Aquesta implementació és el controlador o driver.
+
+Si els nostres programes fan servir les interfícies definides per JDBC en comptes de les classes concretes dels drivers, hauria de ser raonablement fàcil canviar de SGBD sense haver de modificar els nostres programes.
+
+	-V:Quin sentit tindria si no fos comú el codi a altres SGBD, ningú utilitzaria JDBC llavors.
+
+Donada una implementació concreta de JDBC, coneguda com a driver, podríem accedir a diverses fonts de dades, no només bases de dades.
+	-V:Té sentit que es pugui utilitzar amb diverses tecnologies.
+
+Amb el driver adequat, el nostre programa hauria de poder accedir a un full de càlcul fent servir JDBC.
+
+	-F: JDBC és el driver, no en necessita cap més. Ell sol pot accedir, llegir i escriure d'un full de càlcul.
