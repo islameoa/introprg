@@ -47,7 +47,7 @@ public class Zoo {
     }
 
     public void afegeixCategoria(Categoria categoria) throws SQLException {
-        String idSelect = "SELECT id FROM CATEGORIES ORDER BY nom";
+        String idSelect = "SELECT max(id) FROM CATEGORIES";
         Statement stId = null;
         int bdId = 0;
         try {
