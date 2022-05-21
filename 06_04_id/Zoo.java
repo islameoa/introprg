@@ -61,6 +61,27 @@ public class Zoo {
             }
         }
     }
+    public int idAafegir() throws SQLException {
+        String sql = "SELECT MAX(id) FROM CATEGORIES";
+        Statement st = null;
+        ResultSet rs = null;
+        int id = 0;
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery(sql);
+            rs.next();
+            id = rs.getInt(1);
+            if (id <= 0) id = 1;
+            return id;
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (st != null) {
+                st.close();
+            }
+        }
+    }
 
     public Categoria obteCategoriaPerNom(String nom) throws SQLException {
         String sql = String.format(
@@ -71,6 +92,9 @@ public class Zoo {
             ResultSet rs = st.executeQuery(sql);
             if (rs.next()) {
                 int bdId = rs.getInt("id");
+                if (bdId < 1) {
+                    bdId = idAafegir() + 1;
+                }
                 String nomCategoria = rs.getString("nom");
                 Categoria categoria = new Categoria(bdId, nomCategoria);
                 rs.close();
