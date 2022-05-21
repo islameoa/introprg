@@ -6,5 +6,8 @@ public class ZooUtils {
         for (Categoria categoria : categories) {
             System.out.println("\t" + categoria);
         }
+        if (categories.isEmpty()) {
+            System.out.println("Cap categoria)");
+        }
     }
 }
