@@ -15,14 +15,13 @@ public class Categoria {
         if (id < 0) {
             throw new IllegalArgumentException("L'identificador ha de ser positiu");
         }
-        setId(id);
+        this.id = id;
     }
 
     public boolean idIndefinit() { return id < 0; }
     public int getId() {
         if (idIndefinit()) {
-            //throw new UnsupportedOperationException("L'identificador no està disponible");
-            id = 0;
+            throw new UnsupportedOperationException("L'identificador no està disponible");
         }
         return id;
     }

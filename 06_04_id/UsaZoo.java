@@ -1,4 +1,5 @@
 /**Classe UsaZoo que ens permetra provar la classe Zoo i els seus metodes elimina, crea amb el nou JDBC */
+
 import java.sql.SQLException;
 public class UsaZoo {
     public static void main( String args[]) throws SQLException {
@@ -25,15 +26,15 @@ public class UsaZoo {
         zoo.afegeixCategoria(mamifer);
 
         System.out.println();
-        System.out.println("Un cop inserides les categories queden:");
-        System.out.println("\t"+ ocell);
-        System.out.println("\t"+ mamifer);
-
-        System.out.println();
-        System.out.println("Mostrem les categories disponibles finalment");
+        System.out.println("Mostrem les categories disponibles ara");
         ZooUtils.mostraCategories(zoo.recuperaCategories());
 
         System.out.println();
+        System.out.println("Consultem algunes categories");
+        System.out.println("En consultar per la categoria ocell obtenim " + zoo.obteCategoriaPerNom("ocell"));
+        System.out.println("En consultar per la categoria mamífer obtenim " + zoo.obteCategoriaPerNom("mamífer"));
+        System.out.println("En consultar per la categoria peix obtenim " + zoo.obteCategoriaPerNom("peix"));
+
         System.out.print("Finalment tanquem la connexió amb la base de dades: ");
         zoo.desconnecta();
         System.out.println("desconnectat");
