@@ -48,8 +48,8 @@ public class Zoo {
 
     public void afegeixCategoria(Categoria categoria) throws SQLException {
         String sql = String.format(
-                "INSERT INTO CATEGORIES (id, nom) VALUES ('%d', '%s')",
-                categoria.getId(), categoria.getNom());
+                "INSERT INTO CATEGORIES (nom) VALUES ('%s')",
+                categoria.getNom());
         Statement st = null;
         try {
             st = conn.createStatement();
@@ -65,11 +65,14 @@ public class Zoo {
         String sql = "SELECT MAX(id) FROM CATEGORIES";
         Statement st = null;
         ResultSet rs = null;
+        int id = 0;
         try {
             st = conn.createStatement();
             rs = st.executeQuery(sql);
             rs.next();
-            return rs.getInt(1);
+            id = rs.getInt(1);
+            if (id <= 0) id = 1;
+            return id;
         } finally {
             if (rs != null) {
                 rs.close();
@@ -110,9 +113,10 @@ public class Zoo {
             st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             if (rs.next()) {
-                int bdId = rs.getInt("id");
+                //int bdId = rs.getInt("id");
+                int id = idAafegir();
                 String nomCategoria = rs.getString("nom");
-                Categoria categoria = new Categoria(bdId, nomCategoria);
+                Categoria categoria = new Categoria(id, nomCategoria);
                 rs.close();
                 return categoria;
             } else {
