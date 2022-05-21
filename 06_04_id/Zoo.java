@@ -47,60 +47,14 @@ public class Zoo {
     }
 
     public void afegeixCategoria(Categoria categoria) throws SQLException {
-        int id = categoria.getId();
-        if (id <= 0) {
-            id = idAafegir() + 1;
-        }
+        categoria = obteCategoriaPerNom(categoria.getNom());
         String sql = String.format(
-                "INSERT INTO CATEGORIES (id, nom) VALUES ('%d','%s')", id, categoria.getNom());
+                "INSERT INTO CATEGORIES (nom) VALUES ('%s')",
+                categoria.getNom());
         Statement st = null;
         try {
             st = conn.createStatement();
             st.executeUpdate(sql);
-        } finally {
-            if (st != null) {
-                st.close();
-            }
-        }
-    }
-
-    public int idAafegir() throws SQLException {
-        String sql = "SELECT MAX(id) FROM CATEGORIES";
-        Statement st = null;
-        ResultSet rs = null;
-        int id = 0;
-        try {
-            st = conn.createStatement();
-            rs = st.executeQuery(sql);
-            rs.next();
-            id = rs.getInt(1);
-            if (id <= 0) id = 1;
-            return id;
-        } finally {
-            if (rs != null) {
-                rs.close();
-            }
-            if (st != null) {
-                st.close();
-            }
-        }
-    }
-
-    public List<Categoria> recuperaCategories() throws SQLException {
-        String sql = "SELECT * FROM CATEGORIES ORDER BY nom";
-        Statement st = null;
-        try {
-            st = conn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            List<Categoria> categories = new LinkedList<>();
-            while (rs.next()) {
-                int bdId = rs.getInt("id");
-                String nom = rs.getString("nom");
-                Categoria categoria = new Categoria(bdId, nom);
-                categories.add(categoria);
-            }
-            rs.close();
-            return categories;
         } finally {
             if (st != null) {
                 st.close();
@@ -125,6 +79,28 @@ public class Zoo {
                 rs.close();
                 return null;
             }
+        } finally {
+            if (st != null) {
+                st.close();
+            }
+        }
+    }
+
+    public List<Categoria> recuperaCategories() throws SQLException {
+        String sql = "SELECT * FROM CATEGORIES ORDER BY nom";
+        Statement st = null;
+        try {
+            st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            List<Categoria> categories = new LinkedList<>();
+            while (rs.next()) {
+                int bdId = rs.getInt("id");
+                String nom = rs.getString("nom");
+                Categoria categoria = new Categoria(bdId, nom);
+                categories.add(categoria);
+            }
+            rs.close();
+            return categories;
         } finally {
             if (st != null) {
                 st.close();
