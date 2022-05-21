@@ -74,7 +74,7 @@ public class Zoo {
             rs = st.executeQuery(sql);
             rs.next();
             id = rs.getInt(1);
-            if (id < 0) id = 1;
+            if (id <= 0) id = 1;
             return id;
         } finally {
             if (rs != null) {
