@@ -63,7 +63,7 @@ public class Zoo {
             }
         }
         String sql = String.format(
-                "INSERT INTO CATEGORIES (nom) VALUES ('%s', '%d')",
+                "INSERT INTO CATEGORIES (id, nom) VALUES ('%d', '%s')",
                 categoria.getNom(), bdId);
         Statement st = null;
         try {
