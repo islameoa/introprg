@@ -47,29 +47,34 @@ public class Zoo {
     }
 
     public void afegeixCategoria(Categoria categoria) throws SQLException {
-        String idSelect = "SELECT max(id) FROM CATEGORIES";
-        Statement stId = null;
-        int bdId = 0;
-        try {
-            stId = conn.createStatement();
-            ResultSet rs = stId.executeQuery(idSelect);
-            while (rs.next()) {
-                bdId = rs.getInt("id");
-            }
-            rs.close();
-        } finally {
-            if (stId != null) {
-                stId.close();
-            }
-        }
+        int id = idAafegir();
         String sql = String.format(
                 "INSERT INTO CATEGORIES (id, nom) VALUES ('%d', '%s')",
-                bdId + 1, categoria.getNom());
+                id + 1, categoria.getNom());
         Statement st = null;
         try {
             st = conn.createStatement();
             st.executeUpdate(sql);
         } finally {
+            if (st != null) {
+                st.close();
+            }
+        }
+    }
+
+    public int idAafegir() throws SQLException {
+        String sql = "SELECT MAX(id) FROM CATEGORIES";
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery(sql);
+            rs.next();
+            return rs.getInt(1);
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
             if (st != null) {
                 st.close();
             }
