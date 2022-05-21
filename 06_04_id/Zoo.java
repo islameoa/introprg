@@ -47,10 +47,9 @@ public class Zoo {
     }
 
     public void afegeixCategoria(Categoria categoria) throws SQLException {
-        int id = idAafegir();
         String sql = String.format(
                 "INSERT INTO CATEGORIES (id, nom) VALUES ('%d', '%s')",
-                id + 1, categoria.getNom());
+                categoria.getId(), categoria.getNom());
         Statement st = null;
         try {
             st = conn.createStatement();

@@ -15,7 +15,7 @@ public class Categoria {
         if (id < 0) {
             throw new IllegalArgumentException("L'identificador ha de ser positiu");
         }
-        this.id = id;
+        setId(id);
     }
 
     public boolean idIndefinit() { return id < 0; }
@@ -26,6 +26,13 @@ public class Categoria {
         return id;
     }
     public String getNom() { return nom; }
+
+    public void setId(int id) {
+        if (id < 0) {
+            throw new IllegalArgumentException("L'identificador ha de ser positiu");
+        }
+        this.id = id;
+    }
 
     @Override
     public String toString() {
