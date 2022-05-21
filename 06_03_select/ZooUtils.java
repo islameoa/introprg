@@ -7,7 +7,7 @@ public class ZooUtils {
             System.out.println("\t" + categoria);
         }
         if (categories.isEmpty()) {
-            System.out.println("Cap categoria)");
+            System.out.println("Cap categoria");
         }
     }
 }
