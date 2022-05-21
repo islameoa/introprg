@@ -47,10 +47,10 @@ public class Zoo {
     }
 
     public void afegeixCategoria(Categoria categoria) throws SQLException {
-        categoria = obteCategoriaPerNom(categoria.getNom());
+        String nombre = categoria.getNom();
+        categoria = obteCategoriaPerNom(nombre);
         String sql = String.format(
-                "INSERT INTO CATEGORIES (nom) VALUES ('%s')",
-                categoria.getNom());
+                "INSERT INTO CATEGORIES (nom) VALUES ('%s')", nombre);
         Statement st = null;
         try {
             st = conn.createStatement();
