@@ -47,9 +47,24 @@ public class Zoo {
     }
 
     public void afegeixCategoria(Categoria categoria) throws SQLException {
+        String idSelect = "SELECT id FROM CATEGORIES ORDER BY nom";
+        Statement stId = null;
+        int bdId = 0;
+        try {
+            stId = conn.createStatement();
+            ResultSet rs = stId.executeQuery(idSelect);
+            while (rs.next()) {
+                bdId = rs.getInt("id");
+            }
+            rs.close();
+        } finally {
+            if (stId != null) {
+                stId.close();
+            }
+        }
         String sql = String.format(
-                "INSERT INTO CATEGORIES (nom) VALUES ('%s')",
-                categoria.getNom());
+                "INSERT INTO CATEGORIES (nom) VALUES ('%s', '%d')",
+                categoria.getNom(), bdId);
         Statement st = null;
         try {
             st = conn.createStatement();
