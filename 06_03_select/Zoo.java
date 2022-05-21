@@ -97,7 +97,6 @@ public class Zoo {
                 rs.close();
                 return categoria;
             } else {
-                System.out.println("C");
                 rs.close();
                 return null;
             }
