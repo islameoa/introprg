@@ -166,10 +166,10 @@ public class Zoo {
             try {
                 st = conn.createStatement();
                 st.executeUpdate(sql);
-                // ResultSet rs = st.getGeneratedKeys();
-                // rs.next();
-                // int id = rs.getInt(1);
-                // animal.setId(id);
+                ResultSet rs = st.getGeneratedKeys();
+                rs.next();
+                int id = rs.getInt(1);
+                animal.setId(id);
             } finally {
                 if (st != null) {
                     st.close();
