@@ -30,6 +30,7 @@ public class Zoo {
         Statement stmt = conn.createStatement();
         stmt.executeUpdate(sql);
         stmt.close();
+        eliminaTaulaAnimals();
     }
 
     public void creaTaulaCategories() throws SQLException {
