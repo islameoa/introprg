@@ -256,8 +256,24 @@ public class Zoo {
     }
 
     public void canviaCategoria(Animal animal, Categoria categoria) throws SQLException {
-        if (animal.getCategoria().idIndefinit()) {
-            afegeixAnimal(animal);
+        if (animal.idIndefinit()){         
+            String sql = String.format(
+                    "INSERT INTO ANIMALS (nom, categoria) VALUES ('%s', %d)",
+                    animal.getNom(), categoria.getId());
+            Statement st = null;
+            try {
+                st = conn.createStatement();
+                st.executeUpdate(sql);
+                ResultSet rs = st.getGeneratedKeys();
+                rs.next();
+                int id = rs.getInt(1);
+                animal.setId(id);
+            } finally {
+                if (st != null) {
+                    st.close();
+                }
+            }
+            return;
         } 
         if (categoria.idIndefinit()) {
             afegeixCategoria(categoria);
