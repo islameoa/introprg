@@ -47,62 +47,17 @@ public class Zoo {
     }
 
     public void afegeixCategoria(Categoria categoria) throws SQLException {
-        String nombre = categoria.getNom();
-        categoria = obteCategoriaPerNom(nombre);
         String sql = String.format(
-                "INSERT INTO CATEGORIES (nom) VALUES ('%s')", nombre);
+                "INSERT INTO CATEGORIES (nom) VALUES ('%s')",
+                categoria.getNom());
         Statement st = null;
         try {
             st = conn.createStatement();
             st.executeUpdate(sql);
-        } finally {
-            if (st != null) {
-                st.close();
-            }
-        }
-    }
-    public int idAafegir() throws SQLException {
-        String sql = "SELECT MAX(id) FROM CATEGORIES";
-        Statement st = null;
-        ResultSet rs = null;
-        int id = 0;
-        try {
-            st = conn.createStatement();
-            rs = st.executeQuery(sql);
+            ResultSet rs = st.getGeneratedKeys();
             rs.next();
-            id = rs.getInt(1);
-            if (id <= 0) id = 1;
-            return id;
-        } finally {
-            if (rs != null) {
-                rs.close();
-            }
-            if (st != null) {
-                st.close();
-            }
-        }
-    }
-
-    public Categoria obteCategoriaPerNom(String nom) throws SQLException {
-        String sql = String.format(
-                "SELECT * FROM CATEGORIES WHERE nom='%s'", nom);
-        Statement st = null;
-        try {
-            st = conn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            if (rs.next()) {
-                int bdId = rs.getInt("id");
-                if (bdId < 1) {
-                    bdId = idAafegir() + 1;
-                }
-                String nomCategoria = rs.getString("nom");
-                Categoria categoria = new Categoria(bdId, nomCategoria);
-                rs.close();
-                return categoria;
-            } else {
-                rs.close();
-                return null;
-            }
+            int id = rs.getInt(1);
+            categoria.setId(id);
         } finally {
             if (st != null) {
                 st.close();
@@ -125,6 +80,30 @@ public class Zoo {
             }
             rs.close();
             return categories;
+        } finally {
+            if (st != null) {
+                st.close();
+            }
+        }
+    }
+
+    public Categoria obteCategoriaPerNom(String nom) throws SQLException {
+        String sql = String.format(
+                "SELECT * FROM CATEGORIES WHERE nom='%s'", nom);
+        Statement st = null;
+        try {
+            st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) {
+                int bdId = rs.getInt("id");
+                String nomCategoria = rs.getString("nom");
+                Categoria categoria = new Categoria(bdId, nomCategoria);
+                rs.close();
+                return categoria;
+            } else {
+                rs.close();
+                return null;
+            }
         } finally {
             if (st != null) {
                 st.close();
