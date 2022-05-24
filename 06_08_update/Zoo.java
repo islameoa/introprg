@@ -1,3 +1,4 @@
+
 /**Classe Zoo en la que tenim un metode que crea la taula categories i un metode que l'elimina, un metode que afegeix categoria i un altre qeurecupera totes les categories.*/
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -11,16 +12,18 @@ import java.util.List;
 public class Zoo {
     private static final String NOM_BASE_DE_DADES = "animals.bd";
     private static final String CADENA_DE_CONNEXIO = "jdbc:sqlite:" +
-                                                     NOM_BASE_DE_DADES;
+            NOM_BASE_DE_DADES;
     private Connection conn = null;
 
     public void connecta() throws SQLException {
-        if (conn != null) return;   // ja connectat
+        if (conn != null)
+            return; // ja connectat
         conn = DriverManager.getConnection(CADENA_DE_CONNEXIO);
     }
 
     public void desconnecta() throws SQLException {
-        if (conn == null) return; // ja desconnectat
+        if (conn == null)
+            return; // ja desconnectat
         conn.close();
         conn = null;
     }
@@ -35,8 +38,8 @@ public class Zoo {
 
     public void creaTaulaCategories() throws SQLException {
         String sql = "DROP TABLE IF EXISTS CATEGORIES; CREATE TABLE  CATEGORIES (" +
-                 "       id        INTEGER PRIMARY KEY AUTOINCREMENT," +
-                 "       nom       VARCHAR(40))";
+                "       id        INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "       nom       VARCHAR(40))";
         Statement st = null;
         try {
             st = conn.createStatement();
@@ -115,12 +118,14 @@ public class Zoo {
 
     public String getNomTaules() throws SQLException {
         String sql = "SELECT name FROM sqlite_schema " +
-                     "WHERE name NOT LIKE 'sqlite%' " +
-                     "ORDER BY name";
+                "WHERE name NOT LIKE 'sqlite%' " +
+                "ORDER BY name";
         List<String> taules = new ArrayList<>();
         try (Statement st = conn.createStatement()) {
             ResultSet rs = st.executeQuery(sql);
-            while (rs.next()) { taules.add(rs.getString("name")); }
+            while (rs.next()) {
+                taules.add(rs.getString("name"));
+            }
             rs.close();
         }
         return taules.size() > 0 ? String.join(", ", taules) : "cap";
@@ -129,10 +134,10 @@ public class Zoo {
     public void creaTaulaAnimals() throws SQLException {
         creaTaulaCategories();
         String sql = "CREATE TABLE IF NOT EXISTS ANIMALS (" +
-                     "       id        INTEGER PRIMARY KEY AUTOINCREMENT," +
-                     "       nom       VARCHAR(40)," +
-                     "       categoria INTEGER," +
-                     "       FOREIGN KEY (categoria) REFERENCES CATEGORIES(id))";
+                "       id        INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "       nom       VARCHAR(40)," +
+                "       categoria INTEGER," +
+                "       FOREIGN KEY (categoria) REFERENCES CATEGORIES(id))";
         Statement st = null;
         try {
             st = conn.createStatement();
@@ -153,15 +158,15 @@ public class Zoo {
 
     public void afegeixAnimal(Animal animal) throws SQLException {
         Categoria cate = obteCategoriaPerNom(animal.getCategoria().getNom());
-            if (cate == null) {
-                afegeixCategoria(animal.getCategoria());
-            } else {
-                animal.getCategoria().setId(cate.getId());
-            }
-        if (! animal.getCategoria().idIndefinit()) {
+        if (cate == null) {
+            afegeixCategoria(animal.getCategoria());
+        } else {
+            animal.getCategoria().setId(cate.getId());
+        }
+        if (!animal.getCategoria().idIndefinit()) {
             String sql = String.format(
-                "INSERT INTO ANIMALS (nom, categoria) VALUES ('%s', %d)",
-                animal.getNom(), animal.getCategoria().getId());
+                    "INSERT INTO ANIMALS (nom, categoria) VALUES ('%s', %d)",
+                    animal.getNom(), animal.getCategoria().getId());
             Statement st = null;
             try {
                 st = conn.createStatement();
@@ -256,18 +261,17 @@ public class Zoo {
         }
         if (categoria.idIndefinit()) {
             afegeixCategoria(categoria);
-        } else {
-            String sql = String.format(
-                    "UPDATE ANIMALS SET categoria=%d WHERE id=%d",
-                    categoria.getId(), animal.getId());
-            Statement st = null;
-            try {
-                st = conn.createStatement();
-                st.executeUpdate(sql);
-            } finally {
-                if (st != null) {
-                    st.close();
-                }
+        }
+        String sql = String.format(
+                "UPDATE ANIMALS SET categoria=%d WHERE id=%d",
+                categoria.getId(), animal.getId());
+        Statement st = null;
+        try {
+            st = conn.createStatement();
+            st.executeUpdate(sql);
+        } finally {
+            if (st != null) {
+                st.close();
             }
         }
     }
