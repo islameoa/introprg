@@ -255,6 +255,9 @@ public class Zoo {
         if (categoria.idIndefinit()) {
             afegeixCategoria(categoria);
         }
+        if (animal.idIndefinit()) {
+            afegeixAnimal(animal);
+        }
         String sql = String.format(
                 "UPDATE ANIMALS SET categoria=%d WHERE id=%d",
                 categoria.getId(), animal.getId());
