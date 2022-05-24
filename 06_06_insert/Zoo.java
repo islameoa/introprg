@@ -152,11 +152,13 @@ public class Zoo {
     }
 
     public void afegeixAnimal(Animal animal) throws SQLException {
-        if (! animal.getCategoria().idIndefinit()) {
-            Categoria cate = obteCategoriaPerNom(animal.getCategoria().getNom());
+        Categoria cate = obteCategoriaPerNom(animal.getCategoria().getNom());
             if (cate == null) {
                 afegeixCategoria(animal.getCategoria());
+            } else {
+                animal.getCategoria().setId(cate.getId());
             }
+        if (! animal.getCategoria().idIndefinit()) {
             String sql = String.format(
                 "INSERT INTO ANIMALS (nom, categoria) VALUES ('%s', %d)",
                 animal.getNom(), animal.getCategoria().getId());
