@@ -251,6 +251,9 @@ public class Zoo {
     }
 
     public void canviaCategoria(Animal animal, Categoria categoria) throws SQLException {
+        if (animal.getCategoria().idIndefinit()) {
+            afegeixAnimal(animal);
+        }
         if (categoria.idIndefinit()) {
             afegeixCategoria(categoria);
         } else {
