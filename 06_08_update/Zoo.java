@@ -262,7 +262,7 @@ public class Zoo {
         if (! animal.getCategoria().idIndefinit()) {
             String sql = String.format(
                 "INSERT INTO ANIMALS (nom, categoria) VALUES ('%s', %d)",
-                animal.getNom(), animal.getCategoria().getId());
+                animal.getNom(), categoria.getId());
             Statement st = null;
             try {
                 st = conn.createStatement();
