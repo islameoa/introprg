@@ -195,7 +195,7 @@ public class Zoo {
                 return animal.toString();
             } else {
                 rs.close();
-                return "Animal no trobat";
+                return null;
             }
         } finally {
             if (st != null) {
