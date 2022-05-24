@@ -1,5 +1,7 @@
+/**Classe animal semblannt a la taula categories, d'aquests animals es formaran en el futur les categories del zoo */
+
 public class Animal {
-    private int id = -1;  // -1 indica no assignat/indefinit
+    private int id = -1;
     private String nom;
     private Categoria categoria;
 
