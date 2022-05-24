@@ -9,6 +9,15 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Zoo {
     private static final String NOM_BASE_DE_DADES = "animals.bd";
     private static final String CADENA_DE_CONNEXIO = "jdbc:sqlite:" +
@@ -251,12 +260,13 @@ public class Zoo {
                 return null;
             }
         } catch (SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
 
     public void canviaCategoria(Animal animal, Categoria categoria) throws SQLException {
-        if (animal.idIndefinit()){         
+        if (animal.idIndefinit()) {
             String sql = String.format(
                     "INSERT INTO ANIMALS (nom, categoria) VALUES ('%s', %d)",
                     animal.getNom(), categoria.getId());
@@ -274,21 +284,23 @@ public class Zoo {
                 }
             }
             return;
-        } 
+        }
         if (categoria.idIndefinit()) {
             afegeixCategoria(categoria);
-        } 
-        String sql = String.format(
-                "UPDATE ANIMALS SET categoria=%d WHERE id=%d",
-                categoria.getId(), animal.getId());
-        Statement st = null;
-        try {
-            st = conn.createStatement();
-            st.executeUpdate(sql);
-        } finally {
-            if (st != null) {
-                st.close();
+        } else {
+            String sql = String.format(
+                    "UPDATE ANIMALS SET categoria=%d WHERE id=%d",
+                    categoria.getId(), animal.getId());
+            Statement st = null;
+            try {
+                st = conn.createStatement();
+                st.executeUpdate(sql);
+            } finally {
+                if (st != null) {
+                    st.close();
+                }
             }
         }
     }
+
 }
