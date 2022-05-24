@@ -252,12 +252,13 @@ public class Zoo {
     }
 
     public void canviaCategoria(Animal animal, Categoria categoria) throws SQLException {
-        if (categoria.idIndefinit()) {
-            afegeixCategoria(categoria);
-        }
         if (animal.idIndefinit()) {
             afegeixAnimal(animal);
         }
+        if (categoria.idIndefinit()) {
+            afegeixCategoria(categoria);
+        }
+        
         String sql = String.format(
                 "UPDATE ANIMALS SET categoria=%d WHERE id=%d",
                 categoria.getId(), animal.getId());
