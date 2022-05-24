@@ -251,8 +251,7 @@ public class Zoo {
         }
     }
 
-    public void canviaCategoria (Animal animal, Categoria categoria)
-            throws SQLException {
+    public void canviaCategoria(Animal animal, Categoria categoria) {
         String sql = String.format(
                 "UPDATE ANIMALS SET categoria=%d WHERE id=%d",
                 categoria.getId(), animal.getId());
@@ -260,10 +259,8 @@ public class Zoo {
         try {
             st = conn.createStatement();
             st.executeUpdate(sql);
-        } finally {
-            if (st != null) {
-                st.close();
-            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
