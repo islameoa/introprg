@@ -156,8 +156,6 @@ public class Zoo {
             Categoria cate = obteCategoriaPerNom(animal.getCategoria().getNom());
             if (cate == null) {
                 afegeixCategoria(animal.getCategoria());
-            } else {
-                animal.getCategoria().setId(cate.getId());
             }
             String sql = String.format(
                 "INSERT INTO ANIMALS (nom, categoria) VALUES ('%s', %d)",
