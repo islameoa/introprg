@@ -152,20 +152,22 @@ public class Zoo {
     }
 
     public void afegeixAnimal(Animal animal) throws SQLException {
-        String sql = String.format(
+        if (! animal.getCategoria().idIndefinit()) {
+            String sql = String.format(
                 "INSERT INTO ANIMALS (nom, categoria) VALUES ('%s', %d)",
                 animal.getNom(), animal.getCategoria().getId());
-        Statement st = null;
-        try {
-            st = conn.createStatement();
-            st.executeUpdate(sql);
-            ResultSet rs = st.getGeneratedKeys();
-            rs.next();
-            int id = rs.getInt(1);
-            animal.setId(id);
-        } finally {
-            if (st != null) {
-                st.close();
+            Statement st = null;
+            try {
+                st = conn.createStatement();
+                st.executeUpdate(sql);
+                ResultSet rs = st.getGeneratedKeys();
+                rs.next();
+                int id = rs.getInt(1);
+                animal.setId(id);
+            } finally {
+                if (st != null) {
+                    st.close();
+                }
             }
         }
     }
