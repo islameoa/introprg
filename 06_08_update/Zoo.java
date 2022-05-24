@@ -246,14 +246,13 @@ public class Zoo {
                 return null;
             }
         } catch (SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
 
-    public void canviaCategoria(Animal animal, Categoria categoria) throws SQLException {
-        if (categoria.idIndefinit()) {
-            afegeixCategoria(categoria);
-        }
+    public void canviaCategoria (Animal animal, Categoria categoria)
+            throws SQLException {
         String sql = String.format(
                 "UPDATE ANIMALS SET categoria=%d WHERE id=%d",
                 categoria.getId(), animal.getId());
