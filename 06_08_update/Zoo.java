@@ -256,13 +256,6 @@ public class Zoo {
             afegeixCategoria(categoria);
         }
         if (animal.idIndefinit()) {
-            Categoria cate = obteCategoriaPerNom(animal.getCategoria().getNom());
-            if (cate == null) {
-                afegeixCategoria(animal.getCategoria());
-            } else {
-                animal.getCategoria().setId(cate.getId());
-            }
-        if (! animal.getCategoria().idIndefinit()) {
             String sql = String.format(
                 "INSERT INTO ANIMALS (nom, categoria) VALUES ('%s', %d)",
                 animal.getNom(), categoria.getId());
@@ -279,7 +272,6 @@ public class Zoo {
                     st.close();
                 }
             }
-        }
         }
         
         
