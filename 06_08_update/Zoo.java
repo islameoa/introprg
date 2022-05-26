@@ -259,10 +259,15 @@ public class Zoo {
             } else {
                 animal.getCategoria().setId(cate.getId());
             }
+            int idNovaCategoria = animal.getCategoria().getId();
+            int idAnimal = animal.getId();
         if (! animal.getCategoria().idIndefinit()) {
-            String sql = String.format(
-                "INSERT INTO ANIMALS (nom, categoria) VALUES ('%s', %d)",
-                animal.getNom(), cate.getId());
+            String sql = String.format("UPDATE ANIMALS " +
+                           "SET categoria = %d " +
+                           "WHERE id = %d",
+                           idNovaCategoria,
+                           idAnimal
+                           );
             Statement st = null;
             try {
                 st = conn.createStatement();
