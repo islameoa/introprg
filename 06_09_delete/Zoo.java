@@ -305,26 +305,52 @@ public class Zoo {
     }
 
     public void eliminaCategoria(Categoria categoria) {
-        String sql = String.format(
-                "DELETE FROM CATEGORIES WHERE id=%d", categoria.getId());
-        Statement st = null;
-        try {
-            st = conn.createStatement();
-            st.executeUpdate(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
+        int id = categoria.getId();
+        if (id > 0) {
+            String sql = String.format(
+                "DELETE FROM CATEGORIES WHERE id=%d", id);
+            Statement st = null;
+            try {
+                st = conn.createStatement();
+                st.executeUpdate(sql);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                if (st != null) {
+                    try {
+                        st.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        } else {
+            System.out.println("Cap categoria");
         }
     }
 
     public void eliminaAnimal(Animal animal) {
-        String sql = String.format(
-                "DELETE FROM ANIMALS WHERE id=%d", animal.getId());
-        Statement st = null;
-        try {
-            st = conn.createStatement();
-            st.executeUpdate(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
+        int id = animal.getId();
+        if (id > 0) {
+            String sql = String.format(
+                "DELETE FROM ANIMALS WHERE id=%d", id);
+            Statement st = null;
+            try {
+                st = conn.createStatement();
+                st.executeUpdate(sql);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                if (st != null) {
+                    try {
+                        st.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        } else {
+            System.out.println("Cap animal");
         }
     }
 }
