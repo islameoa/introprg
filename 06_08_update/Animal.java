@@ -50,4 +50,11 @@ public class Animal {
         }
         this.id = id2;
     }
+
+    public void setCategoria(Categoria categoria2) {
+        if (categoria2 == null) {
+            throw new IllegalArgumentException("La categoria no pot ser null");
+        }
+        this.categoria = categoria2;
+    }
 }

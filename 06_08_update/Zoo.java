@@ -253,15 +253,13 @@ public class Zoo {
 
     public void canviaCategoria(Animal animal, Categoria categoria) throws SQLException {
         if (animal.idIndefinit()) {
-            Categoria cate = obteCategoriaPerNom(categoria.getNom());
-            if (cate == null) {
-                afegeixCategoria(animal.getCategoria());
-            } else {
-                animal.getCategoria().setId(cate.getId());
-            }
-            int idNovaCategoria = animal.getCategoria().getId();
+            animal.setCategoria(categoria);
+            afegeixAnimal(animal);
+        }
+        if (categoria.idIndefinit()) {
+            afegeixCategoria(categoria);
+            int idNovaCategoria = obteCategoriaPerNom(categoria.getNom()).getId();
             int idAnimal = animal.getId();
-        if (! animal.getCategoria().idIndefinit()) {
             String sql = String.format("UPDATE ANIMALS " +
                            "SET categoria = %d " +
                            "WHERE id = %d",
@@ -281,21 +279,6 @@ public class Zoo {
                     st.close();
                 }
             }
-        }
-        }
-        if (categoria.idIndefinit()) {
-            afegeixCategoria(categoria);
-        }
-        
-        String sql = String.format(
-                "UPDATE ANIMALS SET categoria=%d WHERE id=%d",
-                categoria.getId(), animal.getId());
-        Statement st = null;
-        try {
-            st = conn.createStatement();
-            st.executeUpdate(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 }
