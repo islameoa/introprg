@@ -279,6 +279,28 @@ public class Zoo {
                     st.close();
                 }
             }
+        } else {
+            int idNovaCategoria = obteCategoriaPerNom(categoria.getNom()).getId();
+            int idAnimal = animal.getId();
+            String sql = String.format("UPDATE ANIMALS " +
+                           "SET categoria = %d " +
+                           "WHERE id = %d",
+                           idNovaCategoria,
+                           idAnimal
+                           );
+            Statement st = null;
+            try {
+                st = conn.createStatement();
+                st.executeUpdate(sql);
+                ResultSet rs = st.getGeneratedKeys();
+                rs.next();
+                int id = rs.getInt(1);
+                animal.setId(id);
+            } finally {
+                if (st != null) {
+                    st.close();
+                }
+            }
         }
     }
 }
