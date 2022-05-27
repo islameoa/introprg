@@ -20,9 +20,6 @@ public class Categoria {
 
     public boolean idIndefinit() { return id < 0; }
     public int getId() {
-        if (idIndefinit()) {
-            throw new UnsupportedOperationException("L'identificador no està disponible");
-        }
         return id;
     }
     public String getNom() { return nom; }

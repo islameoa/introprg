@@ -306,12 +306,7 @@ public class Zoo {
 
     public void eliminaCategoria(Categoria categoria) {
         int id = 0;
-        try {
-            id = obteCategoriaPerNom(categoria.getNom()).getId();
-        } catch (SQLException e) {
-            id = 0;
-            System.out.println("Cap categoria");
-        }
+        id = categoria.getId();
         if (id > 0) {
             String sql = String.format(
                 "DELETE FROM CATEGORIES WHERE id=%d", id);
