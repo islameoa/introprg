@@ -1,11 +1,13 @@
 /*Classe Vi que té com a propietats privades nom, preu i estoc i mètodes per construir una instància, setters i getters, metode toString per imprimir 
 la informació com volem i nomNormalitza que treu els espais al nom del vi, també té esValida, per saber si l'instància és vàlida */
 public class Vi {
+    private int id;
     private String nom;
     private int preu;
     private int estoc;
 
-    public Vi(String nom, int preu, int estoc) {
+    public Vi(int id, String nom, int preu, int estoc) {
+        this.id = id;
         this.nom = normalitzaNom(nom);
         if (preu < 0) {
             this.preu = -1;

@@ -1,6 +1,5 @@
-import java.sql.SQLException;
-
 /**Classe UsaZoo que ens permetra provar la classe Zoo i els seus metodes elimina, crea amb el nou JDBC */
+import java.sql.SQLException;
 public class UsaZoo {
     public static void main( String args[]) throws SQLException {
         Zoo zoo = new Zoo();
