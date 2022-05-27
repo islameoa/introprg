@@ -305,7 +305,13 @@ public class Zoo {
     }
 
     public void eliminaCategoria(Categoria categoria) {
-        int id = categoria.getId();
+        int id = 0;
+        try {
+            id = obteCategoriaPerNom(categoria.getNom()).getId();
+        } catch (SQLException e) {
+            id = 0;
+            System.out.println("Cap categoria");
+        }
         if (id > 0) {
             String sql = String.format(
                 "DELETE FROM CATEGORIES WHERE id=%d", id);
@@ -329,8 +335,9 @@ public class Zoo {
         }
     }
 
-    public void eliminaAnimal(Animal animal) {
-        int id = animal.getId();
+    public void eliminaAnimal(Animal animal) throws SQLException {
+        int id = 0;
+        id = animal.getId();
         if (id > 0) {
             String sql = String.format(
                 "DELETE FROM ANIMALS WHERE id=%d", id);
